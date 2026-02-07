@@ -387,10 +387,12 @@ Please check and try again. If there are still issues, you can always ask questi
     <string name="app_title_apatch_folk">Spectre</string>
     <string name="app_title_apatchx">Spectre X</string>
     <string name="app_title_apatch">APatch</string>
+    <string name="app_title_spectre">Spectre</string>
     <string name="app_title_folkpatch">Spectre</string>
     <string name="app_title_kernelpatch">KernelPatch</string>
     <string name="app_title_kernelsu">KernelSU</string>
     <string name="app_title_supersu">SuperSU</string>
+    <string name="app_title_spectresu">SpectreSU</string>
     <string name="app_title_folksu">SpectreSU</string>
     <string name="app_title_superuser">Superuser</string>
     <string name="app_title_superpatch">SuperPatch</string>

@@ -25,7 +25,7 @@ object UpdateChecker {
      * Returns true if an update is available (remote version > current version), false otherwise.
      */
     suspend fun checkUpdate(): Boolean {
-        return withContext(Dispatchers.IO) { false }
+        return withContext(Dispatchers.IO) {
             try {
                 val url = URL(UPDATE_API_URL)
                 val connection = url.openConnection() as HttpURLConnection
