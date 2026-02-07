@@ -143,11 +143,9 @@ pub fn root_shell() -> Result<()> {
         uid = {
             // SECURITY (VULN-12): String::as_ptr() is NOT null-terminated.
             // getpwnam requires a C string. Use CString to ensure null termination.
-            let pw = if let Ok(cname) = std::ffi::CString::new(name.as_str()) {
-                unsafe { libc::getpwnam(cname.as_ptr()).as_ref() }
-            } else {
-                None
-            };
+            let pw = std::ffi::CString::new(name.as_str())
+                .ok()
+                .and_then(|cname| unsafe { libc::getpwnam(cname.as_ptr()).as_ref() });
 
             match pw {
                 Some(pw) => pw.pw_uid,
