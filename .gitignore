@@ -1,0 +1,22 @@
+*.iml
+.gradle
+.idea
+.DS_Store
+build
+captures
+.cxx
+*.keystore
+*.jks
+keystore.properties
+local.properties
+auth.properties
+
+# FolkPatch specific signing files
+app/folkpatch-release*.jks
+keystore.properties
+.vscode
+.kotlin
+app/src/main/resources/
+private
+.claude/
+.qoder

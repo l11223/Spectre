@@ -1,0 +1,295 @@
+package me.bmax.apatch.ui.viewmodel
+
+import android.content.SharedPreferences
+import android.os.SystemClock
+import android.util.Log
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import me.bmax.apatch.APApplication
+import me.bmax.apatch.apApp
+import me.bmax.apatch.util.getRootShell
+import me.bmax.apatch.util.listModules
+import me.bmax.apatch.util.toggleModule
+import org.json.JSONArray
+import org.json.JSONObject
+import java.text.Collator
+import java.text.DecimalFormat
+import java.util.Locale
+import kotlin.math.log10
+import kotlin.math.pow
+
+class APModuleViewModel : ViewModel() {
+    companion object {
+        private const val TAG = "ModuleViewModel"
+        private var modules by mutableStateOf<List<ModuleInfo>>(emptyList())
+        private val zygiskModuleIds = listOf(
+            "zygisksu",
+            "zygisknext",
+            "rezygisk",
+            "neozygisk",
+            "shirokozygisk"
+        )
+    }
+
+    class ModuleInfo(
+        val id: String,
+        val name: String,
+        val author: String,
+        val version: String,
+        val versionCode: Int,
+        val description: String,
+        val enabled: Boolean,
+        val update: Boolean,
+        val remove: Boolean,
+        val updateJson: String,
+        val hasWebUi: Boolean,
+        val hasActionScript: Boolean,
+        val isMetamodule: Boolean,
+        val isZygisk: Boolean,
+        val isLSPosed: Boolean,
+    )
+
+    data class ModuleUpdateInfo(
+        val version: String,
+        val versionCode: Int,
+        val zipUrl: String,
+        val changelog: String,
+    )
+
+    data class BannerInfo(
+        val bytes: ByteArray?,
+        val url: String?
+    )
+
+    var isRefreshing by mutableStateOf(false)
+        private set
+
+    private val prefs = APApplication.sharedPreferences
+    var sortOptimizationEnabled by mutableStateOf(prefs.getBoolean("module_sort_optimization", true))
+    private val bannerCache = mutableStateMapOf<String, BannerInfo>()
+
+    private val preferenceChangeListener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+        if (key == "module_sort_optimization") {
+            sortOptimizationEnabled = prefs.getBoolean("module_sort_optimization", true)
+        }
+    }
+
+    init {
+        prefs.registerOnSharedPreferenceChangeListener(preferenceChangeListener)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        prefs.unregisterOnSharedPreferenceChangeListener(preferenceChangeListener)
+    }
+
+    val moduleList by derivedStateOf {
+        val collator = Collator.getInstance(Locale.getDefault())
+        val sortedList = if (sortOptimizationEnabled) {
+            modules.sortedWith(
+                compareByDescending<ModuleInfo> { it.isMetamodule }
+                    .thenByDescending { it.isZygisk }
+                    .thenByDescending { it.isLSPosed }
+                    .thenByDescending { it.hasWebUi }
+                    .thenByDescending { it.hasActionScript }
+                    .thenBy(collator) { it.id }
+            )
+        } else {
+            val comparator = compareBy(collator, ModuleInfo::id)
+            modules.sortedWith(comparator)
+        }
+        sortedList.also {
+            isRefreshing = false
+        }
+    }
+
+    var isNeedRefresh by mutableStateOf(false)
+        private set
+
+    fun markNeedRefresh() {
+        isNeedRefresh = true
+    }
+
+    fun disableAllModules() {
+        viewModelScope.launch(Dispatchers.IO) {
+            isRefreshing = true
+            modules.forEach { 
+                if (it.enabled) {
+                    toggleModule(it.id, false)
+                }
+            }
+            fetchModuleList()
+        }
+    }
+
+    fun getBannerInfo(id: String): BannerInfo? = bannerCache[id]
+
+    fun putBannerInfo(id: String, info: BannerInfo) {
+        bannerCache[id] = info
+    }
+
+    fun removeBannerInfo(id: String) {
+        bannerCache.remove(id)
+    }
+
+    fun clearBannerCache() {
+        bannerCache.clear()
+    }
+
+    private fun pruneBannerCache(validIds: Set<String>) {
+        val keysToRemove = bannerCache.keys.filter { it !in validIds }
+        keysToRemove.forEach { bannerCache.remove(it) }
+    }
+
+    fun fetchModuleList() {
+        viewModelScope.launch(Dispatchers.IO) {
+            isRefreshing = true
+
+            val oldModuleList = modules
+
+            val start = SystemClock.elapsedRealtime()
+
+            kotlin.runCatching {
+
+                val result = listModules()
+
+                Log.i(TAG, "result: $result")
+
+                val array = JSONArray(result)
+                modules = (0 until array.length())
+                    .asSequence()
+                    .map { array.getJSONObject(it) }
+                    .map { obj ->
+                        ModuleInfo(
+                            obj.getString("id"),
+
+                            obj.optString("name"),
+                            obj.optString("author", "Unknown"),
+                            obj.optString("version", "Unknown"),
+                            obj.optInt("versionCode", 0),
+                            obj.optString("description"),
+                            obj.getBoolean("enabled"),
+                            obj.getBoolean("update"),
+                            obj.getBoolean("remove"),
+                            obj.optString("updateJson"),
+                            obj.optBoolean("web"),
+                            obj.optBoolean("action"),
+                            obj.optString("metamodule").let { it == "1" || it.equals("true", ignoreCase = true) },
+                            zygiskModuleIds.contains(obj.getString("id")),
+                            obj.optString("name").contains("LSPosed", ignoreCase = true)
+                        )
+                    }.toList()
+                pruneBannerCache(modules.map { it.id }.toSet())
+                isNeedRefresh = false
+            }.onFailure { e ->
+                Log.e(TAG, "fetchModuleList: ", e)
+                isRefreshing = false
+            }
+
+
+            if (oldModuleList === modules) {
+                isRefreshing = false
+            }
+
+            Log.i(TAG, "load cost: ${SystemClock.elapsedRealtime() - start}, modules: $modules")
+        }
+    }
+
+    private fun sanitizeVersionString(version: String): String {
+        return version.replace(Regex("[^a-zA-Z0-9.\\-_]"), "_")
+    }
+
+    fun checkUpdate(m: ModuleInfo): Triple<String, String, String> {
+        val empty = Triple("", "", "")
+        if (prefs.getBoolean("disable_module_update_check", false)) {
+            return empty
+        }
+        if (m.updateJson.isEmpty() || m.remove || m.update || !m.enabled) {
+            return empty
+        }
+        // download updateJson
+        val result = kotlin.runCatching {
+            val url = m.updateJson
+            Log.i(TAG, "checkUpdate url: $url")
+            val response = apApp.okhttpClient
+                .newCall(
+                    okhttp3.Request.Builder()
+                        .url(url)
+                        .build()
+                ).execute()
+            Log.d(TAG, "checkUpdate code: ${response.code}")
+            if (response.isSuccessful) {
+                response.body?.string() ?: ""
+            } else {
+                ""
+            }
+        }.getOrDefault("")
+        Log.i(TAG, "checkUpdate result: $result")
+
+        if (result.isEmpty()) {
+            return empty
+        }
+
+        val updateJson = kotlin.runCatching {
+            JSONObject(result)
+        }.getOrNull() ?: return empty
+
+        val version = sanitizeVersionString(updateJson.optString("version", ""))
+        val versionCode = updateJson.optInt("versionCode", 0)
+        val zipUrl = updateJson.optString("zipUrl", "")
+        val changelog = updateJson.optString("changelog", "")
+        if (versionCode <= m.versionCode || zipUrl.isEmpty()) {
+            return empty
+        }
+
+        return Triple(zipUrl, version, changelog)
+    }
+
+    fun getModuleSize(moduleId: String): String {
+        val bytes = runCatching {
+            // Commit: https://github.com/SukiSU-Ultra/SukiSU-Ultra/commit/787c88ab2d070f3c6ec7ddff2f4ace1f3ebdd0c3#diff-0096fc38da30ffd8ed48e51a10354d85ca6218b67506538beae11fe4fe035ea4
+            val command = "/data/adb/.fk/lib/busybox du -sb /data/adb/.sp_ext/$moduleId"
+            val result = getRootShell().newJob().add(command).to(ArrayList(), null).exec()
+
+            if (result.isSuccess && result.out.isNotEmpty()) {
+                val sizeStr = result.out.firstOrNull()?.split("\t")?.firstOrNull()
+                sizeStr?.toLongOrNull() ?: 0L
+            } else {
+                0L
+            }
+        }.getOrDefault(0L)
+
+        return formatFileSize(bytes)
+    }
+}
+
+/**
+ * 格式化文件大小显示
+ *
+ * This function is derived from SukiSU-Ultra project
+ * Project: https://github.com/SukiSU-Ultra/SukiSU-Ultra
+ * Original source: manager/app/src/main/java/com/sukisu/ultra/ui/viewmodel/ModuleViewModel.kt
+ * Commit: 787c88ab2d070f3c6ec7ddff2f4ace1f3ebdd0c3
+ * View at: https://github.com/SukiSU-Ultra/SukiSU-Ultra/blob/787c88ab2d070f3c6ec7ddff2f4ace1f3ebdd0c3/manager/app/src/main/java/com/sukisu/ultra/ui/viewmodel/ModuleViewModel.kt
+ *
+ * SukiSU-Ultra is a Kernel-based Android Root Solution & KPM
+ */
+private fun formatFileSize(bytes: Long): String {
+    if (bytes <= 0) return "0 KB"
+
+    val units = arrayOf("B", "KB", "MB", "GB", "TB")
+    val digitGroups = (log10(bytes.toDouble()) / log10(1024.0)).toInt().coerceIn(0, units.lastIndex)
+
+    return DecimalFormat("#,##0.#").format(
+        bytes / 1024.0.pow(digitGroups.toDouble())
+    ) + " " + units[digitGroups]
+}
+
+// End of file
