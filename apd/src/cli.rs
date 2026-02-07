@@ -32,13 +32,16 @@ fn read_superkey_secure(cli_key: Option<String>) -> Option<String> {
     // Priority 1: Environment variable (safer - not in /proc/cmdline)
     if let Ok(key) = std::env::var("SKEY") {
         // Immediately remove from environment to minimize exposure window
-        std::env::remove_var("SKEY");
+        // SAFETY: remove_var is unsafe in Rust 2024 edition due to potential
+        // race conditions in multi-threaded programs. We accept this risk as
+        // this runs early in single-threaded daemon startup.
+        unsafe { std::env::remove_var("SKEY"); }
         if !key.is_empty() {
             return Some(key);
         }
     }
     // Priority 2: Temp file (safest - only accessible by owner)
-    if let Ok(key) = std::fs::read_to_string("/data/adb/.fk/.skey") {
+    if let std::result::Result::Ok(key) = std::fs::read_to_string("/data/adb/.fk/.skey") {
         let key = key.trim().to_string();
         // Delete the temp file immediately after reading
         let _ = std::fs::remove_file("/data/adb/.fk/.skey");
