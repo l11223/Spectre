@@ -14,7 +14,7 @@ object LauncherIconUtils {
     fun updateLauncherState(context: Context) {
         val prefs = APApplication.sharedPreferences
         val useAlt = prefs.getBoolean("use_alt_icon", false)
-        val appName = prefs.getString("desktop_app_name", "FolkPatch")
+        val appName = prefs.getString("desktop_app_name", "Spectre")
         val isSu = appName == "FolkSU"
 
         val pm = context.packageManager

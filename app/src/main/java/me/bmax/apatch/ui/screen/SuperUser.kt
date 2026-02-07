@@ -234,7 +234,7 @@ fun SuperUserScreen(navigator: DestinationsNavigator) {
                             WallpaperAwareDropdownMenuItem(
                                 text = { Text(stringResource(R.string.su_backup_list)) },
                                 onClick = {
-                                    backupLauncher.launch("FolkPatch_list_backup.json")
+                                    backupLauncher.launch("Spectre_list_backup.json")
                                     showDropdown = false
                                 }
                             )

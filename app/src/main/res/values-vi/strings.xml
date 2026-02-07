@@ -43,10 +43,10 @@
     <string name="settings_global_namespace_mode_summary">Tất cả phiên làm việc root sử dụng không gian tên gắn kết toàn cục</string>
     <string name="settings_clear_super_key_dialog">Bạn có chắc chắn muốn tiếp tục?</string>
 
-    <string name="home_learn_apatch">Tìm hiểu về FolkPatch</string>
-    <string name="home_click_to_learn_apatch">Tìm hiểu về chức năng và cách sử dụng FolkPatch</string>
-    <string name="settings_hide_apatch_card">Ẩn thẻ "Tìm hiểu về FolkPatch"</string>
-    <string name="settings_hide_apatch_card_summary">Ẩn thẻ "Tìm hiểu về FolkPatch" trên trang chủ</string>
+    <string name="home_learn_apatch">Tìm hiểu về Spectre</string>
+    <string name="home_click_to_learn_apatch">Tìm hiểu về chức năng và cách sử dụng Spectre</string>
+    <string name="settings_hide_apatch_card">Ẩn thẻ "Tìm hiểu về Spectre"</string>
+    <string name="settings_hide_apatch_card_summary">Ẩn thẻ "Tìm hiểu về Spectre" trên trang chủ</string>
 
     <string name="about_source_code"><![CDATA[<p>Xem mã nguồn tại %1$s<p/>Tham gia kênh %2$s của chúng tôi<p/>Tham gia nhóm %3$s của chúng tôi]]></string>
     <string name="send_log">Gửi nhật ký</string>
@@ -138,7 +138,7 @@
     <string name="home_system_version">Phiên bản hệ thống</string>
     <string name="home_kpatch_version">Phiên bản bản vá nhân</string>
     <string name="home_su_path">Tệp thực thi su</string>
-    <string name="home_apatch_version">Phiên bản FolkPatch</string>
+    <string name="home_apatch_version">Phiên bản Spectre</string>
 
     <string name="kpm">Module nhân</string>
     <string name="kpm_kp_not_installed">Chưa cài đặt bản vá nhân</string>
@@ -176,7 +176,7 @@
     <string name="su_app_action_failed">Thao tác thất bại: %s</string>
 
     <string name="su_pkg_excluded_setting_title">Chỉnh sửa loại trừ</string>
-    <string name="su_pkg_excluded_setting_summary">Bật tùy chọn này sẽ cho phép FolkPatch khôi phục mọi tệp đã được module ứng dụng này sửa đổi。</string>
+    <string name="su_pkg_excluded_setting_summary">Bật tùy chọn này sẽ cho phép Spectre khôi phục mọi tệp đã được module ứng dụng này sửa đổi。</string>
     <string name="su_pkg_root_setting_title">Superuser</string>
     <string name="su_pkg_root_setting_summary">Bật tùy chọn này để cấp quyền superuser cho ứng dụng của bạn, ứng dụng có thể sử dụng lệnh SU</string>
     <string name="su_pkg_normal_setting_title">Chế độ bình thường</string>
@@ -382,7 +382,7 @@ Vui lòng kiểm tra và thử lại. Nếu vẫn có vấn đề, bạn có th�
     <string name="about_telegram_channel">Kênh Telegram</string>
 
     <string name="settings_app_dpi">DPI ứng dụng</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">Bật hệ thống gắn kết mô-đun tích hợp</string>
     <string name="settings_app_title">Tên ứng dụng</string>
     <string name="settings_custom_background">Hình nền tùy chỉnh</string>
@@ -533,7 +533,7 @@ Cần đảm bảo phần mềm thoát hoàn toàn vào mới sẽ thực thi l�
     <string name="auto_backup_failed">Sao lưu tự động thất bại: %s</string>
     <string name="auto_backup_success">Sao lưu tự động thành công: %s</string>
     <string name="settings_auto_backup_boot">Sao lưu tự động Boot</string>
-    <string name="settings_auto_backup_boot_summary">Tự động sao lưu Boot vào bộ nhớ cục bộ (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">Tự động sao lưu Boot vào bộ nhớ cục bộ (Downloads/Spectre/BootBackups)</string>
 
     <!-- Home Layout Strings -->
     <string name="settings_home_layout_style">Kiểu bố cục trang chủ</string>
@@ -541,7 +541,7 @@ Cần đảm bảo phần mềm thoát hoàn toàn vào mới sẽ thực thi l�
     <string name="settings_home_layout_grid">GridUI</string>
     <string name="settings_home_layout_focus">FocusUI</string>
     <string name="unofficial_version_title">Phiên bản không chính thức</string>
-    <string name="unofficial_version_message">Bạn đang sử dụng trình quản lý FolkPatch phiên bản thứ ba, có thể gây thiệt hại tài sản, vui lòng tải APP bản quyền sử dụng!</string>
+    <string name="unofficial_version_message">Bạn đang sử dụng trình quản lý Spectre phiên bản thứ ba, có thể gây thiệt hại tài sản, vui lòng tải APP bản quyền sử dụng!</string>
     <string name="go_to_github">Đi đến Github</string>
     <string name="settings_save_theme">Lưu chủ đề</string>
     <string name="settings_import_theme">Nhập chủ đề</string>
@@ -727,7 +727,7 @@ Cần đảm bảo phần mềm thoát hoàn toàn vào mới sẽ thực thi l�
     <string name="webdav_no_logs">Không có nhật ký</string>
     <string name="webdav_clear_logs">Xóa</string>
     <string name="settings_enable_local_backup">Bật sao lưu cục bộ</string>
-    <string name="settings_enable_local_backup_summary">Sao lưu mô-đun vào bộ nhớ cục bộ (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">Sao lưu mô-đun vào bộ nhớ cục bộ (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">Đóng</string>
 
     <!-- Backup Settings -->

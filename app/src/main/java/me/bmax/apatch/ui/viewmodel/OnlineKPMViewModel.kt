@@ -16,7 +16,7 @@ class OnlineKPMViewModel : ViewModel() {
     companion object {
         private const val TAG = "OnlineKPMViewModel"
         // Placeholder URL. User should update this.
-        const val MODULES_URL = "https://folk.mysqil.com/api/modules.php?type=kpm"
+        const val MODULES_URL = "https://spectre.local/api/modules.php?type=kpm"
     }
 
     data class OnlineKPM(

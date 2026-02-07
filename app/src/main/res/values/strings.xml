@@ -65,10 +65,10 @@
     <string name="su_exclude_btn">Exclude</string>
     <string name="su_exclude_reverse_btn">Reverse</string>
 
-    <string name="home_learn_apatch">Learn FolkPatch</string>
-    <string name="home_click_to_learn_apatch">Learn about the features of FolkPatch and how to use</string>
-    <string name="settings_hide_apatch_card">Hide Learn FolkPatch card</string>
-    <string name="settings_hide_apatch_card_summary">Hide the Learn FolkPatch card on the home screen</string>
+    <string name="home_learn_apatch">Learn Spectre</string>
+    <string name="home_click_to_learn_apatch">Learn about the features of Spectre and how to use</string>
+    <string name="settings_hide_apatch_card">Hide Learn Spectre card</string>
+    <string name="settings_hide_apatch_card_summary">Hide the Learn Spectre card on the home screen</string>
 
     <string name="about_source_code"><![CDATA[<p>View source code at %1$s<p/>Join our %2$s channel<p/>Join our %3$s group]]></string>
     <string name="send_log">Send logs</string>
@@ -161,7 +161,7 @@
     <string name="home_system_version">System version</string>
     <string name="home_kpatch_version">KernelPatch version</string>
     <string name="home_su_path">Executable su</string>
-    <string name="home_apatch_version">FolkPatch version</string>
+    <string name="home_apatch_version">Spectre version</string>
 
     <string name="kpm">KPModule</string>
     <string name="kpm_kp_not_installed">KernelPatch not installed</string>
@@ -185,7 +185,7 @@
     <string name="su_selinux_via_hook">Bypass via hook</string>
     <string name="su_pkg_excluded_label">Exclude</string>
     <string name="su_pkg_excluded_setting_title">Exclude modifications</string>
-    <string name="su_pkg_excluded_setting_summary">Enabling this option will allow FolkPatch to restore any files modified by the modules of this app.</string>
+    <string name="su_pkg_excluded_setting_summary">Enabling this option will allow Spectre to restore any files modified by the modules of this app.</string>
     <string name="su_pkg_root_setting_title">Superuser</string>
     <string name="su_pkg_root_setting_summary">Enabling this option grants superuser access to your app, allowing it to use SU commands.</string>
     <string name="su_pkg_normal_setting_title">Normal Mode</string>
@@ -384,8 +384,8 @@ Please check and try again. If there are still issues, you can always ask questi
 
     <!-- App Title Strings -->
     <string name="app_title_fpatch">FPatch</string>
-    <string name="app_title_apatch_folk">APatch Folk</string>
-    <string name="app_title_apatchx">APatch X</string>
+    <string name="app_title_apatch_folk">Spectre</string>
+    <string name="app_title_apatchx">Spectre X</string>
     <string name="app_title_apatch">APatch</string>
     <string name="app_title_folkpatch">Spectre</string>
     <string name="app_title_kernelpatch">KernelPatch</string>
@@ -397,7 +397,7 @@ Please check and try again. If there are still issues, you can always ask questi
     <string name="app_title_magicpatch">MagicPatch</string>
 
     <string name="settings_app_dpi">App DPI</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">Enable the built-in module mounting system</string>
     <string name="settings_app_title">App Title</string>
     <string name="settings_custom_background">Custom Background</string>
@@ -545,7 +545,7 @@ Please ensure the app is completely closed and reopened for the commands to exec
     <string name="auto_backup_failed">Auto backup failed: %s</string>
     <string name="auto_backup_success">Auto backup success: %s</string>
     <string name="settings_auto_backup_boot">Auto Backup Boot</string>
-    <string name="settings_auto_backup_boot_summary">Automatically backup Boot to local storage (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">Automatically backup Boot to local storage (Downloads/Spectre/BootBackups)</string>
 
     <!-- Home Layout Strings -->
     <string name="settings_home_layout_style">Home Layout Style</string>
@@ -555,7 +555,7 @@ Please ensure the app is completely closed and reopened for the commands to exec
     <string name="settings_home_layout_sign">SignUI</string>
     <string name="settings_home_layout_circle">CircleUI</string>
     <string name="unofficial_version_title">Unofficial Version</string>
-    <string name="unofficial_version_message">You are using FolkPatch which is not an official app, please download the official app!</string>
+    <string name="unofficial_version_message">You are using Spectre which is not an official app, please download the official app!</string>
     <string name="go_to_github">Go to Github</string>
     <string name="settings_save_theme">Save theme</string>
     <string name="settings_import_theme">Import theme</string>
@@ -771,7 +771,7 @@ Please ensure the app is completely closed and reopened for the commands to exec
     <string name="webdav_no_logs">No logs found.</string>
     <string name="webdav_clear_logs">Clear</string>
     <string name="settings_enable_local_backup">Enable Local Backup</string>
-    <string name="settings_enable_local_backup_summary">Backup modules to local storage (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">Backup modules to local storage (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">Close</string>
 
 

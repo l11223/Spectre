@@ -290,25 +290,25 @@ class MainActivity : AppCompatActivity() {
             } else {
             val prefs = APApplication.sharedPreferences
             var folkXEngineEnabled by remember {
-                mutableStateOf(prefs.getBoolean("folkx_engine_enabled", true))
+                mutableStateOf(prefs.getBoolean("spectrex_engine_enabled", true))
             }
             var folkXAnimationType by remember {
-                mutableStateOf(prefs.getString("folkx_animation_type", "linear"))
+                mutableStateOf(prefs.getString("spectrex_animation_type", "linear"))
             }
             var folkXAnimationSpeed by remember {
-                mutableStateOf(prefs.getFloat("folkx_animation_speed", 1.0f))
+                mutableStateOf(prefs.getFloat("spectrex_animation_speed", 1.0f))
             }
 
             DisposableEffect(Unit) {
                 val listener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
-                    if (key == "folkx_engine_enabled") {
-                        folkXEngineEnabled = sharedPreferences.getBoolean("folkx_engine_enabled", true)
+                    if (key == "spectrex_engine_enabled") {
+                        folkXEngineEnabled = sharedPreferences.getBoolean("spectrex_engine_enabled", true)
                     }
-                    if (key == "folkx_animation_type") {
-                        folkXAnimationType = sharedPreferences.getString("folkx_animation_type", "linear")
+                    if (key == "spectrex_animation_type") {
+                        folkXAnimationType = sharedPreferences.getString("spectrex_animation_type", "linear")
                     }
-                    if (key == "folkx_animation_speed") {
-                        folkXAnimationSpeed = sharedPreferences.getFloat("folkx_animation_speed", 1.0f)
+                    if (key == "spectrex_animation_speed") {
+                        folkXAnimationSpeed = sharedPreferences.getFloat("spectrex_animation_speed", 1.0f)
                     }
                 }
                 prefs.registerOnSharedPreferenceChangeListener(listener)
@@ -590,7 +590,7 @@ fun UnofficialVersionDialog() {
                 Row(modifier = Modifier.align(Alignment.End)) {
                     TextButton(
                         onClick = {
-                            uriHandler.openUri("https://github.com/matsuzaka-yuki/FolkPatch")
+                            uriHandler.openUri("https://github.com/l11223/Spectre")
                         }
                     ) {
                         Text(stringResource(R.string.go_to_github))

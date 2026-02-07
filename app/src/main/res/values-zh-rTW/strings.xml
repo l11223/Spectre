@@ -46,10 +46,10 @@
     <string name="settings_global_namespace_mode_summary">所有 Root 工作階段將會全域掛載命名空間</string>
     <string name="settings_clear_super_key_dialog">確定要繼續嗎？</string>
 
-    <string name="home_learn_apatch">深入了解 FolkPatch</string>
-    <string name="home_click_to_learn_apatch">學習有關 FolkPatch 的功能及使用方式</string>
-    <string name="settings_hide_apatch_card">隱藏「了解 FolkPatch」卡片</string>
-    <string name="settings_hide_apatch_card_summary">控制首頁是否顯示「深入了解 FolkPatch」卡片</string>
+    <string name="home_learn_apatch">深入了解 Spectre</string>
+    <string name="home_click_to_learn_apatch">學習有關 Spectre 的功能及使用方式</string>
+    <string name="settings_hide_apatch_card">隱藏「了解 Spectre」卡片</string>
+    <string name="settings_hide_apatch_card_summary">控制首頁是否顯示「深入了解 Spectre」卡片</string>
 
     <string name="send_log">傳送日誌</string>
     <string name="save_log">儲存日誌</string>
@@ -138,7 +138,7 @@
     <string name="home_system_version">系統版本</string>
     <string name="home_kpatch_version">KernelPatch 版本</string>
     <string name="home_su_path">可執行 SU 路徑</string>
-    <string name="home_apatch_version">FolkPatch 版本</string>
+    <string name="home_apatch_version">Spectre 版本</string>
 
     <string name="kpm">核心模組</string>
     <string name="kpm_kp_not_installed">KernelPatch 尚未安裝</string>
@@ -162,7 +162,7 @@
     <string name="su_selinux_via_hook">透過 Hook 忽略請求的方式</string>
     <string name="su_pkg_excluded_label">忽略</string>
     <string name="su_pkg_excluded_setting_title">排除修改</string>
-    <string name="su_pkg_excluded_setting_summary">啟用此選項將允許 FolkPatch 還原此應用程式被模組修改的任何檔案。</string>
+    <string name="su_pkg_excluded_setting_summary">啟用此選項將允許 Spectre 還原此應用程式被模組修改的任何檔案。</string>
     <string name="su_pkg_root_setting_title">超級使用者</string>
     <string name="su_pkg_root_setting_summary">啟用此選項為您的軟體啟動超級使用者，軟體能夠使用 SU 指令</string>
     <string name="su_pkg_normal_setting_title">一般模式</string>
@@ -381,7 +381,7 @@
     <string name="about_telegram_channel">Telegram 頻道</string>
 
     <string name="settings_app_dpi">應用程式 DPI</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">啟用內建的模組掛載系統</string>
     <string name="settings_app_title">應用程式標題</string>
     <string name="settings_custom_background">自訂背景</string>
@@ -490,7 +490,7 @@
     <string name="apm_bulk_install_first_use_text">此功能允許一次性安裝多個模組，屬於快速安裝，適合安裝過程中未涉及按鍵操作的模組。若模組安裝過程需點按音量鍵，請於設定中啟用「完整批次安裝流程」。</string>
     <string name="apm_bulk_install_remove">移除</string>
     <string name="apm_first_use_title">歡迎使用系統模組</string>
-    <string name="apm_first_use_text">歡迎使用系統模組。本功能支援 Magisk 模組，未來也可能加入對 Lua 模組的支援。您可以點擊右下角的按鈕安裝模組，或使用頂部的安裝器進行模組批次安裝。此外，FolkPatch 也提供一鍵備份所有模組的功能，但請注意，此方式不一定適用於所有模組，建議自行備份關鍵模組。</string>
+    <string name="apm_first_use_text">歡迎使用系統模組。本功能支援 Magisk 模組，未來也可能加入對 Lua 模組的支援。您可以點擊右下角的按鈕安裝模組，或使用頂部的安裝器進行模組批次安裝。此外，Spectre 也提供一鍵備份所有模組的功能，但請注意，此方式不一定適用於所有模組，建議自行備份關鍵模組。</string>
     <!-- Module Backup/Restore Strings -->
     <string name="apm_backup_title">備份模組</string>
     <string name="apm_restore_title">還原模組</string>
@@ -525,7 +525,7 @@
     <string name="auto_backup_failed">自動備份失敗: %s</string>
     <string name="auto_backup_success">自動備份成功: %s</string>
     <string name="settings_auto_backup_boot">自動備份Boot</string>
-    <string name="settings_auto_backup_boot_summary">自動將 Boot 分割區備份到本機儲存 (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">自動將 Boot 分割區備份到本機儲存 (Downloads/Spectre/BootBackups)</string>
 
     <!-- Auto-added missing strings -->
     <string name="home_hide_kpatch_version_summary">在資訊卡中隱藏 「KernelPatch 版本」</string>
@@ -546,7 +546,7 @@
     <string name="settings_home_layout_grid">GridUI</string>
     <string name="settings_home_layout_focus">FocusUI</string>
     <string name="unofficial_version_title">非官方版本</string>
-    <string name="unofficial_version_message">你使用的 FolkPatch 並非官方正版，請下載正版 App 使用！</string>
+    <string name="unofficial_version_message">你使用的 Spectre 並非官方正版，請下載正版 App 使用！</string>
     <string name="go_to_github">前往 Github</string>
     <string name="settings_save_theme">儲存主題</string>
     <string name="settings_import_theme">匯入主題</string>
@@ -738,7 +738,7 @@
     <string name="webdav_no_logs">暫無記錄</string>
     <string name="webdav_clear_logs">清除</string>
     <string name="settings_enable_local_backup">啟用本機備份</string>
-    <string name="settings_enable_local_backup_summary">備份模組到本機儲存空間 (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">備份模組到本機儲存空間 (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">關閉</string>
     <string name="settings_backup_password">備份密碼</string>
     <string name="settings_backup_password_hint">輸入備份密碼</string>

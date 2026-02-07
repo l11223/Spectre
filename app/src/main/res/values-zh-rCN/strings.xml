@@ -41,10 +41,10 @@
     <string name="settings_global_namespace_mode_summary">所有 root 会话使用全局挂载命名空间</string>
     <string name="settings_clear_super_key_dialog">确定要继续吗？</string>
 
-    <string name="home_learn_apatch">了解 FolkPatch</string>
-    <string name="home_click_to_learn_apatch">了解 FolkPatch 的功能及使用方法</string>
-    <string name="settings_hide_apatch_card">隐藏"了解 FolkPatch"卡片</string>
-    <string name="settings_hide_apatch_card_summary">隐藏首页的"了解 FolkPatch"卡片</string>
+    <string name="home_learn_apatch">了解 Spectre</string>
+    <string name="home_click_to_learn_apatch">了解 Spectre 的功能及使用方法</string>
+    <string name="settings_hide_apatch_card">隐藏"了解 Spectre"卡片</string>
+    <string name="settings_hide_apatch_card_summary">隐藏首页的"了解 Spectre"卡片</string>
     <string name="settings_grid_working_card_hide_check">隐藏状态图标</string>
     <string name="settings_grid_working_card_hide_check_summary">隐藏工作卡片上的对号或警告图标</string>
     <string name="settings_grid_working_card_hide_text">隐藏状态文字</string>
@@ -154,7 +154,7 @@
     <string name="home_system_version">系统版本</string>
     <string name="home_kpatch_version">内核补丁版本</string>
     <string name="home_su_path">su 可执行文件</string>
-    <string name="home_apatch_version">FolkPatch 版本</string>
+    <string name="home_apatch_version">Spectre 版本</string>
 
     <string name="kpm">内核模块</string>
     <string name="kpm_kp_not_installed">未安装内核补丁</string>
@@ -182,7 +182,7 @@
     <string name="su_exclude_btn">排除</string>
     <string name="su_exclude_reverse_btn">反排除</string>
     <string name="su_pkg_excluded_setting_title">排除修改</string>
-    <string name="su_pkg_excluded_setting_summary">启用此选项将允许 FolkPatch 恢复此应用模块修改的任何文件。</string>
+    <string name="su_pkg_excluded_setting_summary">启用此选项将允许 Spectre 恢复此应用模块修改的任何文件。</string>
     <string name="su_pkg_root_setting_title">超级用户</string>
     <string name="su_pkg_root_setting_summary">启用该选项为你的软件启动超级用户,软件能够使用SU命令</string>
     <string name="su_pkg_normal_setting_title">普通模式</string>
@@ -376,7 +376,7 @@
     <string name="about_telegram_channel">Telegram 频道</string>
 
     <string name="settings_app_dpi">应用 DPI</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">启用内置的模块挂载系统</string>
     <string name="settings_app_title">应用名称</string>
     <string name="settings_custom_background">自定义背景</string>
@@ -522,7 +522,7 @@
     <string name="auto_backup_failed">自动备份失败: %s</string>
     <string name="auto_backup_success">自动备份成功: %s</string>
     <string name="settings_auto_backup_boot">自动备份Boot</string>
-    <string name="settings_auto_backup_boot_summary">自动将Boot备份到本地存储 (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">自动将Boot备份到本地存储 (Downloads/Spectre/BootBackups)</string>
 
     <!-- Home Layout Strings -->
     <string name="settings_home_layout_style">首页布局样式</string>
@@ -532,7 +532,7 @@
     <string name="settings_home_layout_sign">SignUI</string>
     <string name="settings_home_layout_circle">CircleUI</string>
     <string name="unofficial_version_title">非官方版本</string>
-    <string name="unofficial_version_message">您正在使用的 FolkPatch 管理器为第三方版本，可能会造成财产损失，请下载正版APP使用！</string>
+    <string name="unofficial_version_message">您正在使用的 Spectre 管理器为第三方版本，可能会造成财产损失，请下载正版APP使用！</string>
     <string name="go_to_github">前往 Github</string>
     <string name="settings_save_theme">保存主题</string>
     <string name="settings_import_theme">导入主题</string>
@@ -743,7 +743,7 @@
     <string name="webdav_no_logs">暂无日志</string>
     <string name="webdav_clear_logs">清除</string>
     <string name="settings_enable_local_backup">启用本地备份</string>
-    <string name="settings_enable_local_backup_summary">将模块备份到本地存储 (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">将模块备份到本地存储 (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">关闭</string>
 
     <!-- Script Library Strings -->

@@ -75,10 +75,10 @@
     <string name="su_app_action_force_stop_success">%s detenida forzosamente</string>
     <string name="su_app_action_failed">Operación fallida: %s</string>
 
-    <string name="home_learn_apatch">Aprender FolkPatch</string>
-    <string name="home_click_to_learn_apatch">Aprende sobre las características de FolkPatch y cómo usarlo</string>
-    <string name="settings_hide_apatch_card">Ocultar tarjeta Aprender FolkPatch</string>
-    <string name="settings_hide_apatch_card_summary">Oculta la tarjeta de aprendizaje de FolkPatch en la pantalla de inicio</string>
+    <string name="home_learn_apatch">Aprender Spectre</string>
+    <string name="home_click_to_learn_apatch">Aprende sobre las características de Spectre y cómo usarlo</string>
+    <string name="settings_hide_apatch_card">Ocultar tarjeta Aprender Spectre</string>
+    <string name="settings_hide_apatch_card_summary">Oculta la tarjeta de aprendizaje de Spectre en la pantalla de inicio</string>
 
     <string name="about_source_code"><![CDATA[<p>Ver código fuente en %1$s<p/>Únete a nuestro canal de %2$s<p/>Únete a nuestro grupo de %3$s]]></string>
     <string name="send_log">Enviar registros</string>
@@ -171,7 +171,7 @@
     <string name="home_system_version">Versión del sistema</string>
     <string name="home_kpatch_version">Versión KernelPatch</string>
     <string name="home_su_path">Ejecutable su</string>
-    <string name="home_apatch_version">Versión FolkPatch</string>
+    <string name="home_apatch_version">Versión Spectre</string>
 
     <string name="kpm">KPModule</string>
     <string name="kpm_kp_not_installed">KernelPatch no instalado</string>
@@ -195,7 +195,7 @@
     <string name="su_selinux_via_hook">Omitir mediante hook</string>
     <string name="su_pkg_excluded_label">Excluir</string>
     <string name="su_pkg_excluded_setting_title">Excluir modificaciones</string>
-    <string name="su_pkg_excluded_setting_summary">Habilitar esta opción permitirá a FolkPatch restaurar cualquier archivo modificado por los módulos de esta app.</string>
+    <string name="su_pkg_excluded_setting_summary">Habilitar esta opción permitirá a Spectre restaurar cualquier archivo modificado por los módulos de esta app.</string>
     <string name="su_pkg_root_setting_title">Superusuario</string>
     <string name="su_pkg_root_setting_summary">Habilitar esta opción para otorgar acceso de superusuario a tu app, permitiendo usar comandos SU</string>
     <string name="su_pkg_normal_setting_title">Modo normal</string>
@@ -389,7 +389,7 @@ Por favor verifica e intenta de nuevo. Si persisten los problemas, siempre puede
     <string name="settings_app_dpi">DPI de la App</string>
     <string name="settings_alt_icon">Icono alternativo</string>
     <string name="alt_icon_summary">Usar icono de lanzador alternativo</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">Activar el sistema de montaje de módulos integrado</string>
     <string name="settings_app_title">Título de la App</string>
     <string name="settings_custom_background">Fondo Personalizado</string>
@@ -534,7 +534,7 @@ Por ejemplo, los KPM que previenen la modificación de particiones solo pueden u
     <string name="auto_backup_failed">Fallo en auto-respaldo: %s</string>
     <string name="auto_backup_success">Auto-respaldo exitoso: %s</string>
     <string name="settings_auto_backup_boot">Auto-respaldo de Boot</string>
-    <string name="settings_auto_backup_boot_summary">Respaldar automáticamente Boot al almacenamiento local (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">Respaldar automáticamente Boot al almacenamiento local (Downloads/Spectre/BootBackups)</string>
 
     <!-- Home Layout Strings -->
     <string name="settings_home_layout_style">Estilo de Diseño de Inicio</string>
@@ -542,7 +542,7 @@ Por ejemplo, los KPM que previenen la modificación de particiones solo pueden u
     <string name="settings_home_layout_grid">Cuadrícula (GridUI)</string>
     <string name="settings_home_layout_focus">Enfoque (FocusUI)</string>
     <string name="unofficial_version_title">Versión No Oficial</string>
-    <string name="unofficial_version_message">Estás usando FolkPatch que no es una app oficial, ¡por favor descarga la app oficial!</string>
+    <string name="unofficial_version_message">Estás usando Spectre que no es una app oficial, ¡por favor descarga la app oficial!</string>
     <string name="go_to_github">Ir a Github</string>
     <string name="settings_save_theme">Guardar tema</string>
     <string name="settings_import_theme">Importar tema</string>
@@ -731,7 +731,7 @@ Por ejemplo, los KPM que previenen la modificación de particiones solo pueden u
     <string name="webdav_no_logs">No hay registros</string>
     <string name="webdav_clear_logs">Borrar</string>
     <string name="settings_enable_local_backup">Habilitar copia de seguridad local</string>
-    <string name="settings_enable_local_backup_summary">Copia de seguridad en almacenamiento local (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">Copia de seguridad en almacenamiento local (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">Cerrar</string>
 
     <!-- Backup Settings -->

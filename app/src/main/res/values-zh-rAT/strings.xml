@@ -376,7 +376,7 @@
     <string name="about_telegram_channel">天使圣堂频道</string>
 
     <string name="settings_app_dpi">天使使清晰度</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">启用内置的圣光阵挂载系统</string>
     <string name="settings_app_title">天使使名称</string>
     <string name="settings_custom_background">自定义天使背景</string>
@@ -526,7 +526,7 @@
     <string name="auto_backup_failed">星之魔法阵保存失败: %s</string>
     <string name="auto_backup_success">星之魔法阵保存成功: %s</string>
     <string name="settings_auto_backup_boot">自动保存Boot圣器</string>
-    <string name="settings_auto_backup_boot_summary">自动将Boot圣器保存至神圣宝库 (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">自动将Boot圣器保存至神圣宝库 (Downloads/Spectre/BootBackups)</string>
 
     <!-- Auto-added missing strings -->
 
@@ -538,7 +538,7 @@
     
     <!-- Unofficial Version Strings -->
     <string name="unofficial_version_title">非正统天使工坊✨</string>
-    <string name="unofficial_version_message">你所使用的FolkPatch并非星界认证的正统天使工坊~ 请前往官方天使屋获取正版工坊，以避免魔法反噬或祝福失效！</string>
+    <string name="unofficial_version_message">你所使用的Spectre并非星界认证的正统天使工坊~ 请前往官方天使屋获取正版工坊，以避免魔法反噬或祝福失效！</string>
     <string name="go_to_github">前往Github天使屋~☆</string>
     <string name="settings_save_theme">封印魔法主题</string>
     <string name="settings_import_theme">唤醒魔法主题</string>
@@ -737,7 +737,7 @@
     <string name="webdav_no_logs">暂无神谕</string>
     <string name="webdav_clear_logs">净化</string>
     <string name="settings_enable_local_backup">开启现世留存</string>
-    <string name="settings_enable_local_backup_summary">将圣物留存于现世 (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">将圣物留存于现世 (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">封印</string>
     <string name="settings_backup_password">封印咒语</string>
     <string name="settings_backup_password_hint">吟唱封印咒语</string>

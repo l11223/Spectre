@@ -60,9 +60,9 @@ fun BackgroundLayer(currentRoute: String? = null) {
     val prefs = APApplication.sharedPreferences
     val darkThemeFollowSys = prefs.getBoolean("night_mode_follow_sys", false)
     val nightModeEnabled = prefs.getBoolean("night_mode_enabled", true)
-    val folkXEngineEnabled = prefs.getBoolean("folkx_engine_enabled", true)
-    val folkXAnimationType = prefs.getString("folkx_animation_type", "linear")
-    val folkXAnimationSpeed = prefs.getFloat("folkx_animation_speed", 1.0f)
+    val folkXEngineEnabled = prefs.getBoolean("spectrex_engine_enabled", true)
+    val folkXAnimationType = prefs.getString("spectrex_animation_type", "linear")
+    val folkXAnimationSpeed = prefs.getFloat("spectrex_animation_speed", 1.0f)
     val isDarkTheme = if (darkThemeFollowSys) {
         isSystemInDarkTheme()
     } else {

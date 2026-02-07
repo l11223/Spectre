@@ -382,7 +382,7 @@
     <string name="about_telegram_channel">魔法少女通讯频道</string>
 
     <string name="settings_app_dpi">魔法使清晰度</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">启用内置的魔法阵挂载系统</string>
     <string name="settings_app_title">魔法使名称</string>
     <string name="settings_custom_background">自定义魔法背景</string>
@@ -532,7 +532,7 @@
     <string name="auto_backup_failed">星之魔法阵保存失败: %s</string>
     <string name="auto_backup_success">星之魔法阵保存成功: %s</string>
     <string name="settings_auto_backup_boot">自动封印Boot圣物</string>
-    <string name="settings_auto_backup_boot_summary">自动将Boot圣物封印至魔法宝箱 (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">自动将Boot圣物封印至魔法宝箱 (Downloads/Spectre/BootBackups)</string>
 
     <!-- Auto-added missing strings -->
 
@@ -544,7 +544,7 @@
     
     <!-- Unofficial Version Strings -->
     <string name="unofficial_version_title">非正统魔法工坊✨</string>
-    <string name="unofficial_version_message">你所使用的FolkPatch并非星界认证的正统魔法工坊~ 请前往官方魔法屋获取正版工坊，以避免魔法反噬或契约失效！</string>
+    <string name="unofficial_version_message">你所使用的Spectre并非星界认证的正统魔法工坊~ 请前往官方魔法屋获取正版工坊，以避免魔法反噬或契约失效！</string>
     <string name="go_to_github">前往Github星界魔法屋~☆</string>
     <string name="settings_save_theme">封印魔法主题</string>
     <string name="settings_import_theme">唤醒魔法主题</string>
@@ -734,7 +734,7 @@
     <string name="webdav_no_logs">魔法书是空的</string>
     <string name="webdav_clear_logs">遗忘</string>
     <string name="settings_enable_local_backup">开启现世留影</string>
-    <string name="settings_enable_local_backup_summary">将道具留影在现世 (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">将道具留影在现世 (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">合上魔法书</string>
     <string name="settings_backup_password">守护咒语</string>
     <string name="settings_backup_password_hint">吟唱守护咒语</string>

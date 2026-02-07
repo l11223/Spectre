@@ -115,7 +115,7 @@ fun GeneralSettings(
     val showLauncherIcon = matchGeneral || shouldShow(searchText, launcherIconTitle)
 
     val appTitleTitle = stringResource(id = R.string.settings_app_title)
-    val currentAppTitle = prefs.getString("app_title", "folkpatch")
+    val currentAppTitle = prefs.getString("app_title", "spectre")
     val appTitleLabel = when (currentAppTitle) {
         "fpatch" -> stringResource(R.string.app_title_fpatch)
         "apatch_folk" -> stringResource(R.string.app_title_apatch_folk)
@@ -124,16 +124,16 @@ fun GeneralSettings(
         "kernelpatch" -> stringResource(R.string.app_title_kernelpatch)
         "kernelsu" -> stringResource(R.string.app_title_kernelsu)
         "supersu" -> stringResource(R.string.app_title_supersu)
-        "folksu" -> stringResource(R.string.app_title_folksu)
+        "spectresu" -> stringResource(R.string.app_title_spectresu)
         "superuser" -> stringResource(R.string.app_title_superuser)
         "superpatch" -> stringResource(R.string.app_title_superpatch)
         "magicpatch" -> stringResource(R.string.app_title_magicpatch)
-        else -> stringResource(R.string.app_title_folkpatch)
+        else -> stringResource(R.string.app_title_spectre)
     }
     val showAppTitle = matchGeneral || shouldShow(searchText, appTitleTitle, appTitleLabel)
 
     val desktopAppNameTitle = stringResource(id = R.string.desktop_app_name)
-    val currentDesktopAppName = prefs.getString("desktop_app_name", "FolkPatch")
+    val currentDesktopAppName = prefs.getString("desktop_app_name", "Spectre")
     val showDesktopAppName = matchGeneral || shouldShow(searchText, desktopAppNameTitle, currentDesktopAppName.toString())
 
     val dpiTitle = stringResource(id = R.string.settings_app_dpi)
@@ -220,7 +220,7 @@ fun GeneralSettings(
             
             // FolkX Engine
             if (showFolkXEngine) {
-                var folkXEngineEnabled by remember { mutableStateOf(prefs.getBoolean("folkx_engine_enabled", true)) }
+                var folkXEngineEnabled by remember { mutableStateOf(prefs.getBoolean("spectrex_engine_enabled", true)) }
                 SwitchItem(
                     icon = Icons.Filled.Animation,
                     title = folkXEngineTitle,
@@ -228,13 +228,13 @@ fun GeneralSettings(
                     checked = folkXEngineEnabled,
                     onCheckedChange = {
                         folkXEngineEnabled = it
-                        prefs.edit().putBoolean("folkx_engine_enabled", it).apply()
+                        prefs.edit().putBoolean("spectrex_engine_enabled", it).apply()
                     }
                 )
                 
                 if (folkXEngineEnabled) {
-                    val currentType = prefs.getString("folkx_animation_type", "linear")
-                    val currentSpeed = prefs.getFloat("folkx_animation_speed", 1.0f)
+                    val currentType = prefs.getString("spectrex_animation_type", "linear")
+                    val currentSpeed = prefs.getFloat("spectrex_animation_speed", 1.0f)
                     
                     val animationTypeLabel = when(currentType) {
                         "linear" -> R.string.settings_folkx_animation_linear
@@ -703,18 +703,18 @@ fun SELinuxModeDialog(
 @Composable
 fun AppTitleChooseDialog(showDialog: MutableState<Boolean>) {
     val prefs = APApplication.sharedPreferences
-    val currentTitle = prefs.getString("app_title", "folkpatch")
+    val currentTitle = prefs.getString("app_title", "spectre")
 
     val titles = listOf(
         "fpatch" to stringResource(R.string.app_title_fpatch),
         "apatch_folk" to stringResource(R.string.app_title_apatch_folk),
         "apatchx" to stringResource(R.string.app_title_apatchx),
         "apatch" to stringResource(R.string.app_title_apatch),
-        "folkpatch" to stringResource(R.string.app_title_folkpatch),
+        "spectre" to stringResource(R.string.app_title_spectre),
         "kernelpatch" to stringResource(R.string.app_title_kernelpatch),
         "kernelsu" to stringResource(R.string.app_title_kernelsu),
         "supersu" to stringResource(R.string.app_title_supersu),
-        "folksu" to stringResource(R.string.app_title_folksu),
+        "spectresu" to stringResource(R.string.app_title_spectresu),
         "superuser" to stringResource(R.string.app_title_superuser),
         "superpatch" to stringResource(R.string.app_title_superpatch),
         "magicpatch" to stringResource(R.string.app_title_magicpatch)
@@ -763,7 +763,7 @@ fun AppTitleChooseDialog(showDialog: MutableState<Boolean>) {
 fun DesktopAppNameChooseDialog(showDialog: MutableState<Boolean>) {
     val prefs = APApplication.sharedPreferences
     val context = LocalContext.current
-    val currentName = prefs.getString("desktop_app_name", "FolkPatch")
+    val currentName = prefs.getString("desktop_app_name", "Spectre")
 
     BasicAlertDialog(
         onDismissRequest = { showDialog.value = false }, properties = DialogProperties(
@@ -782,16 +782,16 @@ fun DesktopAppNameChooseDialog(showDialog: MutableState<Boolean>) {
             LazyColumn {
                 item {
                     ListItem(
-                        headlineContent = { Text(text = "FolkPatch") },
+                        headlineContent = { Text(text = "Spectre") },
                         modifier = Modifier.clickable {
                             showDialog.value = false
                             prefs.edit {
-                                putString("desktop_app_name", "FolkPatch")
+                                putString("desktop_app_name", "Spectre")
                             }
                             me.bmax.apatch.util.LauncherIconUtils.applySaved(context)
                         },
                         trailingContent = {
-                            if (currentName == "FolkPatch" || currentName == null) {
+                            if (currentName == "Spectre" || currentName == null) {
                                 Icon(Icons.Filled.Check, contentDescription = null)
                             }
                         }
@@ -848,7 +848,7 @@ fun FolkXAnimationTypeDialog(showDialog: MutableState<Boolean>) {
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
                 
-                val currentType = prefs.getString("folkx_animation_type", "linear")
+                val currentType = prefs.getString("spectrex_animation_type", "linear")
                 
                 Surface(
                     shape = RoundedCornerShape(12.dp),
@@ -874,7 +874,7 @@ fun FolkXAnimationTypeDialog(showDialog: MutableState<Boolean>) {
                                     )
                                 },
                                 modifier = Modifier.clickable {
-                                    prefs.edit().putString("folkx_animation_type", type).apply()
+                                    prefs.edit().putString("spectrex_animation_type", type).apply()
                                     showDialog.value = false
                                 }
                             )
@@ -1073,7 +1073,7 @@ fun FolkXAnimationSpeedDialog(showDialog: MutableState<Boolean>) {
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
 
-                val currentSpeed = prefs.getFloat("folkx_animation_speed", 1.0f)
+                val currentSpeed = prefs.getFloat("spectrex_animation_speed", 1.0f)
 
                 Surface(
                     shape = RoundedCornerShape(12.dp),
@@ -1100,7 +1100,7 @@ fun FolkXAnimationSpeedDialog(showDialog: MutableState<Boolean>) {
                                     )
                                 },
                                 modifier = Modifier.clickable {
-                                    prefs.edit().putFloat("folkx_animation_speed", speed).apply()
+                                    prefs.edit().putFloat("spectrex_animation_speed", speed).apply()
                                     showDialog.value = false
                                 }
                             )

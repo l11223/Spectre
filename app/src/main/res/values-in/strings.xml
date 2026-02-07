@@ -49,10 +49,10 @@
     <string name="su_exclude_all_title">Kecualikan semua</string>
     <string name="su_exclude_all_confirm">Apakah Anda yakin ingin mengecualikan semua aplikasi tanpa hak root?</string>
 
-    <string name="home_learn_apatch">Pelajari FolkPatch</string>
-    <string name="home_click_to_learn_apatch">Pelajari tentang fitur FolkPatch dan cara menggunakannya</string>
-    <string name="settings_hide_apatch_card">Sembunyikan kartu "Pelajari FolkPatch"</string>
-    <string name="settings_hide_apatch_card_summary">Sembunyikan kartu "Pelajari FolkPatch" di layar utama</string>
+    <string name="home_learn_apatch">Pelajari Spectre</string>
+    <string name="home_click_to_learn_apatch">Pelajari tentang fitur Spectre dan cara menggunakannya</string>
+    <string name="settings_hide_apatch_card">Sembunyikan kartu "Pelajari Spectre"</string>
+    <string name="settings_hide_apatch_card_summary">Sembunyikan kartu "Pelajari Spectre" di layar utama</string>
 
     <string name="about_source_code"><![CDATA[<p>Lihat kode sumber di %1$s<p/>Bergabunglah dengan saluran %2$s kami<p/>Bergabunglah dengan grup %3$s kami]]></string>
     <string name="send_log">Kirim Log</string>
@@ -144,7 +144,7 @@
     <string name="home_system_version">Versi Sistem</string>
     <string name="home_kpatch_version">Versi KernelPatch</string>
     <string name="home_su_path">File yang dapat dieksekusi su</string>
-    <string name="home_apatch_version">Versi FolkPatch</string>
+    <string name="home_apatch_version">Versi Spectre</string>
 
     <string name="kpm">KPModule</string>
     <string name="kpm_kp_not_installed">KernelPatch tidak terinstal</string>
@@ -168,7 +168,7 @@
     <string name="su_selinux_via_hook">Lewati melalui Hook</string>
     <string name="su_pkg_excluded_label">Kecualikan</string>
     <string name="su_pkg_excluded_setting_title">Kecualikan perubahan</string>
-    <string name="su_pkg_excluded_setting_summary">Mengaktifkan opsi ini akan memungkinkan FolkPatch memulihkan setiap file yang dimodifikasi oleh modul aplikasi ini.</string>
+    <string name="su_pkg_excluded_setting_summary">Mengaktifkan opsi ini akan memungkinkan Spectre memulihkan setiap file yang dimodifikasi oleh modul aplikasi ini.</string>
     <string name="su_pkg_root_setting_title">Superuser</string>
     <string name="su_pkg_root_setting_summary">Mengaktifkan opsi ini untuk memberikan akses superuser ke aplikasi Anda, aplikasi dapat menggunakan perintah SU</string>
     <string name="su_pkg_normal_setting_title">Mode Normal</string>
@@ -382,7 +382,7 @@ Harap periksa dan coba lagi. Jika masalah masih ada, Anda selalu dapat mengajuka
     <string name="about_telegram_channel">Saluran Telegram</string>
 
     <string name="settings_app_dpi">DPI Aplikasi</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">Aktifkan sistem pemasangan modul bawaan</string>
     <string name="settings_app_title">Judul Aplikasi</string>
     <string name="settings_custom_background">Latar Belakang Kustom</string>
@@ -525,14 +525,14 @@ Pastikan aplikasi ditutup sepenuhnya dan dimulai ulang untuk menjalankan perinta
     <string name="auto_backup_failed">Pencadangan otomatis gagal: %s</string>
     <string name="auto_backup_success">Pencadangan otomatis berhasil: %s</string>
     <string name="settings_auto_backup_boot">Backup Otomatis Boot</string>
-    <string name="settings_auto_backup_boot_summary">Otomatis mem-backup Boot ke penyimpanan lokal (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">Otomatis mem-backup Boot ke penyimpanan lokal (Downloads/Spectre/BootBackups)</string>
 
     <string name="settings_home_layout_style">Gaya tata letak utama</string>
     <string name="settings_home_layout_default">ListUI</string>
     <string name="settings_home_layout_grid">GridUI</string>
     <string name="settings_home_layout_focus">FocusUI</string>
     <string name="unofficial_version_title">Versi Tidak Resmi</string>
-    <string name="unofficial_version_message">Anda menggunakan FolkPatch, yang bukan aplikasi resmi, harap unduh aplikasi resmi!</string>
+    <string name="unofficial_version_message">Anda menggunakan Spectre, yang bukan aplikasi resmi, harap unduh aplikasi resmi!</string>
     <string name="go_to_github">Buka Github</string>
     <string name="settings_save_theme">Simpan Tema</string>
     <string name="settings_import_theme">Impor Tema</string>
@@ -736,7 +736,7 @@ Pastikan aplikasi ditutup sepenuhnya dan dimulai ulang untuk menjalankan perinta
     <string name="webdav_no_logs">Tidak ada log</string>
     <string name="webdav_clear_logs">Hapus</string>
     <string name="settings_enable_local_backup">Aktifkan Backup Lokal</string>
-    <string name="settings_enable_local_backup_summary">Backup modul ke penyimpanan lokal (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">Backup modul ke penyimpanan lokal (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">Tutup</string>
 
     <string name="patch_output_written_to"> Patch berhasil, file ditulis ke </string>

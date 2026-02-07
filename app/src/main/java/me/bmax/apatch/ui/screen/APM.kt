@@ -907,7 +907,7 @@ private fun TopBar(
                         onClick = {
                             showMenu = false
                             val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-                            backupLauncher.launch("FolkPatch_Modules_Backup_$timeStamp.tar.gz")
+                            backupLauncher.launch("Spectre_Modules_Backup_$timeStamp.tar.gz")
                         }
                     )
                     WallpaperAwareDropdownMenuItem(
@@ -961,7 +961,7 @@ private fun ModuleLabel(
 }
 
 private const val FOLK_BANNER_FILE_NAME = "FolkBanner"
-private const val FOLK_BANNER_DIR_NAME = "folk_banners"
+private const val FOLK_BANNER_DIR_NAME = "spectre_banners"
 
 private fun sanitizeBannerKey(raw: String): String {
     return raw.replace(Regex("[^a-zA-Z0-9._-]"), "_")

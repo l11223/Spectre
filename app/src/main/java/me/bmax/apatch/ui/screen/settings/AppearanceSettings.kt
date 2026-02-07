@@ -1390,7 +1390,7 @@ fun AppearanceSettings(
                 scope.launch {
                     loadingDialog.show()
                     try {
-                        val exportDir = java.io.File("/storage/emulated/0/Download/FolkPatch/Themes/")
+                        val exportDir = java.io.File("/storage/emulated/0/Download/Spectre/Themes/")
                          if (!exportDir.exists()) {
                              exportDir.mkdirs()
                          }

@@ -15,7 +15,7 @@ import java.util.Locale
 class OnlineScriptViewModel : ViewModel() {
     companion object {
         private const val TAG = "OnlineScriptViewModel"
-        const val MODULES_URL = "https://folk.mysqil.com/api/modules.php?type=script"
+        const val MODULES_URL = "https://spectre.local/api/modules.php?type=script"
     }
 
     data class OnlineScript(

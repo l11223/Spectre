@@ -75,10 +75,10 @@
     <string name="su_app_action_force_stop_success">تم إيقاف %s إجبارياً</string>
     <string name="su_app_action_failed">فشلت العملية: %s</string>
 
-    <string name="home_learn_apatch">تعلم FolkPatch</string>
-    <string name="home_click_to_learn_apatch">تعرف على ميزات FolkPatch وكيفية استخدامه</string>
-    <string name="settings_hide_apatch_card">إخفاء بطاقة تعلم FolkPatch</string>
-    <string name="settings_hide_apatch_card_summary">إخفاء بطاقة تعلم FolkPatch في الشاشة الرئيسية</string>
+    <string name="home_learn_apatch">تعلم Spectre</string>
+    <string name="home_click_to_learn_apatch">تعرف على ميزات Spectre وكيفية استخدامه</string>
+    <string name="settings_hide_apatch_card">إخفاء بطاقة تعلم Spectre</string>
+    <string name="settings_hide_apatch_card_summary">إخفاء بطاقة تعلم Spectre في الشاشة الرئيسية</string>
 
     <string name="about_source_code"><![CDATA[<p>عرض الكود المصدري على %1$s<p/>انضم إلى قناتنا على %2$s<p/>انضم إلى مجموعتنا على %3$s]]></string>
     <string name="send_log">إرسال السجلات</string>
@@ -171,7 +171,7 @@
     <string name="home_system_version">إصدار النظام</string>
     <string name="home_kpatch_version">إصدار KernelPatch</string>
     <string name="home_su_path">su القابل للتنفيذ</string>
-    <string name="home_apatch_version">إصدار FolkPatch</string>
+    <string name="home_apatch_version">إصدار Spectre</string>
 
     <string name="kpm">وحدة KP</string>
     <string name="kpm_kp_not_installed">KernelPatch غير مثبت</string>
@@ -195,7 +195,7 @@
     <string name="su_selinux_via_hook">التجاوز عبر الخطاف</string>
     <string name="su_pkg_excluded_label">استثناء</string>
     <string name="su_pkg_excluded_setting_title">استثناء التعديلات</string>
-    <string name="su_pkg_excluded_setting_summary">سيمكن تفعيل هذا الخيار FolkPatch من استعادة أي ملفات تم تعديلها بواسطة وحدات هذا التطبيق.</string>
+    <string name="su_pkg_excluded_setting_summary">سيمكن تفعيل هذا الخيار Spectre من استعادة أي ملفات تم تعديلها بواسطة وحدات هذا التطبيق.</string>
     <string name="su_pkg_root_setting_title">المستخدم المتميز</string>
     <string name="su_pkg_root_setting_summary">تفعيل هذا الخيار لمنح صلاحيات المستخدم المتميز لتطبيقك، مما يسمح باستخدام أوامر SU</string>
     <string name="su_pkg_normal_setting_title">الوضع العادي</string>
@@ -390,7 +390,7 @@
     <string name="settings_app_dpi">DPI التطبيق</string>
     <string name="settings_alt_icon">أيقونة بديلة</string>
     <string name="alt_icon_summary">استخدم أيقونة المشغل البديلة</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">تفعيل نظام تركيب الوحدات المدمج</string>
     <string name="settings_app_title">عنوان التطبيق</string>
     <string name="settings_custom_background">خلفية مخصصة</string>
@@ -537,7 +537,7 @@
     <string name="auto_backup_failed">فشل النسخ الاحتياطي التلقائي: %s</string>
     <string name="auto_backup_success">نجح النسخ الاحتياطي التلقائي: %s</string>
     <string name="settings_auto_backup_boot">النسخ الاحتياطي التلقائي لـ Boot</string>
-    <string name="settings_auto_backup_boot_summary">النسخ الاحتياطي التلقائي لـ Boot إلى التخزين المحلي (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">النسخ الاحتياطي التلقائي لـ Boot إلى التخزين المحلي (Downloads/Spectre/BootBackups)</string>
 
     <!-- Home Layout Strings -->
     <string name="settings_home_layout_style">نمط تخطيط الشاشة الرئيسية</string>
@@ -545,7 +545,7 @@
     <string name="settings_home_layout_grid">واجهة شبكة</string>
     <string name="settings_home_layout_focus">واجهة تركيز</string>
     <string name="unofficial_version_title">إصدار غير رسمي</string>
-    <string name="unofficial_version_message">أنت تستخدم FolkPatch وهو ليس تطبيقًا رسميًا، يرجى تنزيل التطبيق الرسمي!</string>
+    <string name="unofficial_version_message">أنت تستخدم Spectre وهو ليس تطبيقًا رسميًا، يرجى تنزيل التطبيق الرسمي!</string>
     <string name="go_to_github">اذهب إلى Github</string>
     <string name="settings_save_theme">حفظ السمة</string>
     <string name="settings_import_theme">استيراد السمة</string>
@@ -735,7 +735,7 @@
     <string name="webdav_no_logs">لا توجد سجلات</string>
     <string name="webdav_clear_logs">مسح</string>
     <string name="settings_enable_local_backup">تفعيل النسخ الاحتياطي المحلي</string>
-    <string name="settings_enable_local_backup_summary">نسخ احتياطي إلى التخزين المحلي (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">نسخ احتياطي إلى التخزين المحلي (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">إغلاق</string>
 
     <!-- Backup Settings -->

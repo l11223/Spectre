@@ -23,7 +23,7 @@ fn get_git_version() -> Result<(u32, String), std::io::Error> {
     let version_name = if let Ok(env_version_name) = env::var("APATCH_VERSION_NAME") {
         env_version_name
     } else {
-        "113005-Matsuzaka-yuki".to_string()
+        "Spectre".to_string()
     };
 
     Ok((version_code, version_name))

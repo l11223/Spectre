@@ -393,7 +393,7 @@ class PatchesViewModel : ViewModel() {
 
             val apVer = Version.getManagerVersion().second
             val rand = (1..4).map { ('a'..'z').random() }.joinToString("")
-            val outFilename = "folk_patched_${apVer}_${BuildConfig.buildKPV}_${rand}.img"
+            val outFilename = "spectre_patched_${apVer}_${BuildConfig.buildKPV}_${rand}.img"
 
             val logs = object : CallbackList<String>() {
                 override fun onAddElement(e: String?) {
@@ -408,7 +408,7 @@ class PatchesViewModel : ViewModel() {
                 logs.add("****************************")
                 logs.add(" Backing up boot image...")
                 try {
-                    val backupDir = File("/storage/emulated/0/Download/FolkPatch/BootBackups/")
+                    val backupDir = File("/storage/emulated/0/Download/Spectre/BootBackups/")
                     if (!backupDir.exists()) {
                         backupDir.mkdirs()
                     }

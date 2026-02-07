@@ -49,10 +49,10 @@
     <string name="su_exclude_all_title">Исключить все</string>
     <string name="su_exclude_all_confirm">Вы уверены, что хотите исключить все приложения без root-прав?</string>
 
-    <string name="home_learn_apatch">Изучить FolkPatch</string>
-    <string name="home_click_to_learn_apatch">Узнайте о функциях FolkPatch и как их использовать</string>
-    <string name="settings_hide_apatch_card">Скрыть карту "Изучить FolkPatch"</string>
-    <string name="settings_hide_apatch_card_summary">Скрыть карту "Изучить FolkPatch" на главном экране</string>
+    <string name="home_learn_apatch">Изучить Spectre</string>
+    <string name="home_click_to_learn_apatch">Узнайте о функциях Spectre и как их использовать</string>
+    <string name="settings_hide_apatch_card">Скрыть карту "Изучить Spectre"</string>
+    <string name="settings_hide_apatch_card_summary">Скрыть карту "Изучить Spectre" на главном экране</string>
 
     <string name="about_source_code"><![CDATA[<p>Просмотреть исходный код на %1$s<p/>Присоединяйтесь к нашему %2$s каналу<p/>Присоединяйтесь к нашей %3$s группе]]></string>
     <string name="send_log">Отправить логи</string>
@@ -144,7 +144,7 @@
     <string name="home_system_version">Версия системы</string>
     <string name="home_kpatch_version">Версия KernelPatch</string>
     <string name="home_su_path">Исполняемый файл su</string>
-    <string name="home_apatch_version">Версия FolkPatch</string>
+    <string name="home_apatch_version">Версия Spectre</string>
 
     <string name="kpm">KPModule</string>
     <string name="kpm_kp_not_installed">KernelPatch не установлен</string>
@@ -168,7 +168,7 @@
     <string name="su_selinux_via_hook">Обойти через хук</string>
     <string name="su_pkg_excluded_label">Исключить</string>
     <string name="su_pkg_excluded_setting_title">Исключить изменения</string>
-    <string name="su_pkg_excluded_setting_summary">Включение этой опции позволит FolkPatch восстановить любые файлы, измененные модулями этого приложения.</string>
+    <string name="su_pkg_excluded_setting_summary">Включение этой опции позволит Spectre восстановить любые файлы, измененные модулями этого приложения.</string>
     <string name="su_pkg_root_setting_title">Суперпользователь</string>
     <string name="su_pkg_root_setting_summary">Включение этой опции предоставит доступ суперпользователя вашему приложению, позволяя использовать команды SU.</string>
     <string name="su_pkg_normal_setting_title">Обычный режим</string>
@@ -388,7 +388,7 @@
     <string name="settings_app_dpi">DPI приложения</string>
     <string name="settings_alt_icon">Альтернативная иконка</string>
     <string name="alt_icon_summary">Использовать альтернативный значок запуска</string>
-    <string name="settings_magic_mount">Folk Mount API</string>
+    <string name="settings_magic_mount">Mount API</string>
     <string name="settings_magic_mount_summary">Включить встроенную систему монтирования модулей</string>
     <string name="settings_app_title">Заголовок приложения</string>
     <string name="settings_custom_background">Пользовательский фон</string>
@@ -535,7 +535,7 @@
     <string name="auto_backup_failed">Ошибка резервного копирования: %s</string>
     <string name="auto_backup_success">Резервная копия создана: %s</string>
     <string name="settings_auto_backup_boot">Автоматическое резервное копирование Boot</string>
-    <string name="settings_auto_backup_boot_summary">Автоматически копировать Boot в локальное хранилище (Downloads/FolkPatch/BootBackups)</string>
+    <string name="settings_auto_backup_boot_summary">Автоматически копировать Boot в локальное хранилище (Downloads/Spectre/BootBackups)</string>
 
     <!-- Auto-added missing strings -->
 
@@ -545,7 +545,7 @@
     <string name="settings_home_layout_grid">GridUI</string>
     <string name="settings_home_layout_focus">FocusUI</string>
     <string name="unofficial_version_title">Неофициальная версия</string>
-    <string name="unofficial_version_message">Вы используете FolkPatch, который не является официальным приложением, пожалуйста, скачайте официальное приложение!</string>
+    <string name="unofficial_version_message">Вы используете Spectre, который не является официальным приложением, пожалуйста, скачайте официальное приложение!</string>
     <string name="go_to_github">Перейти на Github</string>
     <string name="settings_save_theme">Сохранить тему</string>
     <string name="settings_import_theme">Импортировать тему</string>
@@ -728,7 +728,7 @@
     <string name="webdav_no_logs">Нет логов</string>
     <string name="webdav_clear_logs">Очистить</string>
     <string name="settings_enable_local_backup">Включить локальное резервное копирование</string>
-    <string name="settings_enable_local_backup_summary">Резервное копирование модулей в локальное хранилище (Downloads/FolkPatch/ModuleBackups)</string>
+    <string name="settings_enable_local_backup_summary">Резервное копирование модулей в локальное хранилище (Downloads/Spectre/ModuleBackups)</string>
     <string name="close">Закрыть</string>
 
     <!-- Backup Settings -->

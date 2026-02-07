@@ -146,7 +146,7 @@
   <string name="home_system_version">システム バージョン</string>
   <string name="home_kpatch_version">KernelPatch バージョン</string>
   <string name="home_su_path">実行可能な su</string>
-  <string name="home_apatch_version">FolkPatch バージョン</string>
+  <string name="home_apatch_version">Spectre バージョン</string>
   <string name="kpm">KP モジュール</string>
   <string name="kpm_kp_not_installed">KernelPatch はインストールされていません</string>
   <string name="kpm_add_kpm">KPM を追加</string>
@@ -168,7 +168,7 @@
   <string name="su_selinux_via_hook">フックでバイパス</string>
   <string name="su_pkg_excluded_label">除外</string>
   <string name="su_pkg_excluded_setting_title">変更を除外</string>
-  <string name="su_pkg_excluded_setting_summary">このオプションを有効化すると、FolkPatch はこのアプリのモジュールによって変更されたすべてのファイルを復元できるようになります。</string>
+  <string name="su_pkg_excluded_setting_summary">このオプションを有効化すると、Spectre はこのアプリのモジュールによって変更されたすべてのファイルを復元できるようになります。</string>
   <string name="su_pkg_root_setting_title">スーパーユーザー</string>
   <string name="su_pkg_root_setting_summary">このオプションを有効にすると、アプリがスーパーユーザーアクセスを取得し、SU コマンドを使用できるようになります。</string>
   <string name="su_pkg_normal_setting_title">通常モード</string>
@@ -358,7 +358,7 @@
   <string name="settings_app_dpi">アプリの DPI</string>
   <string name="settings_alt_icon">代替アイコン</string>
   <string name="alt_icon_summary">代替のランチャーアイコンを使用する</string>
-  <string name="settings_magic_mount">Folk Mount API</string>
+  <string name="settings_magic_mount">Mount API</string>
   <string name="settings_magic_mount_summary">内蔵のモジュールマウントシステムを有効化します</string>
   <string name="settings_overlayfs_mode">ハイブリッドマウントモード</string>
   <string name="settings_overlayfs_mode_summary">互換性を最大限に高めるために、Magic Mount の自動フォールバックを備えた OverlayFS を使用します。</string>
@@ -499,14 +499,14 @@
   <string name="auto_backup_failed">自動バックアップが失敗: %s</string>
   <string name="auto_backup_success">自動バックアップが成功: %s</string>
   <string name="settings_auto_backup_boot">boot を自動でバックアップ</string>
-  <string name="settings_auto_backup_boot_summary">boot をローカルストレージに自動でバックアップします (Downloads/FolkPatch/BootBackups)</string>
+  <string name="settings_auto_backup_boot_summary">boot をローカルストレージに自動でバックアップします (Downloads/Spectre/BootBackups)</string>
   <!-- Home Layout Strings -->
   <string name="settings_home_layout_style">ホームレイアウトのスタイル</string>
   <string name="settings_home_layout_default">リスト UI</string>
   <string name="settings_home_layout_grid">グリッド UI</string>
   <string name="settings_home_layout_focus">フォーカス UI</string>
   <string name="unofficial_version_title">非公式なバージョン</string>
-  <string name="unofficial_version_message">非公式な FolkPatch を使用しています。公式のアプリをダウンロードしてください！</string>
+  <string name="unofficial_version_message">非公式な Spectre を使用しています。公式のアプリをダウンロードしてください！</string>
   <string name="go_to_github">GitHub を開く</string>
   <string name="settings_save_theme">テーマを保存</string>
   <string name="settings_import_theme">テーマをインポート</string>
@@ -691,7 +691,7 @@
   <string name="webdav_no_logs">ログは見つかりません</string>
   <string name="webdav_clear_logs">消去</string>
   <string name="settings_enable_local_backup">ローカルバックアップを有効化する</string>
-  <string name="settings_enable_local_backup_summary">ローカルストレージにバックアップします (Downloads/FolkPatch/ModuleBackups)</string>
+  <string name="settings_enable_local_backup_summary">ローカルストレージにバックアップします (Downloads/Spectre/ModuleBackups)</string>
   <string name="close">閉じる</string>
   <string name="script_library">スクリプトライブラリ</string>
   <string name="script_library_title">スクリプトライブラリ</string>

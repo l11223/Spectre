@@ -17,15 +17,15 @@ object UpdateChecker {
     private const val TAG = "UpdateChecker"
     // Placeholder URL for version file.
     // It is expected to return a plain text integer version code.
-    private const val UPDATE_API_URL = "https://folk.mysqil.com/api/version.php"
-    private const val UPDATE_URL = "https://github.com/matsuzaka-yuki/FolkPatch/releases"
+    private const val UPDATE_API_URL = "https://spectre.local/api/version.php"
+    private const val UPDATE_URL = "https://github.com/l11223/Spectre/releases"
 
     /**
      * Checks for updates.
      * Returns true if an update is available (remote version > current version), false otherwise.
      */
     suspend fun checkUpdate(): Boolean {
-        return withContext(Dispatchers.IO) {
+        return withContext(Dispatchers.IO) { false }
             try {
                 val url = URL(UPDATE_API_URL)
                 val connection = url.openConnection() as HttpURLConnection

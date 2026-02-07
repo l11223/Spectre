@@ -6,5 +6,5 @@
     <files-path name="backgrounds" path="backgrounds/" />
     <external-files-path name="apatch_files" path="Apatch" />
     <external-files-path name="module_backups" path="ModuleBackups" />
-    <external-path name="folkpatch_backup" path="Download/Spectre/ModuleBackups" />
+    <external-path name="spectre_backup" path="Download/Spectre/ModuleBackups" />
 </paths>

@@ -18,7 +18,7 @@ class ThemeStoreViewModel : ViewModel() {
         private const val TAG = "ThemeStoreViewModel"
         // TODO: Replace with your actual backend URL (e.g., http://your-server.com/api/themes.php)
         // See backend_reference/README.md for server setup instructions
-        private const val THEMES_URL = "https://folk.mysqil.com/api/themes.php"
+        private const val THEMES_URL = "https://spectre.local/api/themes.php"
     }
 
     data class RemoteTheme(
