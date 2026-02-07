@@ -3,19 +3,18 @@ name: Build Spectre
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build-kpm:
-    name: Build ghost.kpm (Kernel Stealth Module)
+    name: Build ghost.kpm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup NDK
         uses: nttld/setup-ndk@v1
+        id: setup-ndk
         with:
           ndk-version: r25c
           local-cache: true
@@ -28,9 +27,11 @@ jobs:
 
       - name: Build ghost.kpm
         working-directory: kpm/ghost
+        env:
+          NDK_PATH: ${{ steps.setup-ndk.outputs.ndk-path }}
+          KP_DIR: ../../KernelPatch-0.11.3
         run: |
-          export KP_DIR=../../KernelPatch-0.11.3
-          export NDK_PATH=$ANDROID_NDK_HOME
+          export TARGET_COMPILE=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/
           make clean && make
 
       - name: Upload ghost.kpm
@@ -63,6 +64,7 @@ jobs:
 
       - name: Setup NDK
         uses: nttld/setup-ndk@v1
+        id: setup-ndk
         with:
           ndk-version: r25c
           local-cache: true
@@ -72,7 +74,8 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleRelease --no-daemon
         env:
-          ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+          ANDROID_NDK_ROOT: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
