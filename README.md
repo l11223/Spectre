@@ -1,181 +1,274 @@
 <div align="center">
 
-# 👻 Spectre
+<img src="https://img.shields.io/badge/ghost.kpm-v5.0-00E5CC?style=for-the-badge&logo=ghost&logoColor=white" />
+<img src="https://img.shields.io/badge/Hooks-15_Active-00E5CC?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Hidden_Paths-22-00E5CC?style=for-the-badge" />
 
-**Kernel-Level Stealth Root Solution**
+<br/><br/>
 
-*Invisible. Unstoppable. Undetectable.*
+```
+   ███████╗██████╗ ███████╗ ██████╗████████╗██████╗ ███████╗
+   ██╔════╝██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔════╝
+   ███████╗██████╔╝█████╗  ██║        ██║   ██████╔╝█████╗  
+   ╚════██║██╔═══╝ ██╔══╝  ██║        ██║   ██╔══██╗██╔══╝  
+   ███████║██║     ███████╗╚██████╗   ██║   ██║  ██║███████╗
+   ╚══════╝╚═╝     ╚══════╝ ╚═════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝
+```
+
+### Kernel-Level Stealth Root Framework
+
+*What they can't see, they can't detect.*
+
+<br/>
 
 [![Build](https://github.com/l11223/Spectre/actions/workflows/build.yml/badge.svg)](https://github.com/l11223/Spectre/actions)
-[![Release](https://img.shields.io/github/v/release/l11223/Spectre?color=00E5CC&label=Latest)](https://github.com/l11223/Spectre/releases)
-[![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](LICENSE)
-
----
-
-**Spectre** is a next-generation Android root framework built for maximum stealth.
-Based on KernelPatch + APatch architecture, redesigned from the ground up to be invisible to anti-cheat engines, banking apps, and integrity checks.
+[![Release](https://img.shields.io/github/v/release/l11223/Spectre?style=flat-square&color=00E5CC&label=Latest)](https://github.com/l11223/Spectre/releases)
+[![Downloads](https://img.shields.io/github/downloads/l11223/Spectre/total?style=flat-square&color=00E5CC&label=Downloads)](https://github.com/l11223/Spectre/releases)
+[![License](https://img.shields.io/badge/License-GPL%20v2-blue?style=flat-square)](LICENSE)
 
 </div>
 
 ---
 
-## Features
+## 🔮 What is Spectre?
 
-### Spectre Manager App
+**Spectre** is not just another root tool — it's a **kernel-level invisibility engine**.
 
-- One-click boot image patching with AVB chain signing
-- SuperUser permission management with per-app control
-- Module system (Magisk-compatible `.sp_ext` modules)
-- KPM (Kernel Patch Module) loader
-- Custom SU path — change it to anything you want
-- Built-in update checker
-- App title & icon customization
+While traditional root solutions (Magisk, KernelSU) fight detection at the application layer, Spectre operates where anti-cheat can't reach: **inside the kernel itself**. Every file access, every proc read, every system call passes through our hooks before reaching the detection code.
 
-### ghost.kpm — Kernel Stealth Module
+The result? Your device appears completely stock to any inspection — games, banking apps, SafetyNet, Play Integrity — while you have full root access underneath.
 
-The core of Spectre's undetectability. **15 active kernel hooks** that intercept and filter every known root detection vector at the lowest level:
+> **15 kernel hooks. 22 hidden paths. Zero detection surface.**
 
-| # | Hook | What It Does |
-|---|------|-------------|
-| 1 | `filldir64` | Hides `/data/adb/` hidden directories from `ls` / `readdir` |
-| 2 | `avc_denied` | SELinux bypass for root processes (uid=0 only) |
-| 3 | `audit_log_start` | Suppresses AVC / SELinux audit log entries |
-| 4 | `show_map_vma` | Filters `/proc/pid/maps` — removes root library traces |
-| 5 | `show_mountinfo` | Filters `/proc/pid/mounts` — hides overlay & module mounts |
-| 6 | `proc_pid_status` | Zeros `TracerPid` in `/proc/pid/status` — anti-debug evasion |
-| 7 | `proc_pid_wchan` | Hides KP symbols from `/proc/pid/wchan` |
-| 8 | `devkmsg_read` | Filters KernelPatch traces from `dmesg` / `/dev/kmsg` |
-| 9 | `s_show` | Hides KP symbols from `/proc/kallsyms` |
-| 10 | `__arm64_sys_newuname` | Spoofs `uname -r` AND version field (consistent) |
-| 11 | `version_proc_show` | Spoofs `/proc/version` output |
-| 12 | `do_faccessat` | Hides su/root paths from `access()` syscall |
-| 13 | `vfs_fstatat` | Hides su/root paths from `stat()` syscall |
-| 14 | `do_sys_openat2` | Hides su/root paths from `open()` syscall |
-| 15 | `selinux_getprocattr` | Masks root SELinux context in `/proc/pid/attr/current` |
+---
 
-**22 hidden paths** including all known su locations, Magisk/KSU/APatch directories, and Spectre's own obfuscated dirs.
-
-### Stealth Architecture
+## ⚡ Architecture
 
 ```
-┌─────────────────────────────────────────────────┐
-│                 User Space                       │
-│  Game / Bank App                                 │
-│    ├── access("/system/bin/su") → ENOENT ✗      │
-│    ├── stat("/data/adb/.fk")   → ENOENT ✗      │
-│    ├── open("/sbin/su")        → ENOENT ✗      │
-│    ├── read /proc/self/maps    → [filtered]     │
-│    ├── read /proc/self/mounts  → [filtered]     │
-│    ├── read /proc/self/status  → TracerPid: 0   │
-│    ├── read /proc/kallsyms     → [no KP syms]   │
-│    ├── read /proc/self/attr    → u:r:sh:s0      │
-│    └── uname -r                → 6.1.75-pixel   │
-├─────────────────────────────────────────────────┤
-│              ghost.kpm (Kernel)                  │
-│         15 hooks × 22 hidden paths              │
-│         All detection vectors blocked            │
-└─────────────────────────────────────────────────┘
+╔══════════════════════════════════════════════════════════╗
+║                    USER SPACE                            ║
+║                                                          ║
+║   🎮 Game Anti-Cheat          🏦 Banking App             ║
+║   ┌──────────────────┐       ┌──────────────────┐       ║
+║   │ access("/bin/su") │       │ stat("/data/adb")│       ║
+║   │ → ENOENT ✗        │       │ → ENOENT ✗       │       ║
+║   │                    │       │                   │       ║
+║   │ read /proc/maps   │       │ read /proc/attr   │       ║
+║   │ → [clean output]  │       │ → u:r:sh:s0       │       ║
+║   │                    │       │                   │       ║
+║   │ uname -r           │       │ TracerPid check   │       ║
+║   │ → 6.1.75-pixel    │       │ → TracerPid: 0    │       ║
+║   └──────────────────┘       └──────────────────┘       ║
+║              │                          │                ║
+╠══════════════╪══════════════════════════╪════════════════╣
+║              ▼                          ▼                ║
+║   ┌──────────────────────────────────────────────┐      ║
+║   │            👻  ghost.kpm v5                   │      ║
+║   │                                               │      ║
+║   │   15 Kernel Hooks  ×  22 Hidden Paths         │      ║
+║   │                                               │      ║
+║   │   Intercept → Filter → Spoof → Return         │      ║
+║   │                                               │      ║
+║   │   "You see what we want you to see."          │      ║
+║   └──────────────────────────────────────────────┘      ║
+║                       KERNEL SPACE                       ║
+╚══════════════════════════════════════════════════════════╝
 ```
 
 ---
 
-## Target Device
+## 🛡️ ghost.kpm — 15 Active Hooks
 
-| | |
-|---|---|
+The ghost kernel module intercepts every known detection vector at the syscall / VFS level.
+
+### Core Hiding
+
+| Hook | Target | Effect |
+|:-----|:-------|:-------|
+| `filldir64` | `ls`, `readdir()` | Hides 8 obfuscated dirs under `/data/adb/` |
+| `avc_denied` | SELinux enforcement | Transparent bypass for uid=0 processes |
+| `audit_log_start` | AVC audit subsystem | Suppresses SELinux violation logs from logcat/dmesg |
+
+### /proc Hiding
+
+| Hook | Target | Effect |
+|:-----|:-------|:-------|
+| `show_map_vma` | `/proc/pid/maps` | Filters root libraries, zygisk, riru, shamiko traces |
+| `show_mountinfo` | `/proc/pid/mounts` | Filters overlay, magisk, KSU mount entries |
+| `proc_pid_status` | `/proc/pid/status` | Forces `TracerPid: 0` — defeats anti-debug checks |
+| `proc_pid_wchan` | `/proc/pid/wchan` | Replaces KP wait symbols with `ep_poll` |
+
+### Kernel Info Hiding
+
+| Hook | Target | Effect |
+|:-----|:-------|:-------|
+| `devkmsg_read` | `/dev/kmsg`, `dmesg` | Filters KernelPatch boot/load traces |
+| `s_show` | `/proc/kallsyms` | Hides `supercall`, `kp_*`, `ghost_*` symbols |
+| `newuname` | `uname -r` | Spoofs both release AND version fields (consistent) |
+| `version_proc_show` | `/proc/version` | Spoofs full kernel version string |
+
+### File Existence Hiding
+
+| Hook | Target | Effect |
+|:-----|:-------|:-------|
+| `do_faccessat` | `access()` syscall | Returns `-ENOENT` for 22 root-related paths |
+| `vfs_fstatat` | `stat()` syscall | Same — blocks `stat("/system/bin/su")` |
+| `do_sys_openat2` | `open()` syscall | Same — blocks `open("/sbin/su")` |
+
+### SELinux Context Hiding
+
+| Hook | Target | Effect |
+|:-----|:-------|:-------|
+| `selinux_getprocattr` | `/proc/pid/attr/current` | Masks `u:r:su:s0` → `u:r:sh:s0` in-place |
+
+---
+
+## 📱 Spectre Manager
+
+<table>
+<tr>
+<td width="50%">
+
+**Root Management**
+- One-click boot image patching
+- AVB chain signature preservation (locked BL safe)
+- SuperUser permission control per-app
+- Custom SU path — hide it anywhere
+
+</td>
+<td width="50%">
+
+**Stealth Features**
+- Obfuscated directory structure (`.fk`, `.core`, `.sp_ext`)
+- Process disguised as system service
+- Log tags blend with Android system logs
+- SELinux context: `u:r:su:s0` (not `magisk`)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Module System**
+- Magisk-compatible module support
+- KPM (Kernel Patch Module) loader
+- ghost.kpm auto-loaded on boot
+- Meta-module support
+
+</td>
+<td>
+
+**Customization**
+- 12 app title presets
+- Custom desktop app name
+- Multiple theme options
+- Navigation layout settings
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎯 Target Device
+
+<table>
+<tr>
+<td>
+
+| Spec | Value |
+|:-----|:------|
 | **Device** | Lenovo Legion Y700 4th Gen |
 | **Model** | TB322FC |
 | **SoC** | Snapdragon 8 Elite (SM8650) |
-| **Kernel** | 6.6.56-android15 |
+| **Kernel** | 6.6.56-android15-8 |
 | **OS** | Android 15 / ZUI OS |
-| **Bootloader** | Locked (EDL/9008 flash supported) |
+| **BL Status** | Locked (EDL/9008 supported) |
+
+</td>
+<td>
+
+> **Why locked bootloader?**
+>
+> Spectre is designed to work with **locked bootloaders** via EDL (Qualcomm 9008 mode) flashing. Boot images are re-signed with the correct AVB chain keys, so the device boots normally without tripping verification.
+>
+> No bootloader unlock required. No orange warning screen.
+
+</td>
+</tr>
+</table>
 
 ---
 
-## Quick Start
-
-### 1. Install Spectre App
-
-Download the latest APK from [Releases](https://github.com/l11223/Spectre/releases) and install it.
-
-### 2. Patch Boot Image
-
-- Extract your stock `boot.img`
-- Open Spectre App → Patch → Select boot image
-- Flash the patched image (supports locked BL via EDL)
-
-### 3. Load ghost.kpm
-
-- Download `ghost.kpm` from Releases
-- Open Spectre App → KPM → Load Module
-- All 15 stealth hooks activate automatically
-
-### 4. Configure
-
-- **Change SU path**: Settings → Reset SU Path → Enter custom path
-- **Spoof kernel version**: ghost.kpm auto-spoofs to Pixel 9 Pro defaults
-- **Exclude apps**: SuperUser → Select app → Exclude from root
-
----
-
-## Build from Source
-
-### Prerequisites
-
-- JDK 17+
-- Android NDK r25c+
-- Rust toolchain with `aarch64-linux-android` target
-- `cargo-ndk`
-
-### Build
+## 🚀 Quick Start
 
 ```bash
-# Clone
-git clone https://github.com/l11223/Spectre.git
-cd Spectre
-
-# Build APK + KPM
-./gradlew assembleRelease
+# 1. Download latest APK + ghost.kpm from Releases
+# 2. Install Spectre APK on device
+# 3. Patch boot image via Spectre App
+# 4. Flash patched boot (fastboot or EDL for locked BL)
+# 5. Reboot → Open Spectre → Load ghost.kpm
+# 6. Done. You're invisible.
 ```
-
-GitHub Actions CI builds both APK and ghost.kpm automatically on every push.
 
 ---
 
-## Project Structure
+## 🔧 Build from Source
+
+```bash
+# Prerequisites: JDK 17+, Android NDK r25c+, Rust + cargo-ndk
+
+git clone https://github.com/l11223/Spectre.git
+cd Spectre
+./gradlew assembleRelease    # Builds APK + KPM
+```
+
+CI/CD: GitHub Actions automatically builds on every push.
+
+---
+
+## 📂 Project Structure
 
 ```
 Spectre/
-├── app/                    # Android manager app (Kotlin/Compose)
-│   ├── src/main/cpp/       # JNI bridge to KernelPatch supercall
-│   └── src/main/java/      # UI, patching, su management
-├── apd/                    # Root daemon (Rust)
+├── app/                          # Manager App (Kotlin/Compose)
+│   ├── src/main/cpp/             # JNI → KernelPatch supercall bridge
+│   └── src/main/java/            # UI, patching, SU management
+├── apd/                          # Root Daemon (Rust)
 │   └── src/
-│       ├── cli.rs          # Entry point, process disguise
-│       ├── apd.rs          # Root shell handler
-│       ├── supercall.rs    # Kernel supercall interface
-│       └── defs.rs         # Obfuscated path definitions
-├── kpm/ghost/              # Kernel stealth module (C)
-│   └── src/ghost_main.c   # 15 kernel hooks
-└── .github/workflows/     # CI/CD
+│       ├── cli.rs                # Entry + process disguise
+│       ├── apd.rs                # Root shell handler
+│       ├── supercall.rs          # Kernel interface + SU path mgmt
+│       └── defs.rs               # Obfuscated path definitions
+├── kpm/ghost/                    # Kernel Stealth Module (C)
+│   └── src/ghost_main.c          # 15 kernel hooks, ~600 lines
+└── .github/workflows/            # CI/CD pipeline
 ```
 
 ---
 
-## Acknowledgments
+## 🙏 Credits
 
-Built on the shoulders of giants:
-
-- [KernelPatch](https://github.com/bmax121/KernelPatch) — Kernel patching framework
-- [APatch](https://github.com/bmax121/APatch) — Android patching architecture
-- [FolkPatch](https://github.com/pomelohan/FolkPatch) — Fork base
+| Project | Role |
+|:--------|:-----|
+| [KernelPatch](https://github.com/bmax121/KernelPatch) | Kernel patching framework |
+| [APatch](https://github.com/bmax121/APatch) | Android patch architecture |
+| [FolkPatch](https://github.com/pomelohan/FolkPatch) | Fork base |
 
 ---
 
 <div align="center">
 
-*"The best root is the one nobody knows exists."*
+<br/>
 
-**GPL v2** · Made with ☕ and sleepless nights
+```
+"The best root is the one nobody knows exists."
+```
+
+<br/>
+
+**GPL v2** &nbsp;·&nbsp; Spectre v5 &nbsp;·&nbsp; ghost.kpm v5
+
+<sub>Made with persistence, caffeine, and an unhealthy obsession with kernel internals.</sub>
 
 </div>
