@@ -30,24 +30,21 @@ struct Args {
 /// After reading, immediately clear it from the environment.
 fn read_superkey_secure(cli_key: Option<String>) -> Option<String> {
     // Priority 1: Environment variable (safer - not in /proc/cmdline)
-    if let Ok(key) = std::env::var("SKEY") {
-        // Immediately remove from environment to minimize exposure window
-        // SAFETY: remove_var is unsafe in Rust 2024 edition due to potential
-        // race conditions in multi-threaded programs. We accept this risk as
-        // this runs early in single-threaded daemon startup.
+    let env_key = std::env::var("SKEY").ok().filter(|k| !k.is_empty());
+    if let Some(key) = env_key {
+        // SAFETY: remove_var is unsafe in Rust 2024+ due to race conditions.
+        // Acceptable here: runs early in single-threaded daemon startup.
         unsafe { std::env::remove_var("SKEY"); }
-        if !key.is_empty() {
-            return Some(key);
-        }
+        return Some(key);
     }
     // Priority 2: Temp file (safest - only accessible by owner)
-    if let std::result::Result::Ok(key) = std::fs::read_to_string("/data/adb/.fk/.skey") {
-        let key = key.trim().to_string();
-        // Delete the temp file immediately after reading
+    let file_key = std::fs::read_to_string("/data/adb/.fk/.skey")
+        .ok()
+        .map(|k| k.trim().to_string())
+        .filter(|k| !k.is_empty());
+    if let Some(key) = file_key {
         let _ = std::fs::remove_file("/data/adb/.fk/.skey");
-        if !key.is_empty() {
-            return Some(key);
-        }
+        return Some(key);
     }
     // Fallback: cmdline (legacy, insecure - will be removed in future)
     cli_key
