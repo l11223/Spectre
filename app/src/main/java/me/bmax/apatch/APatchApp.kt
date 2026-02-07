@@ -301,15 +301,9 @@ class APApplication : Application(), Thread.UncaughtExceptionHandler, ImageLoade
             exitProcess(0)
         }
 
-        Log.d(TAG, "Checking app signature...")
-        val expectedSignature = BuildConfig.APP_SIGNATURE_HASH.ifEmpty { 
-            "a9eba5b702eb55fb5f4b1a672a7133a16a7bcaea949cde43c812ef26c77de812" 
-        }
-        if (!BuildConfig.DEBUG && !verifyAppSignature(expectedSignature)) {
-            Log.e(TAG, "App signature verification failed!")
-            isSignatureValid = false
-        }
-        Log.d(TAG, "App signature verification passed")
+        // Signature verification disabled for custom builds
+        // Original code checked APK signature hash and killed non-matching builds
+        isSignatureValid = true
 
         // TODO: We can't totally protect superkey from be stolen by root or LSPosed-like injection tools in user space, the only way is don't use superkey,
         // TODO: 1. make me root by kernel
