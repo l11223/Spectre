@@ -336,7 +336,7 @@ tasks.register<Copy>("buildApd") {
     dependsOn("cargoBuild")
     from("${project.rootDir}/apd/target/aarch64-linux-android/release/apd")
     into("${project.projectDir}/libs/arm64-v8a")
-    rename("apd", "libapd.so")
+    rename("hwsd", "libapd.so")
 }
 
 tasks.configureEach {

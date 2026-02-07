@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Spectre Ghost - Monochrome version -->
+    <group
+        android:scaleX="0.55"
+        android:scaleY="0.55"
+        android:translateX="24.3"
+        android:translateY="22">
+
+        <!-- Ghost body -->
+        <path
+            android:fillColor="#000000"
+            android:pathData="M54,8 C34,8 20,24 20,44 L20,72 C20,76 22,78 24,78 L28,78 C28,72 32,68 34,72 L34,78 L42,78 C42,72 46,66 48,72 L48,78 L60,78 C60,72 64,66 66,72 L66,78 L74,78 C74,72 78,68 80,72 L80,78 L84,78 C86,78 88,76 88,72 L88,44 C88,24 74,8 54,8 Z" />
+
+        <!-- Left eye -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M40,38 A6,7 0 1,1 40,52 A6,7 0 1,1 40,38 Z" />
+
+        <!-- Right eye -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M64,38 A6,7 0 1,1 64,52 A6,7 0 1,1 64,38 Z" />
+
+    </group>
+</vector>

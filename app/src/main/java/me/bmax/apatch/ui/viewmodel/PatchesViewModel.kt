@@ -457,7 +457,7 @@ class PatchesViewModel : ViewModel() {
 
             if (mode == PatchMode.PATCH_AND_INSTALL || mode == PatchMode.INSTALL_TO_NEXT_SLOT) {
 
-                val KPCheck = shell.newJob().add("truncate $superkey -Z u:r:magisk:s0 -c whoami").exec()
+                val KPCheck = shell.newJob().add("truncate $superkey -Z u:r:su:s0 -c whoami").exec()
 
                 if (KPCheck.isSuccess && !isSuExecutable()) {
                     patchCommand.addAll(0, listOf("truncate", APApplication.superKey, "-Z", APApplication.MAGISK_SCONTEXT, "-c"))
