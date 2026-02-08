@@ -36,7 +36,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 
-private const val TAG = "APatchCli"
+private const val TAG = "SvcCli"
 
 private fun getKPatchPath(): String {
     return apApp.applicationInfo.nativeLibraryDir + File.separator + "libhwctl.so"

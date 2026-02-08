@@ -20,7 +20,7 @@ import javax.crypto.spec.GCMParameterSpec;
 public class APatchKeyHelper {
     protected static final String SUPER_KEY = "super_key";
     protected static final String SUPER_KEY_ENC = "super_key_enc";
-    private static final String TAG = "APatchSecurityHelper";
+    private static final String TAG = "SecurityHelper";
     private static final String ANDROID_KEYSTORE = "AndroidKeyStore";
     private static final String SKIP_STORE_SUPER_KEY = "skip_store_super_key";
     private static final String SUPER_KEY_IV = "super_key_iv";

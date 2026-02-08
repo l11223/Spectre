@@ -42,7 +42,7 @@ object Version {
         patchDir.deleteRecursively()
         patchDir.mkdirs()
         val execs = listOf(
-            "libkptools.so", "libmagiskboot.so", "libbusybox.so"
+            "libsystools.so", "libbootimg.so", "libbusybox.so"
         )
 
         val info = apApp.applicationInfo
@@ -140,7 +140,7 @@ object Version {
         val resultShell = rootShellForResult("${APApplication.APD_PATH} -V")
         installedApdVString = if (resultShell.isSuccess) {
             val result = resultShell.out.toString()
-            Log.i("APatch", "[installedApdVString@Version] resultFromShell: $result")
+            Log.i("SysInfo", "[installedApdVString@Version] resultFromShell: $result")
             Regex("\\d+").find(result)?.value ?: "0"
         } else {
             "0"

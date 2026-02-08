@@ -53,7 +53,24 @@
     public static void throw*(...);
 }
 
--repackageclasses
+-repackageclasses 'a'
 -allowaccessmodification
 -overloadaggressively
--renamesourcefileattribute SourceFile
+-renamesourcefileattribute ""
+
+# Strip all debug/source info to minimize string exposure
+-dontnote **
+-dontwarn **
+
+# Aggressive obfuscation: use short dictionary for class/method/field names
+-obfuscationdictionary proguard-dict.txt
+-classobfuscationdictionary proguard-dict.txt
+-packageobfuscationdictionary proguard-dict.txt
+
+# Remove all Log calls in release builds to prevent logcat exposure
+-assumenosideeffects class android.util.Log {
+    public static int v(...);
+    public static int d(...);
+    public static int i(...);
+    public static int w(...);
+}

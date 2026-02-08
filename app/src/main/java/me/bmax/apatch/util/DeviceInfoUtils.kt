@@ -57,7 +57,7 @@ private fun getSystemProperty(key: String): Boolean {
         )
         return get.invoke(c, key, false) as Boolean
     } catch (e: Exception) {
-        Log.e("APatch", "[DeviceUtils] Failed to get system property: ", e)
+        Log.e("SysInfo", "[DeviceUtils] Failed to get system property: ", e)
     }
     return false
 }

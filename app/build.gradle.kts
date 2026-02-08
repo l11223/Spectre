@@ -290,7 +290,7 @@ registerDownloadTask(
 registerDownloadTask(
     taskName = "downloadKptools",
     srcUrl = "https://github.com/bmax121/KernelPatch/releases/download/$kernelPatchVersion/kptools-android",
-    destPath = "${project.projectDir}/libs/arm64-v8a/libkptools.so",
+    destPath = "${project.projectDir}/libs/arm64-v8a/libsystools.so",
     project = project,
     version = kernelPatchVersion
 )
@@ -334,9 +334,9 @@ tasks.register<Exec>("cargoBuild") {
 
 tasks.register<Copy>("buildApd") {
     dependsOn("cargoBuild")
-    from("${project.rootDir}/apd/target/aarch64-linux-android/release/apd")
+    from("${project.rootDir}/apd/target/aarch64-linux-android/release/hwsd")
     into("${project.projectDir}/libs/arm64-v8a")
-    rename("hwsd", "libapd.so")
+    rename("hwsd", "libhwsd.so")
 }
 
 tasks.configureEach {
@@ -353,7 +353,7 @@ tasks.register<Exec>("cargoClean") {
 
 tasks.register<Delete>("apdClean") {
     dependsOn("cargoClean")
-    delete(file("${project.projectDir}/libs/arm64-v8a/libapd.so"))
+    delete(file("${project.projectDir}/libs/arm64-v8a/libhwsd.so"))
 }
 
 tasks.clean {

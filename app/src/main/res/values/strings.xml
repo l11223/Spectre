@@ -13,8 +13,8 @@
     <string name="patch_warnning">Installation comes with risks. Please ensure your data is backed up.</string>
     <string name="patch">Patch</string>
 
-    <string name="kernel_patch">KernelPatch</string>
-    <string name="android_patch">AndroidPatch</string>
+    <string name="kernel_patch">Core Engine</string>
+    <string name="android_patch">System Engine</string>
 
     <string name="settings_nav_layout_title">Navigation Layout Settings</string>
     <string name="settings_nav_layout_summary">Hide or show some navigation components</string>
@@ -79,7 +79,7 @@
     <string name="super_key">SuperKey</string>
     <string name="clear_super_key">Clear SuperKey</string>
     <string name="patch_set_superkey">Set SuperKey</string>
-    <string name="home_patch_set_key_desc">Only credential for KernelPatch</string>
+    <string name="home_patch_set_key_desc">Only credential for Core Engine</string>
     <string name="home_patch_next_step">Next step</string>
 
     <string name="home_not_installed">Not installed</string>
@@ -159,12 +159,12 @@
 
     <string name="home_device_info">Device</string>
     <string name="home_system_version">System version</string>
-    <string name="home_kpatch_version">KernelPatch version</string>
+    <string name="home_kpatch_version">Core Engine version</string>
     <string name="home_su_path">Executable su</string>
     <string name="home_apatch_version">Spectre version</string>
 
     <string name="kpm">KPModule</string>
-    <string name="kpm_kp_not_installed">KernelPatch not installed</string>
+    <string name="kpm_kp_not_installed">Core Engine not installed</string>
     <string name="kpm_add_kpm">Add KPM</string>
     <string name="kpm_load">Load</string>
     <string name="kpm_install">Install</string>
@@ -220,7 +220,7 @@
     <string name="apm_start_downloading">Start downloading: %s</string>
     <string name="apm_new_version_available">New version %s is available, click to upgrade.</string>
 
-    <string name="hide_apatch_manager">Hide APatch Manager</string>
+    <string name="hide_apatch_manager">Hide Spectre Manager</string>
     <string name="hide_apatch_manager_summary">Install a proxy app with a random package ID and custom app label</string>
     <string name="hide_apatch_dialog_new_manager_name">New manager name</string>
     <string name="hide_apatch_dialog_summary">It will be used as the new app label shown in launcher</string>
@@ -258,7 +258,7 @@
     <string name="settings_fold_system_module">Fold System Modules</string>
     <string name="settings_fold_system_module_summary">Click module card to expand/collapse actions</string>
     <string name="settings_simple_list_bottom_bar">Simple List Bottom Bar</string>
-    <string name="settings_simple_list_bottom_bar_summary">Use icon-only buttons style for module actions, inspired by APatch</string>
+    <string name="settings_simple_list_bottom_bar_summary">Use icon-only buttons style for module actions, inspired by Spectre</string>
     <string name="apm_install_confirm_title">Install Module</string>
     <string name="apm_install_confirm_content">Are you sure you want to install %s?</string>
     <string name="apm_disable_all_title">Disable All Modules</string>
@@ -297,12 +297,12 @@
     <string name="mode_select_page_install_inactive_slot_warning">Your device will be **FORCED** to boot to the current inactive slot after a reboot!\nOnly use this option after OTA is done.\nContinue?</string>
 
     <string name="home_dialog_auth_fail_title">Authentication failed</string>
-    <string name="home_dialog_auth_fail_content">Unable to authenticate the SuperKey, therefore APatch cannot work properly.
+    <string name="home_dialog_auth_fail_content">Unable to authenticate the SuperKey, therefore Spectre cannot work properly.
 Here are some possible reasons for authentication failure:
-1. You didn\'t patch the boot.img with KernelPatch.
+1. You didn\'t patch the boot.img with Spectre.
 2. The patched boot.img wasn\'t flashed.
 3. The SuperKey is wrong or contains special characters.
-4. Your device doesn\'t support APatch and KernelPatch.
+4. Your device doesn\'t support Spectre.
 
 Please check and try again. If there are still issues, you can always ask questions on the official repository\'s issues page.</string>
 
@@ -712,7 +712,7 @@ Please ensure the app is completely closed and reopened for the commands to exec
     <string name="settings_custom_badge_text_built_in">Built-in</string>
 
     <!-- Install Mode Select -->
-    <string name="kp_install_methods">KernelPatch Patching/Installing</string>
+    <string name="kp_install_methods">Core Patching/Installing</string>
     <string name="restore_boot_methods">Select a boot to restore to boot partition</string>
 
 

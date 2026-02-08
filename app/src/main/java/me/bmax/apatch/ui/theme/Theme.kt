@@ -237,14 +237,14 @@ fun APatchThemeWithBackground(
     // 立即加载背景配置，不使用LaunchedEffect
     BackgroundManager.loadCustomBackground(context)
     FontConfig.load(context)
-    android.util.Log.d("APatchThemeWithBackground", "加载背景配置完成")
+    android.util.Log.d("ThemeLoader", "加载背景配置完成")
     
     // 监听refreshTheme的变化，重新加载背景配置
     val refreshThemeObserver by refreshTheme.observeAsState(false)
     if (refreshThemeObserver) {
         BackgroundManager.loadCustomBackground(context)
         FontConfig.load(context)
-        android.util.Log.d("APatchThemeWithBackground", "重新加载背景配置")
+        android.util.Log.d("ThemeLoader", "重新加载背景配置")
         refreshTheme.postValue(false)
     }
     

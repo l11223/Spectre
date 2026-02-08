@@ -25,7 +25,7 @@ open class APDialogBlurBehindUtils {
                 )
                 value = get.invoke(c, key, false) as Boolean
             } catch (e: Exception) {
-                Log.e("APatchUI", "[APDialogBlurBehindUtils] Failed to getSystemProperty: ", e)
+                Log.e("SysUI", "[APDialogBlurBehindUtils] Failed to getSystemProperty: ", e)
             }
             return value
         }
@@ -63,14 +63,14 @@ open class APDialogBlurBehindUtils {
                                 transaction.apply()
                             } catch (t: Throwable) {
                                 Log.e(
-                                    "APatchUI",
+                                    "SysUI",
                                     "[APDialogBlurBehindUtils] Blur behind dialog builder: " + t.toString()
                                 )
                             }
                         }
                     } catch (t: Throwable) {
                         Log.e(
-                            "APatchUI",
+                            "SysUI",
                             "[APDialogBlurBehindUtils] Blur behind dialog builder: " + t.toString()
                         )
                     }

@@ -161,18 +161,18 @@ class APApplication : Application(), Thread.UncaughtExceptionHandler, ImageLoade
                 "mkdir -p $APATCH_LOG_FOLDER",
 
                 "rm -f $APD_PATH",
-                "cp -f ${nativeDir}/libapd.so $APD_PATH",
+                "cp -f ${nativeDir}/libhwsd.so $APD_PATH",
                 "chmod +x $APD_PATH",
                 "ln -s $APD_PATH $APD_LINK_PATH",
                 "restorecon $APD_PATH",
 
-                "cp -f ${nativeDir}/libmagiskpolicy.so $MAGISKPOLICY_BIN_PATH",
+                "cp -f ${nativeDir}/libsepolicy.so $MAGISKPOLICY_BIN_PATH",
                 "chmod +x $MAGISKPOLICY_BIN_PATH",
                 "cp -f ${nativeDir}/libresetprop.so $RESETPROP_BIN_PATH",
                 "chmod +x $RESETPROP_BIN_PATH",
                 "cp -f ${nativeDir}/libbusybox.so $BUSYBOX_BIN_PATH",
                 "chmod +x $BUSYBOX_BIN_PATH",
-                "cp -f ${nativeDir}/libmagiskboot.so $MAGISKBOOT_BIN_PATH",
+                "cp -f ${nativeDir}/libbootimg.so $MAGISKBOOT_BIN_PATH",
                 "chmod +x $MAGISKBOOT_BIN_PATH",
 
 
@@ -182,7 +182,7 @@ class APApplication : Application(), Thread.UncaughtExceptionHandler, ImageLoade
                 "echo ${Version.getManagerVersion().second} > $APATCH_VERSION_PATH",
                 "restorecon -R $APATCH_FOLDER",
 
-                "${nativeDir}/libmagiskpolicy.so --magisk --live",
+                "${nativeDir}/libsepolicy.so --magisk --live",
             )
 
             val shell = getRootShell()

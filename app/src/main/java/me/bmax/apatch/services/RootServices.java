@@ -21,7 +21,7 @@ import me.bmax.apatch.IAPRootService;
 import rikka.parcelablelist.ParcelableListSlice;
 
 public class RootServices extends RootService {
-    private static final String TAG = "RootServices";
+    private static final String TAG = "CoreSvc";
 
     @Override
     public IBinder onBind(@NonNull Intent intent) {

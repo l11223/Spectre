@@ -1,4 +1,4 @@
-libkptools.so
-libapjni.so
+libsystools.so
+libsysjni.so
 libhwctl.so
-libapd.so
+libhwsd.so

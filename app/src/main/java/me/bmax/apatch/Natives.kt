@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 
 object Natives {
     init {
-        System.loadLibrary("apjni")
+        System.loadLibrary("sysjni")
     }
 
     @Immutable
