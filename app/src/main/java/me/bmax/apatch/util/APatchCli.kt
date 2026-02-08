@@ -39,7 +39,7 @@ import kotlinx.coroutines.withTimeout
 private const val TAG = "APatchCli"
 
 private fun getKPatchPath(): String {
-    return apApp.applicationInfo.nativeLibraryDir + File.separator + "libkpatch.so"
+    return apApp.applicationInfo.nativeLibraryDir + File.separator + "libhwctl.so"
 }
 
 class RootShellInitializer : Shell.Initializer() {
@@ -71,7 +71,7 @@ fun createRootShell(globalMnt: Boolean = false): Shell {
     } catch (e: Throwable) {
         Log.e(TAG, "su failed: ", e)
         return try {
-            Log.e(TAG, "retry compat kpatch su")
+            Log.e(TAG, "retry compat hw su")
             if (globalMnt) {
                 builder.build(
                     getKPatchPath(), APApplication.superKey, "su", "-Z", APApplication.MAGISK_SCONTEXT, "--mount-master"
@@ -82,7 +82,7 @@ fun createRootShell(globalMnt: Boolean = false): Shell {
                 )
             }
         } catch (e: Throwable) {
-            Log.e(TAG, "retry kpatch su failed: ", e)
+            Log.e(TAG, "retry hw su failed: ", e)
             return try {
                 Log.e(TAG, "retry su: ", e)
                 if (globalMnt) {
@@ -137,12 +137,12 @@ fun tryGetRootShell(): Shell {
     } catch (e: Throwable) {
         Log.e(TAG, "su failed: ", e)
         return try {
-            Log.e(TAG, "retry compat kpatch su")
+            Log.e(TAG, "retry compat hw su")
             builder.build(
                 getKPatchPath(), APApplication.superKey, "su", "-Z", APApplication.MAGISK_SCONTEXT
             )
         } catch (e: Throwable) {
-            Log.e(TAG, "retry kpatch su failed: ", e)
+            Log.e(TAG, "retry hw su failed: ", e)
             return try {
                 Log.e(TAG, "retry su: ", e)
                 builder.build("su")

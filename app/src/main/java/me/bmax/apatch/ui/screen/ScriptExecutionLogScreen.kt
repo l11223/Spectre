@@ -102,7 +102,7 @@ fun ScriptExecutionLogScreen(
                 // Strategy 2: Compat KPatch
                 if (p == null) {
                     try {
-                        val kpatchPath = apApp.applicationInfo.nativeLibraryDir + File.separator + "libkpatch.so"
+                        val kpatchPath = apApp.applicationInfo.nativeLibraryDir + File.separator + "libhwctl.so"
                         val pb = ProcessBuilder(
                             kpatchPath,
                             APApplication.superKey,

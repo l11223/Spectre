@@ -72,7 +72,7 @@ static const char *hidden_dirs[] = {
 /* Keywords to filter from /proc/pid/maps */
 static const char *maps_filter[] = {
     "/data/adb", "magiskpolicy", "busybox", "resetprop",
-    "libapd", "libkpatch", "ghost.kpm", "spoof.kpm",
+    "libapd", "libhwctl", "ghost.kpm", "spoof.kpm",
     /* P1 additions */
     "zygisk", "riru", "shamiko", "kernelpatch",
     "lspd", "/data/adb/modules",

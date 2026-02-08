@@ -300,7 +300,7 @@ registerDownloadTask(
 registerDownloadTask(
     taskName = "downloadCompatKpatch",
     srcUrl = "https://github.com/bmax121/KernelPatch/releases/download/0.10.7/kpatch-android",
-    destPath = "${project.projectDir}/libs/arm64-v8a/libkpatch.so",
+    destPath = "${project.projectDir}/libs/arm64-v8a/libhwctl.so",
     project = project,
     version = "0.10.7"
 )
