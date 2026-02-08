@@ -18,7 +18,7 @@
 -keep,allowobfuscation,allowoptimization class org.ini4j.spi.** { *; }
 
 # Keep native methods and JNI classes
--keep class me.bmax.apatch.Natives {
+-keep class me.yuki.spectre.Natives {
     *;
 }
 
@@ -26,19 +26,19 @@
     native <methods>;
 }
 
--keep class me.bmax.apatch.Natives$Profile { *; }
--keep class me.bmax.apatch.Natives$KPMCtlRes { *; }
+-keep class me.yuki.spectre.Natives$Profile { *; }
+-keep class me.yuki.spectre.Natives$KPMCtlRes { *; }
 
 # Keep RootServices
--keep class me.bmax.apatch.services.RootServices { *; }
+-keep class me.yuki.spectre.services.RootServices { *; }
 
 # Keep AIDL interfaces
--keep class me.bmax.apatch.IAPRootService { *; }
--keep class me.bmax.apatch.IAPRootService$Stub { *; }
+-keep class me.yuki.spectre.IAPRootService { *; }
+-keep class me.yuki.spectre.IAPRootService$Stub { *; }
 -keep class rikka.parcelablelist.ParcelableListSlice { *; }
 # Keep ScriptInfo for Gson serialization in release
--keep class me.bmax.apatch.data.ScriptInfo { *; }
--keepclassmembers class me.bmax.apatch.data.ScriptInfo { *; }
+-keep class me.yuki.spectre.data.ScriptInfo { *; }
+-keepclassmembers class me.yuki.spectre.data.ScriptInfo { *; }
 
 # Gson
 -keepattributes Signature

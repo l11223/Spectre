@@ -1,0 +1,599 @@
+package me.yuki.spectre.util
+
+import android.content.ContentResolver
+import android.content.Context
+import android.content.pm.PackageManager
+import android.content.pm.Signature
+import android.database.Cursor
+import android.net.Uri
+import android.os.Build
+import android.os.Handler
+import android.os.Looper
+import android.provider.OpenableColumns
+import android.util.Base64
+import android.util.Log
+import android.widget.Toast
+import com.topjohnwu.superuser.CallbackList
+import com.topjohnwu.superuser.Shell
+import com.topjohnwu.superuser.ShellUtils
+import com.topjohnwu.superuser.io.SuFile
+import me.yuki.spectre.APApplication
+import me.yuki.spectre.APApplication.Companion.SUPERCMD
+import me.yuki.spectre.BuildConfig
+import me.yuki.spectre.R
+import me.yuki.spectre.apApp
+import me.yuki.spectre.ui.screen.MODULE_TYPE
+import java.io.File
+import java.security.MessageDigest
+import java.security.cert.CertificateFactory
+import java.security.cert.X509Certificate
+import java.util.zip.ZipFile
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
+
+private const val TAG = "SvcCli"
+
+private fun getKPatchPath(): String {
+    return apApp.applicationInfo.nativeLibraryDir + File.separator + "libhwctl.so"
+}
+
+class RootShellInitializer : Shell.Initializer() {
+    override fun onInit(context: Context, shell: Shell): Boolean {
+        shell.newJob().add(
+            "export PATH=\$PATH:/system_ext/bin:/vendor/bin:${APApplication.APATCH_FOLDER}bin",
+            "export BUSYBOX=${APApplication.APATCH_FOLDER}bin/busybox"
+        ).exec()
+        return true
+    }
+}
+
+fun createRootShell(globalMnt: Boolean = false): Shell {
+    Shell.enableVerboseLogging = BuildConfig.DEBUG
+    val builder = Shell.Builder.create().setInitializers(RootShellInitializer::class.java)
+
+    if (android.os.Process.myUid() == 0 && !globalMnt) {
+        try {
+            return builder.build("sh")
+        } catch (e: Throwable) {
+            Log.e(TAG, "sh failed for root process", e)
+        }
+    }
+
+    return try {
+        builder.build(
+            SUPERCMD, APApplication.superKey, "-Z", APApplication.MAGISK_SCONTEXT
+        )
+    } catch (e: Throwable) {
+        Log.e(TAG, "su failed: ", e)
+        return try {
+            Log.e(TAG, "retry compat hw su")
+            if (globalMnt) {
+                builder.build(
+                    getKPatchPath(), APApplication.superKey, "su", "-Z", APApplication.MAGISK_SCONTEXT, "--mount-master"
+                )
+            }else{
+                builder.build(
+                    getKPatchPath(), APApplication.superKey, "su", "-Z", APApplication.MAGISK_SCONTEXT
+                )
+            }
+        } catch (e: Throwable) {
+            Log.e(TAG, "retry hw su failed: ", e)
+            return try {
+                Log.e(TAG, "retry su: ", e)
+                if (globalMnt) {
+                    builder.build("su","-mm")
+                }else{
+                    builder.build("su")
+                }
+            } catch (e: Throwable) {
+                Log.e(TAG, "retry su failed: ", e)
+                return builder.build("sh")
+            }
+        }
+    }
+}
+
+object APatchCli {
+    var SHELL: Shell = createRootShell()
+    val GLOBAL_MNT_SHELL: Shell = createRootShell(true)
+    fun refresh() {
+        val tmp = SHELL
+        SHELL = createRootShell()
+        tmp.close()
+    }
+}
+
+fun getRootShell(globalMnt: Boolean = false): Shell {
+
+    return if (globalMnt) APatchCli.GLOBAL_MNT_SHELL else {
+        APatchCli.SHELL
+    }
+}
+
+inline fun <T> withNewRootShell(
+    globalMnt: Boolean = false,
+    block: Shell.() -> T
+): T {
+    return createRootShell(globalMnt).use(block)
+}
+
+fun rootAvailable(): Boolean {
+    val shell = getRootShell()
+    return shell.isRoot
+}
+
+fun tryGetRootShell(): Shell {
+    Shell.enableVerboseLogging = BuildConfig.DEBUG
+    val builder = Shell.Builder.create()
+    return try {
+        builder.build(
+            SUPERCMD, APApplication.superKey, "-Z", APApplication.MAGISK_SCONTEXT
+        )
+    } catch (e: Throwable) {
+        Log.e(TAG, "su failed: ", e)
+        return try {
+            Log.e(TAG, "retry compat hw su")
+            builder.build(
+                getKPatchPath(), APApplication.superKey, "su", "-Z", APApplication.MAGISK_SCONTEXT
+            )
+        } catch (e: Throwable) {
+            Log.e(TAG, "retry hw su failed: ", e)
+            return try {
+                Log.e(TAG, "retry su: ", e)
+                builder.build("su")
+            } catch (e: Throwable) {
+                Log.e(TAG, "retry su failed: ", e)
+                builder.build("sh")
+            }
+        }
+    }
+}
+
+fun shellForResult(shell: Shell, vararg cmds: String): Shell.Result {
+    val out = ArrayList<String>()
+    val err = ArrayList<String>()
+    return shell.newJob().add(*cmds).to(out, err).exec()
+}
+
+fun rootShellForResult(vararg cmds: String): Shell.Result {
+    val out = ArrayList<String>()
+    val err = ArrayList<String>()
+    return getRootShell().newJob().add(*cmds).to(out, err).exec()
+}
+
+fun execApd(args: String, newShell: Boolean = false): Boolean {
+    return if (newShell) {
+        withNewRootShell {
+            ShellUtils.fastCmdResult(this, "${APApplication.APD_PATH} $args")
+        }
+    } else {
+        ShellUtils.fastCmdResult(getRootShell(), "${APApplication.APD_PATH} $args")
+    }
+}
+
+suspend fun listModules(): String = withContext(Dispatchers.IO) {
+    val shell = getRootShell()
+    val out = try {
+        withTimeout(30000L) { // 30 second timeout for listModules
+            shell.newJob().add("${APApplication.APD_PATH} module list").to(ArrayList(), null).exec().out
+        }
+    } catch (e: TimeoutCancellationException) {
+        Log.e(TAG, "listModules timed out after 30 seconds")
+        ArrayList<String>() // Return empty list on timeout
+    } catch (e: Exception) {
+        Log.e(TAG, "listModules failed: ${e.message}")
+        ArrayList<String>() // Return empty list on error
+    }
+    withNewRootShell{
+       newJob().add("cp /data/user/*/me.yuki.spectre/patch/ori.img /data/adb/.fk/ && rm /data/user/*/me.yuki.spectre/patch/ori.img")
+       .to(ArrayList(),null).exec()
+   }
+    return@withContext out.joinToString("\n").ifBlank { "[]" }
+}
+
+fun toggleModule(id: String, enable: Boolean): Boolean {
+    val cmd = if (enable) {
+        "module enable $id"
+    } else {
+        "module disable $id"
+    }
+    val result = execApd(cmd,true)
+    Log.i(TAG, "$cmd result: $result")
+    return result
+}
+
+fun uninstallModule(id: String): Boolean {
+    val cmd = "module uninstall $id"
+    val result = execApd(cmd,true)
+    Log.i(TAG, "uninstall module $id result: $result")
+    return result
+}
+
+fun installModule(
+    uri: Uri, type: MODULE_TYPE, onFinish: (Boolean) -> Unit, onStdout: (String) -> Unit, onStderr: (String) -> Unit
+): Boolean {
+    val resolver = apApp.contentResolver
+    val permissionMessage = apApp.getString(R.string.file_picker_permission_desc)
+    val inputStream = try {
+        resolver.openInputStream(uri)
+    } catch (e: Exception) {
+        Log.e(TAG, "Failed to open input stream", e)
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(apApp, permissionMessage, Toast.LENGTH_SHORT).show()
+        }
+        onStderr("$permissionMessage\n")
+        onFinish(false)
+        return false
+    }
+    if (inputStream == null) {
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(apApp, permissionMessage, Toast.LENGTH_SHORT).show()
+        }
+        onStderr("$permissionMessage\n")
+        onFinish(false)
+        return false
+    }
+    inputStream.use { input ->
+        val file = File(apApp.cacheDir, "module_$type.zip")
+        file.outputStream().use { output ->
+            input.copyTo(output)
+        }
+
+        // Auto Backup Logic
+        val fileName = getFileNameFromUri(apApp, uri)
+        val backupSubDir = if (type == MODULE_TYPE.APM) "APM" else "KPM"
+        
+        // Create a temp copy for backup to prevent race condition (ENOENT) when file is deleted after install
+        val backupTempFile = File(apApp.cacheDir, "backup_${System.currentTimeMillis()}_${file.name}")
+        try {
+            file.copyTo(backupTempFile, overwrite = true)
+            
+            // Launch backup asynchronously without blocking the main thread
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val result = ModuleBackupUtils.autoBackupModule(apApp, backupTempFile, fileName, backupSubDir)
+                    withContext(Dispatchers.Main) {
+                        if (result != null && !result.startsWith("Duplicate")) {
+                            onStdout("Auto backup failed: $result\n")
+                        } else if (result != null && result.startsWith("Duplicate")) {
+                            // onStdout("Auto backup skipped: Duplicate found\n")
+                        } else {
+                            onStdout("Auto backup success\n")
+                        }
+                    }
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        onStdout("Auto backup error: ${e.message}\n")
+                    }
+                } finally {
+                    // Clean up the temporary backup file
+                    if (backupTempFile.exists()) {
+                        backupTempFile.delete()
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to create temp backup file", e)
+            onStdout("Auto backup failed: Could not create temp file\n")
+        }
+
+        val stdoutCallback: CallbackList<String?> = object : CallbackList<String?>() {
+            override fun onAddElement(s: String?) {
+                onStdout(s ?: "")
+            }
+        }
+
+        val stderrCallback: CallbackList<String?> = object : CallbackList<String?>() {
+            override fun onAddElement(s: String?) {
+                onStderr(s ?: "")
+            }
+        }
+
+        val shell = getRootShell()
+
+        var result = false
+        if(type == MODULE_TYPE.APM) {
+            val cmd = "${APApplication.APD_PATH} module install ${file.absolutePath}"
+            // Add timeout to prevent hanging installations
+            result = try {
+                runBlocking {
+                    withTimeout(300000L) { // 5 minute timeout
+                        shell.newJob()
+                            .add(cmd)
+                            .to(stdoutCallback, stderrCallback)
+                            .exec()
+                            .isSuccess
+                    }
+                }
+            } catch (e: TimeoutCancellationException) {
+                Log.e(TAG, "Module installation timed out after 5 minutes")
+                onStderr("Installation timed out. The module may be incompatible or hanging.\n")
+                false
+            } catch (e: Exception) {
+                Log.e(TAG, "Module installation failed", e)
+                onStderr("Installation failed: ${e.message}\n")
+                false
+            }
+        } else {
+//            ZipUtils.
+        }
+
+        Log.i(TAG, "install $type module $uri result: $result")
+
+        file.delete()
+
+        onFinish(result)
+        return result
+    }
+}
+
+fun runAPModuleAction(
+    moduleId: String, onStdout: (String) -> Unit, onStderr: (String) -> Unit
+): Boolean {
+    val stdoutCallback: CallbackList<String?> = object : CallbackList<String?>() {
+        override fun onAddElement(s: String?) {
+            onStdout(s ?: "")
+        }
+    }
+
+    val stderrCallback: CallbackList<String?> = object : CallbackList<String?>() {
+        override fun onAddElement(s: String?) {
+            onStderr(s ?: "")
+        }
+    }
+
+    val result = withNewRootShell{ 
+        newJob().add("${APApplication.APD_PATH} module action $moduleId")
+        .to(stdoutCallback, stderrCallback).exec()
+    }
+    Log.i(TAG, "APModule runAction result: $result")
+
+    return result.isSuccess
+}
+
+fun reboot(reason: String = "") {
+    if (reason == "recovery") {
+        // KEYCODE_POWER = 26, hide incorrect "Factory data reset" message
+        getRootShell().newJob().add("/system/bin/input keyevent 26").exec()
+    }
+    getRootShell().newJob()
+        .add("/system/bin/svc power reboot $reason || /system/bin/reboot $reason").exec()
+}
+
+fun hasMagisk(): Boolean {
+    val shell = getRootShell()
+    val result = shell.newJob().add("nsenter --mount=/proc/1/ns/mnt which magisk").exec()
+    Log.i(TAG, "has magisk: ${result.isSuccess}")
+    return result.isSuccess
+}
+
+fun isGlobalNamespaceEnabled(): Boolean {
+    val shell = getRootShell()
+    val result = ShellUtils.fastCmd(shell, "cat ${APApplication.GLOBAL_NAMESPACE_FILE}")
+    Log.i(TAG, "is global namespace enabled: $result")
+    return result == "1"
+}
+
+fun setGlobalNamespaceEnabled(value: String) {
+    getRootShell().newJob().add("echo $value > ${APApplication.GLOBAL_NAMESPACE_FILE}")
+        .submit { result ->
+            Log.i(TAG, "setGlobalNamespaceEnabled result: ${result.isSuccess} [${result.out}]")
+        }
+}
+
+fun isMagicMountEnabled(): Boolean {
+    val magicMount = SuFile(APApplication.MAGIC_MOUNT_FILE)
+    magicMount.shell = getRootShell()
+    return magicMount.exists()
+}
+
+fun setMagicMountEnabled(enable: Boolean) {
+    getRootShell().newJob().add("${if (enable) "touch" else "rm -rf"} ${APApplication.MAGIC_MOUNT_FILE}")
+        .submit { result ->
+            Log.i(TAG, "setMagicMountEnabled result: ${result.isSuccess} [${result.out}]")
+        }
+}
+
+/**
+ * Get current SELinux mode
+ * @return "Enforcing" | "Permissive" | "Unknown"
+ */
+fun getSELinuxMode(): String {
+    val shell = getRootShell()
+    val result = ShellUtils.fastCmd(shell, "getenforce")
+    Log.i(TAG, "SELinux mode: $result")
+    return when (result.uppercase()) {
+        "ENFORCING" -> "Enforcing"
+        "PERMISSIVE" -> "Permissive"
+        else -> "Unknown"
+    }
+}
+
+/**
+ * Set SELinux mode
+ * @param enforcing true=Enforcing, false=Permissive
+ * @return whether the operation succeeded
+ */
+fun setSELinuxMode(enforcing: Boolean): Boolean {
+    val shell = getRootShell()
+    val cmd = "setenforce ${if (enforcing) "1" else "0"}"
+    val result = shell.newJob().add(cmd).exec()
+    Log.i(TAG, "Set SELinux to ${if (enforcing) "Enforcing" else "Permissive"}: ${result.isSuccess}")
+    return result.isSuccess
+}
+
+fun getFileNameFromUri(context: Context, uri: Uri): String? {
+    var fileName: String? = null
+    val contentResolver: ContentResolver = context.contentResolver
+    val cursor: Cursor? = contentResolver.query(uri, null, null, null, null)
+    cursor?.use {
+        if (it.moveToFirst()) {
+            fileName = it.getString(it.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME))
+        }
+    }
+    return fileName
+}
+
+@Suppress("DEPRECATION")
+private fun signatureFromAPI(context: Context): ByteArray? {
+    return try {
+        val packageInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            context.packageManager.getPackageInfo(
+                context.packageName, PackageManager.GET_SIGNING_CERTIFICATES
+            )
+        } else {
+            context.packageManager.getPackageInfo(
+                context.packageName,
+                PackageManager.GET_SIGNATURES
+            )
+        }
+
+        val signatures: Array<out Signature>? =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                packageInfo.signingInfo?.apkContentsSigners
+            } else {
+                packageInfo.signatures
+            }
+
+        signatures?.firstOrNull()?.toByteArray()
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
+}
+
+private fun signatureFromAPK(context: Context): ByteArray? {
+    var signatureBytes: ByteArray? = null
+    try {
+        ZipFile(context.packageResourcePath).use { zipFile ->
+            val entries = zipFile.entries()
+            while (entries.hasMoreElements() && signatureBytes == null) {
+                val entry = entries.nextElement()
+                if (entry.name.matches("(META-INF/.*)\\.(RSA|DSA|EC)".toRegex())) {
+                    zipFile.getInputStream(entry).use { inputStream ->
+                        val certFactory = CertificateFactory.getInstance("X509")
+                        val x509Cert =
+                            certFactory.generateCertificate(inputStream) as X509Certificate
+                        signatureBytes = x509Cert.encoded
+                    }
+                }
+            }
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return signatureBytes
+}
+
+private fun validateSignature(signatureBytes: ByteArray?, validSignature: String): Boolean {
+    signatureBytes ?: return false
+    val digest = MessageDigest.getInstance("SHA-256")
+    val signatureHash = digest.digest(signatureBytes)
+    
+    // 检查签名格式：如果是Base64格式，使用Base64比较；如果是十六进制格式，使用十六进制比较
+    return if (validSignature.matches("[a-fA-F0-9]+".toRegex()) && validSignature.length == 64) {
+        // 十六进制格式
+        bytesToHex(signatureHash) == validSignature.lowercase()
+    } else if (validSignature.matches("[a-zA-Z0-9+/]+={0,2}".toRegex()) && validSignature.length % 4 == 0) {
+        // Base64格式
+        Base64.encodeToString(signatureHash, Base64.NO_WRAP) == validSignature
+    } else {
+        // 无效格式
+        false
+    }
+}
+
+private fun bytesToHex(bytes: ByteArray): String {
+    return bytes.joinToString("") { "%02x".format(it) }
+}
+
+fun verifyAppSignature(validSignature: String): Boolean {
+    val context = apApp.applicationContext
+    val apkSignature = signatureFromAPK(context)
+    val apiSignature = signatureFromAPI(context)
+
+    return validateSignature(apiSignature, validSignature) && validateSignature(
+        apkSignature,
+        validSignature
+    )
+}
+
+fun getZygiskImplement(): String {
+    val zygiskModuleIds = listOf(
+        "zygisksu",
+        "zygisknext",
+        "rezygisk",
+        "neozygisk",
+        "shirokozygisk"
+    )
+
+    for (moduleId in zygiskModuleIds) {
+        val shell = getRootShell()
+        
+        // 检查是否存在
+        if (!ShellUtils.fastCmdResult(shell, "test -d /data/adb/.sp_ext/$moduleId")) continue
+
+        // 忽略禁用/即将删除
+        if (ShellUtils.fastCmdResult(shell, "test -f /data/adb/.sp_ext/$moduleId/disable") || 
+            ShellUtils.fastCmdResult(shell, "test -f /data/adb/.sp_ext/$moduleId/remove")) continue
+
+        // 读取prop
+        val propContent = shell.newJob().add("cat /data/adb/.sp_ext/$moduleId/module.prop").to(ArrayList(), null).exec().out
+        if (propContent.isEmpty()) continue
+
+        try {
+            val prop = java.util.Properties()
+            // 将List<String>转换为String Reader，或者手动解析
+            // 为简单起见，这里假设内容不多，合并成字符串处理
+            val propString = propContent.joinToString("\n")
+            prop.load(java.io.StringReader(propString))
+
+            val name = prop.getProperty("name")
+            if (!name.isNullOrEmpty()) {
+                Log.i(TAG, "Zygisk implement: $name")
+                return name
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to parse module.prop for $moduleId", e)
+        }
+    }
+
+    Log.i(TAG, "Zygisk implement: None")
+    return "None"
+}
+
+fun getMetaModuleImplement(): String {
+    try {
+        val shell = getRootShell()
+        if (!ShellUtils.fastCmdResult(shell, "test -f /data/adb/.meta/module.prop")) {
+             return "None"
+        }
+        val propContent = shell.newJob().add("cat /data/adb/.meta/module.prop").to(ArrayList(), null).exec().out
+        if (propContent.isEmpty()) return "None"
+        
+        val prop = java.util.Properties()
+        val propString = propContent.joinToString("\n")
+        prop.load(java.io.StringReader(propString))
+        
+        return prop.getProperty("name") ?: "Unknown"
+    } catch (e: Exception) {
+        Log.e(TAG, "getMetaModuleImplement failed", e)
+        return "None"
+    }
+}
+
+fun getMountImplement(): String {
+    if (isMagicMountEnabled()) {
+        return "Mount API"
+    }
+    val metaModule = getMetaModuleImplement()
+    if (metaModule != "None") {
+        return metaModule
+    }
+    return "None"
+}

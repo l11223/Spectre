@@ -104,7 +104,7 @@ jobject nativeSuProfile(JNIEnv *env, jobject /* this */, jstring super_key_jstr,
         LOGE("nativeSuProfile error: %ld\n", rc);
         return nullptr;
     }
-    jclass cls = env->FindClass("me/bmax/apatch/Natives$Profile");
+    jclass cls = env->FindClass("me/yuki/spectre/Natives$Profile");
     jmethodID constructor = env->GetMethodID(cls, "<init>", "()V");
     jfieldID uidField = env->GetFieldID(cls, "uid", "I");
     jfieldID toUidField = env->GetFieldID(cls, "toUid", "I");
@@ -145,7 +145,7 @@ jobject nativeControlKernelPatchModule(JNIEnv *env, jobject /* this */, jstring 
         LOGE("nativeControlKernelPatchModule error: %ld", rc);
     }
 
-    jclass cls = env->FindClass("me/bmax/apatch/Natives$KPMCtlRes");
+    jclass cls = env->FindClass("me/yuki/spectre/Natives$KPMCtlRes");
     jmethodID constructor = env->GetMethodID(cls, "<init>", "()V");
     jfieldID rcField = env->GetFieldID(cls, "rc", "J");
     jfieldID outMsg = env->GetFieldID(cls, "outMsg", "Ljava/lang/String;");
@@ -260,7 +260,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void * /*reserved*/) {
         return -1;
     }
 
-    auto clazz = JNI_FindClass(env, "me/bmax/apatch/Natives");
+    auto clazz = JNI_FindClass(env, "me/yuki/spectre/Natives");
     if (clazz.get() == nullptr) [[unlikely]] {
         LOGE("Failed to find Natives class");
         return -1;
@@ -274,9 +274,9 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void * /*reserved*/) {
         {"nativeSetUidExclude", "(Ljava/lang/String;II)I", reinterpret_cast<void *>(&nativeSetUidExclude)},
         {"nativeGetUidExclude", "(Ljava/lang/String;I)I", reinterpret_cast<void *>(&nativeGetUidExclude)},
         {"nativeSuUids", "(Ljava/lang/String;)[I", reinterpret_cast<void *>(&nativeSuUids)},
-        {"nativeSuProfile", "(Ljava/lang/String;I)Lme/bmax/apatch/Natives$Profile;", reinterpret_cast<void *>(&nativeSuProfile)},
+        {"nativeSuProfile", "(Ljava/lang/String;I)Lme/yuki/spectre/Natives$Profile;", reinterpret_cast<void *>(&nativeSuProfile)},
         {"nativeLoadModule", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J", reinterpret_cast<void *>(&nativeLoadKernelPatchModule)},
-        {"nativeControlModule", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lme/bmax/apatch/Natives$KPMCtlRes;", reinterpret_cast<void *>(&nativeControlKernelPatchModule)},
+        {"nativeControlModule", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lme/yuki/spectre/Natives$KPMCtlRes;", reinterpret_cast<void *>(&nativeControlKernelPatchModule)},
         {"nativeUnloadModule", "(Ljava/lang/String;Ljava/lang/String;)J", reinterpret_cast<void *>(&nativeUnloadKernelPatchModule)},
         {"nativeModuleNum", "(Ljava/lang/String;)J", reinterpret_cast<void *>(&nativeKernelPatchModuleNum)},
         {"nativeModuleList", "(Ljava/lang/String;)Ljava/lang/String;", reinterpret_cast<void *>(&nativeKernelPatchModuleList)},

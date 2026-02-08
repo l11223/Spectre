@@ -72,7 +72,7 @@ val baseArgs = mutableListOf(
 ).apply { if (ccache != null) add("-DANDROID_CCACHE=$ccache") }
 
 android {
-    namespace = "me.bmax.apatch"
+    namespace = "me.yuki.spectre"
     signingConfigs {
         create("release") {
             storeFile = file(keystoreProperties.getProperty("KEYSTORE_FILE") ?: "debug.keystore")
