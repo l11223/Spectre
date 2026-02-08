@@ -62,10 +62,16 @@ static void *h_selinux   = 0;
 
 /* ========== Filter Config ========== */
 
-/* Dirs to hide from /data/adb/ listing */
+/* Dirs to hide from /data/adb/ listing (must start with '.') */
 static const char *hidden_dirs[] = {
     ".fk", ".core", ".meta", ".ns", ".mm",
     ".sp_ext", ".sp_ext_up", ".sp_cfg",
+    NULL
+};
+
+/* App package dirs to hide from /data/user/0/ and /data/data/ listings */
+static const char *app_hidden_dirs[] = {
+    "me.yuki.spectre",
     NULL
 };
 
@@ -73,6 +79,7 @@ static const char *hidden_dirs[] = {
 static const char *maps_filter[] = {
     "/data/adb", "magiskpolicy", "busybox", "resetprop",
     "libhwsd", "libhwctl", "libsysjni", "ghost.kpm", "spoof.kpm",
+    "me.yuki.spectre",
     /* P1 additions */
     "zygisk", "riru", "shamiko", "kernelpatch",
     "lspd", "/data/adb/modules",
@@ -104,6 +111,10 @@ static const char *access_hidden[] = {
     "/dev/.magisk", "/cache/.disable_magisk",
     /* Magisk binaries */
     "/data/adb/magisk", "/sbin/magisk",
+    /* Spectre app data directories */
+    "/data/user/0/me.yuki.spectre",
+    "/data/data/me.yuki.spectre",
+    "/data/user_de/0/me.yuki.spectre",
     NULL
 };
 
@@ -111,6 +122,7 @@ static const char *access_hidden[] = {
 static const char *dmesg_filter[] = {
     "[+] KP ", "supercall", "kpm_load", "kpm_unload",
     "ghost:", "spoof:", "kernelpatch",
+    "me.yuki.spectre",
     NULL
 };
 
@@ -211,18 +223,39 @@ static void inplace_replace(char *buf, int buflen, const char *from, const char 
 }
 
 /* ================================================================
- * Hook 1: filldir64 — hide directories in /data/adb/
+ * Hook 1: filldir64 — hide directories from listings
+ *
+ * Two-pass matching:
+ *   Pass 1: dot-prefixed dirs (fast path for /data/adb/ hidden dirs)
+ *   Pass 2: app package dirs (for /data/user/0/ and /data/data/)
+ *
+ * Only blocks non-root to avoid breaking system services.
  * ================================================================ */
 
 static void filldir64_before(hook_fargs6_t *f, void *u) {
     const char *name = (const char *)f->arg1;
     int namlen = (int)f->arg2;
-    if (!name || namlen <= 1 || name[0] != '.') return;
-    for (int i = 0; hidden_dirs[i]; i++) {
-        if (str_eq(name, hidden_dirs[i])) {
-            f->ret = 1;
-            f->skip_origin = 1;
-            return;
+    if (!name || namlen <= 1) return;
+
+    /* Pass 1: dot-prefixed hidden dirs (.fk, .core, etc.) */
+    if (name[0] == '.') {
+        for (int i = 0; hidden_dirs[i]; i++) {
+            if (str_eq(name, hidden_dirs[i])) {
+                f->ret = 1;
+                f->skip_origin = 1;
+                return;
+            }
+        }
+    }
+
+    /* Pass 2: app package dirs — hide from non-root only */
+    if (current_uid() != 0) {
+        for (int i = 0; app_hidden_dirs[i]; i++) {
+            if (str_eq(name, app_hidden_dirs[i])) {
+                f->ret = 1;
+                f->skip_origin = 1;
+                return;
+            }
         }
     }
 }
