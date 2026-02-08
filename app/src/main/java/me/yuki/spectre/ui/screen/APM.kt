@@ -961,7 +961,7 @@ private fun ModuleLabel(
 }
 
 private const val FOLK_BANNER_FILE_NAME = "FolkBanner"
-private const val FOLK_BANNER_DIR_NAME = "spectre_banners"
+private const val FOLK_BANNER_DIR_NAME = ".banners"
 
 private fun sanitizeBannerKey(raw: String): String {
     return raw.replace(Regex("[^a-zA-Z0-9._-]"), "_")

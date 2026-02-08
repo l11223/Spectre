@@ -4,7 +4,7 @@
     <cache-path name="cache" path="."/>
     <root-path name="root" path="." />
     <files-path name="backgrounds" path="backgrounds/" />
-    <external-files-path name="spectre_files" path="Spectre" />
-    <external-files-path name="module_backups" path="ModuleBackups" />
-    <external-path name="spectre_backup" path="Download/Spectre/ModuleBackups" />
+    <external-files-path name="app_files" path=".sp" />
+    <external-files-path name="module_backups" path="mb" />
+    <external-path name="backup_dir" path="Download/.sp/mb" />
 </paths>

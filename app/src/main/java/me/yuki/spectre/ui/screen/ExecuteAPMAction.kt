@@ -120,7 +120,7 @@ fun ExecuteAPMActionScreen(navigator: DestinationsNavigator, moduleId: String) {
                         val date = format.format(Date())
                         val file = File(
                             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                            "Spectre_action_log_${date}.log"
+                            "action_log_${date}.log"
                         )
                         file.writeText(fullLogBuffer.toString())
                         snackBarHost.showSnackbar("Log saved to ${file.absolutePath}")

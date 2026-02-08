@@ -393,7 +393,7 @@ class PatchesViewModel : ViewModel() {
 
             val apVer = Version.getManagerVersion().second
             val rand = (1..4).map { ('a'..'z').random() }.joinToString("")
-            val outFilename = "spectre_patched_${apVer}_${BuildConfig.buildKPV}_${rand}.img"
+            val outFilename = "boot_${rand}.img"
 
             val logs = object : CallbackList<String>() {
                 override fun onAddElement(e: String?) {
@@ -408,7 +408,7 @@ class PatchesViewModel : ViewModel() {
                 logs.add("****************************")
                 logs.add(" Backing up boot image...")
                 try {
-                    val backupDir = File("/storage/emulated/0/Download/Spectre/BootBackups/")
+                    val backupDir = File("/storage/emulated/0/Download/.sp/bb/")
                     if (!backupDir.exists()) {
                         backupDir.mkdirs()
                     }

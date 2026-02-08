@@ -13,7 +13,7 @@ import java.io.File
 
  object ScriptLibraryManager {
 
-    private const val LEGACY_BASE_DIR = "/storage/emulated/0/Download/Spectre"
+    private const val LEGACY_BASE_DIR = "/storage/emulated/0/Download/.sp"
     private const val LEGACY_SCRIPTS_DIR = "$LEGACY_BASE_DIR/script"
     private const val LEGACY_CONFIG_FILE = "$LEGACY_BASE_DIR/scripts_library.json"
 
