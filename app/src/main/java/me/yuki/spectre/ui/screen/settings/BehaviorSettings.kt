@@ -74,8 +74,8 @@ fun BehaviorSettings(
     val hideSuSummary = stringResource(id = R.string.home_hide_su_path_summary)
     val showHideSu = kPatchReady && (matchBehavior || shouldShow(searchText, hideSuTitle, hideSuSummary))
 
-    val hideKpatchTitle = stringResource(id = R.string.home_hide_core_version)
-    val hideKpatchSummary = stringResource(id = R.string.home_hide_core_version_summary)
+    val hideKpatchTitle = stringResource(id = R.string.home_hide_kpatch_version)
+    val hideKpatchSummary = stringResource(id = R.string.home_hide_kpatch_version_summary)
     val showHideKpatch = kPatchReady && (matchBehavior || shouldShow(searchText, hideKpatchTitle, hideKpatchSummary))
 
     val hideFingerprintTitle = stringResource(id = R.string.home_hide_fingerprint)
