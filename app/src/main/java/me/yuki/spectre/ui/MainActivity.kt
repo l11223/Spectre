@@ -68,9 +68,9 @@ import com.ramcosta.composedestinations.utils.rememberDestinationsNavigator
 import me.yuki.spectre.APApplication
 import me.yuki.spectre.ui.screen.BottomBarDestination
 import me.yuki.spectre.ui.screen.MODULE_TYPE
-import me.yuki.spectre.ui.theme.APatchTheme
+import me.yuki.spectre.ui.theme.SpectreTheme
 import me.yuki.spectre.ui.viewmodel.SuperUserViewModel
-import me.yuki.spectre.ui.theme.APatchThemeWithBackground
+import me.yuki.spectre.ui.theme.SpectreThemeWithBackground
 import me.yuki.spectre.ui.theme.BackgroundConfig
 import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.MaterialTheme
@@ -371,7 +371,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            APatchThemeWithBackground(navController = navController) {
+            SpectreThemeWithBackground(navController = navController) {
                 
                 val showUpdateDialog = remember { mutableStateOf(false) }
                 val context = LocalContext.current

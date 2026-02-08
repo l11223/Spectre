@@ -40,7 +40,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.webkit.WebViewAssetLoader
 import kotlinx.coroutines.launch
 import me.yuki.spectre.APApplication
-import me.yuki.spectre.ui.theme.APatchTheme
+import me.yuki.spectre.ui.theme.SpectreTheme
 import me.yuki.spectre.ui.viewmodel.SuperUserViewModel
 import me.yuki.spectre.ui.webui.AppIconUtil
 import me.yuki.spectre.ui.webui.SuFilePathHandler
@@ -79,7 +79,7 @@ class WebUIActivity : AppCompatActivity() {
         setupActivityInfo()
 
         setContent {
-            APatchTheme(allowCustomBackground = false) {
+            SpectreTheme(allowCustomBackground = false) {
                 val backgroundColor = MaterialTheme.colorScheme.background
                 Box(
                     modifier = Modifier.fillMaxSize().background(backgroundColor),

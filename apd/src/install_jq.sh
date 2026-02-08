@@ -1,6 +1,6 @@
 #!/system/bin/sh
 # Install jq binary to /data/adb/jq
-# This script is called during APatch installation
+# This script is called during Spectre installation
 
 JQ_DIR="/data/adb/.fk"
 JQ_BIN="$JQ_DIR/jq"
@@ -12,8 +12,8 @@ if [ -f "$JQ_BIN" ]; then
 fi
 
 # Extract jq from assets
-if [ -f "$APATCH_ASSETS_DIR/jq/jq" ]; then
-    cp "$APATCH_ASSETS_DIR/jq/jq" "$JQ_BIN"
+if [ -f "$SPECTRE_ASSETS_DIR/jq/jq" ]; then
+    cp "$SPECTRE_ASSETS_DIR/jq/jq" "$JQ_BIN"
     chmod 755 "$JQ_BIN"
     echo "jq installed to $JQ_BIN"
 else

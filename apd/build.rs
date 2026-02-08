@@ -2,7 +2,7 @@ use std::{env, fs::File, io::Write, path::Path, process::Command};
 
 fn get_git_version() -> Result<(u32, String), std::io::Error> {
     // Try to get version code from environment variable first
-    let version_code: u32 = if let Ok(env_version_code) = env::var("APATCH_VERSION_CODE") {
+    let version_code: u32 = if let Ok(env_version_code) = env::var("SPECTRE_VERSION_CODE") {
         env_version_code.parse().map_err(|_| {
             std::io::Error::new(std::io::ErrorKind::Other, "Failed to parse {version_code}")
         })?
@@ -20,7 +20,7 @@ fn get_git_version() -> Result<(u32, String), std::io::Error> {
         std::cmp::max(11000 + 200 + git_count, 10762) // For historical reasons and ensure minimum version
     };
 
-    let version_name = if let Ok(env_version_name) = env::var("APATCH_VERSION_NAME") {
+    let version_name = if let Ok(env_version_name) = env::var("SPECTRE_VERSION_NAME") {
         env_version_name
     } else {
         "Spectre".to_string()

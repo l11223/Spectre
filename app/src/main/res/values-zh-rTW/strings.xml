@@ -186,7 +186,7 @@
     <string name="su_refresh">重新整理</string>
 
     <string name="apm">系統模組</string>
-    <string name="apm_not_installed">AndroidPatch 尚未安裝</string>
+    <string name="apm_not_installed">System Engine 尚未安裝</string>
     <string name="apm_failed_to_enable">無法啟用 \"%s\" 模組</string>
     <string name="apm_failed_to_disable">無法停用 \"%s\" 模組</string>
     <string name="apm_empty">尚未安裝模組</string>
@@ -257,7 +257,7 @@
     <string name="settings_fold_system_module">折疊系統模組</string>
     <string name="settings_fold_system_module_summary">點擊模組卡片展開/折疊操作按鈕</string>
     <string name="settings_simple_list_bottom_bar">簡約列表底欄</string>
-    <string name="settings_simple_list_bottom_bar_summary">模組操作使用純圖示按鈕樣式，靈感來自APatch</string>
+    <string name="settings_simple_list_bottom_bar_summary">模組操作使用純圖示按鈕樣式</string>
     <string name="apm_install_confirm_title">安裝模組</string>
     <string name="apm_install_confirm_content">確定要安裝 %s 嗎？</string>
     <string name="apm_disable_all_title">停用所有系統模組</string>

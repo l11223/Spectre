@@ -14,7 +14,7 @@
     <string name="patch">Patch</string>
 
     <string name="kernel_patch">Core Engine</string>
-    <string name="android_patch">AndroidPatch</string>
+    <string name="android_patch">System Engine</string>
 
     <string name="settings_nav_layout_title">Configuração do Layout de Navegação</string>
     <string name="settings_nav_layout_summary">Ocultar ou mostrar alguns componentes de navegação</string>
@@ -205,7 +205,7 @@
     <string name="su_refresh">Atualizar</string>
 
     <string name="apm">APModule (Android)</string>
-    <string name="apm_not_installed">AndroidPatch não instalado</string>
+    <string name="apm_not_installed">System Engine não instalado</string>
     <string name="apm_failed_to_enable">Falha ao ativar módulo: %s</string>
     <string name="apm_failed_to_disable">Falha ao desativar módulo: %s</string>
     <string name="apm_empty">Nenhum módulo instalado</string>
@@ -317,8 +317,8 @@ Por favor, verifique e tente novamente. Se houver problemas persistentes, você 
     
     <string name="home_dialog_uninstall_ap_only">Desinstalar apenas o patch</string>
     <string name="home_dialog_uninstall_all">Desinstalar completamente</string>
-    <string name="home_dialog_uninstall_ap_only_desc">Remove apenas o AndroidPatch e mantém o gerenciador.</string>
-    <string name="home_dialog_uninstall_all_desc">Remove o AndroidPatch e inicia o fluxo de desinstalação completa.</string>
+    <string name="home_dialog_uninstall_ap_only_desc">Remove apenas o patch e mantém o gerenciador.</string>
+    <string name="home_dialog_uninstall_all_desc">Remove o patch e inicia o fluxo de desinstalação completa.</string>
 
     <string name="kpm_control_dialog_title">Controlar KPM</string>
     <string name="kpm_control_dialog_content">Por favor, insira parâmetros de controle:</string>

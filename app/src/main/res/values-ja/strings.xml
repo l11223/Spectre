@@ -9,7 +9,7 @@
   <string name="patch_warnning">インストールにはリスクが伴います。必ずデータのバックアップを行ってください。</string>
   <string name="patch">パッチ</string>
   <string name="kernel_patch">Core Engine</string>
-  <string name="android_patch">AndroidPatch</string>
+  <string name="android_patch">System Engine</string>
     <string name="settings_nav_layout_title">ナビゲーションレイアウトの設定</string>
     <string name="settings_nav_layout_summary">一部のナビゲーションコンポーネントを表示または非表示にします</string>
     <string name="settings_nav_scheme">ナビゲーションスキーム</string>
@@ -177,7 +177,7 @@
   <string name="su_hide_system_apps">システムアプリを非表示</string>
   <string name="su_refresh">更新</string>
   <string name="apm">AP モジュール</string>
-  <string name="apm_not_installed">AndroidPatch はインストールされていません</string>
+  <string name="apm_not_installed">System Engine はインストールされていません</string>
   <string name="apm_failed_to_enable">モジュールの有効化に失敗: %s</string>
   <string name="apm_failed_to_disable">モジュールの無効化に失敗: %s</string>
   <string name="apm_empty">モジュールはインストールされていません</string>
@@ -242,7 +242,7 @@
   <string name="settings_fold_system_module">システムモジュールを折りたたむ</string>
   <string name="settings_fold_system_module_summary">モジュールカードをタップで展開/折りたたみのアクションをします</string>
     <string name="settings_simple_list_bottom_bar">シンプルリストボトムバー</string>
-    <string name="settings_simple_list_bottom_bar_summary">モジュール操作にアイコンのみのボタンスタイルを使用、APatchにインスパイア</string>
+    <string name="settings_simple_list_bottom_bar_summary">モジュール操作にアイコンのみのボタンスタイルを使用</string>
   <string name="settings_auto_backup">自動バックアップ</string>
   <string name="settings_auto_backup_summary">毎日1回自動バックアップ</string>
   <string name="settings_backup_password">バックアップパスワード</string>
@@ -296,8 +296,8 @@
   <string name="home_dialog_uninstall_title">アンインストール</string>
   <string name="home_dialog_uninstall_ap_only">パッチのアンインストールのみ</string>
   <string name="home_dialog_uninstall_all">完全にアンインストール</string>
-  <string name="home_dialog_uninstall_ap_only_desc">AndroidPatch のみを削除し、マネージャーは保持します。</string>
-  <string name="home_dialog_uninstall_all_desc">AndroidPatch を削除し、完全なアンインストールフローを行います。</string>
+  <string name="home_dialog_uninstall_ap_only_desc">パッチのみを削除し、マネージャーは保持します。</string>
+  <string name="home_dialog_uninstall_all_desc">パッチを削除し、完全なアンインストールフローを行います。</string>
   <string name="kpm_control_dialog_title">KPM のコントロール</string>
   <string name="kpm_control_dialog_content">コントロールパラメータを入力してください:</string>
   <string name="kpm_control_paramters">パラメータ</string>

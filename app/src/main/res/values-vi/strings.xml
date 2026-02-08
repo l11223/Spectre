@@ -306,9 +306,9 @@ Vui lòng kiểm tra và thử lại. Nếu vẫn có vấn đề, bạn có th�
     <string name="home_dialog_uninstall_title">Gỡ cài đặt</string>
     
     <string name="home_dialog_uninstall_ap_only">Chỉ gỡ bản vá</string>
-    <string name="home_dialog_uninstall_ap_only_desc">Chỉ gỡ AndroidPatch và giữ lại trình quản lý.</string>
+    <string name="home_dialog_uninstall_ap_only_desc">Chỉ gỡ bản vá và giữ lại trình quản lý.</string>
     <string name="home_dialog_uninstall_all">Gỡ hoàn toàn</string>
-    <string name="home_dialog_uninstall_all_desc">Gỡ AndroidPatch và bắt đầu quy trình gỡ cài đặt hoàn toàn.</string>
+    <string name="home_dialog_uninstall_all_desc">Gỡ bản vá và bắt đầu quy trình gỡ cài đặt hoàn toàn.</string>
     
     <!-- Install Mode Select -->
     <string name="kp_install_methods">Core Engine Vá/安装</string>

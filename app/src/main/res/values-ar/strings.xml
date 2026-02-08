@@ -205,7 +205,7 @@
     <string name="su_refresh">تحديث</string>
 
     <string name="apm">وحدة AP</string>
-    <string name="apm_not_installed">AndroidPatch غير مثبت</string>
+    <string name="apm_not_installed">System Engine غير مثبت</string>
     <string name="apm_failed_to_enable">فشل تمكين الوحدة: %s</string>
     <string name="apm_failed_to_disable">فشل تعطيل الوحدة: %s</string>
     <string name="apm_empty">لا توجد وحدات مثبتة</string>
@@ -318,8 +318,8 @@
     
     <string name="home_dialog_uninstall_ap_only">إلغاء تثبيت التصحيح فقط</string>
     <string name="home_dialog_uninstall_all">إلغاء التثبيت بالكامل</string>
-    <string name="home_dialog_uninstall_ap_only_desc">إزالة AndroidPatch فقط والاحتفاظ بالمدير.</string>
-    <string name="home_dialog_uninstall_all_desc">إزالة AndroidPatch وبدء عملية إلغاء التثبيت الكاملة.</string>
+    <string name="home_dialog_uninstall_ap_only_desc">إزالة التصحيح فقط والاحتفاظ بالمدير.</string>
+    <string name="home_dialog_uninstall_all_desc">إزالة التصحيح وبدء عملية إلغاء التثبيت الكاملة.</string>
 
     <string name="kpm_control_dialog_title">التحكم في KPM</string>
     <string name="kpm_control_dialog_content">الرجاء إدخال معلمات التحكم:</string>

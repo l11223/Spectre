@@ -196,7 +196,7 @@
     <string name="apm">APModule</string>
 
 
-    <string name="apm_not_installed">AndroidPatch not installed</string>
+    <string name="apm_not_installed">System Engine not installed</string>
     <string name="apm_failed_to_enable">Failed to enable module: %s</string>
     <string name="apm_failed_to_disable">Failed to disable module: %s</string>
     <string name="apm_empty">No module installed</string>
@@ -313,8 +313,8 @@ Please check and try again. If there are still issues, you can always ask questi
     
     <string name="home_dialog_uninstall_ap_only">Uninstall patch only</string>
     <string name="home_dialog_uninstall_all">Uninstall fully</string>
-    <string name="home_dialog_uninstall_ap_only_desc">Remove AndroidPatch only and keep the manager.</string>
-    <string name="home_dialog_uninstall_all_desc">Remove AndroidPatch and start the full uninstall flow.</string>
+    <string name="home_dialog_uninstall_ap_only_desc">Remove patch only and keep the manager.</string>
+    <string name="home_dialog_uninstall_all_desc">Remove patch and start the full uninstall flow.</string>
 
     <string name="kpm_control_dialog_title">Control KPM</string>
     <string name="kpm_control_dialog_content">Please enter control parameters:</string>
@@ -386,7 +386,7 @@ Please check and try again. If there are still issues, you can always ask questi
     <string name="app_title_fpatch">FPatch</string>
     <string name="app_title_apatch_folk">Spectre</string>
     <string name="app_title_apatchx">Spectre X</string>
-    <string name="app_title_apatch">APatch</string>
+    <string name="app_title_apatch">Spectre</string>
     <string name="app_title_spectre">Spectre</string>
     <string name="app_title_folkpatch">Spectre</string>
     <string name="app_title_kernelpatch">KernelPatch</string>
@@ -800,4 +800,32 @@ Please ensure the app is completely closed and reopened for the commands to exec
     <string name="script_library_save_log">Save Log</string>
     <string name="script_library_log_saved">Log saved to %s</string>
     <string name="script_library_log_save_failed">Failed to save log: %s</string>
+
+    <!-- Missing default strings (added for build completeness) -->
+    <string name="app_title_superroot">SuperRoot</string>
+    <string name="backup_failed">Backup failed: %s</string>
+    <string name="delete_failed">Delete failed: %s</string>
+    <string name="delete_remote_backup_confirm">Are you sure you want to delete the cloud backup?</string>
+    <string name="delete_success">Delete successful</string>
+    <string name="restore_failed">Restore failed: %s</string>
+    <string name="settings_auto_backup">Auto Backup</string>
+    <string name="settings_auto_backup_summary">Automatically backup once a day</string>
+    <string name="settings_backup_now">Backup Now</string>
+    <string name="settings_backup_password">Backup Password</string>
+    <string name="settings_backup_password_hint">Enter backup password</string>
+    <string name="settings_delete_remote_backup">Delete Cloud Backup</string>
+    <string name="settings_encrypt_backup">Encrypt Backup</string>
+    <string name="settings_encrypt_backup_summary">Encrypt backup file with password</string>
+    <string name="settings_launcher_icon">Launcher Icon</string>
+    <string name="settings_overlayfs_mode">Hybrid Mount Mode</string>
+    <string name="settings_overlayfs_mode_summary">Use OverlayFS with automatic Magic Mount fallback for maximum compatibility</string>
+    <string name="settings_restore_backup">Restore Backup</string>
+    <string name="settings_test_webdav">Test WebDAV Connection</string>
+    <string name="settings_webdav_password">WebDAV Password</string>
+    <string name="settings_webdav_url">WebDAV URL</string>
+    <string name="settings_webdav_username">WebDAV Username</string>
+    <string name="theme_download">Download</string>
+    <string name="theme_install">Install</string>
+    <string name="theme_install_failed">Install failed</string>
+    <string name="theme_install_success">Install successful</string>
 </resources>

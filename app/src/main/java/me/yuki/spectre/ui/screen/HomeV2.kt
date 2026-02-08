@@ -156,7 +156,7 @@ fun HomeScreenV2(
         InfoCard(kpState, apState)
         
         // Learn More
-        val hideApatchCard = APApplication.sharedPreferences.getBoolean("hide_apatch_card", false)
+        val hideApatchCard = APApplication.sharedPreferences.getBoolean("hide_learn_card", false)
         if (!hideApatchCard) {
             LearnMoreCard()
         }

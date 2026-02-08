@@ -80,7 +80,7 @@ fun ScriptExecutionLogScreen(
             try {
                 // Try to start root shell with multiple strategies
                 
-                // Strategy 1: APatch specific truncate
+                // Strategy 1: Spectre specific truncate
                 if (p == null) {
                     try {
                         val pb = ProcessBuilder(

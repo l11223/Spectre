@@ -387,7 +387,7 @@ fun APModuleScreen(navigator: DestinationsNavigator) {
                             webUILauncher.launch(
                                 Intent(
                                     context, WebUIActivity::class.java
-                                ).setData("apatch://webui/$id".toUri()).putExtra("id", id)
+                                ).setData("spectre://webui/$id".toUri()).putExtra("id", id)
                                     .putExtra("name", name)
                             )
                         }

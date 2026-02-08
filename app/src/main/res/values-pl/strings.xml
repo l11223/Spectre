@@ -16,7 +16,7 @@
     <string name="patch">Poprawka</string>
 
     <string name="kernel_patch">Core Engine</string>
-    <string name="android_patch">AndroidPatch</string>
+    <string name="android_patch">System Engine</string>
 
     <string name="settings_nav_layout_title">Ustawienia układu nawigacji</string>
     <string name="settings_nav_layout_summary">Ukryj lub pokaż niektóre elementy nawigacji</string>
@@ -191,7 +191,7 @@
     <string name="su_refresh">Odśwież</string>
 
     <string name="apm">APModule</string>
-    <string name="apm_not_installed">AndroidPatch nie jest zainstalowany</string>
+    <string name="apm_not_installed">System Engine nie jest zainstalowany</string>
     <string name="apm_failed_to_enable">Nie udało się włączyć modułu: %s</string>
     <string name="apm_failed_to_disable">Nie udało się wyłączyć modułu: %s</string>
     <string name="apm_empty">Brak zainstalowanych modułów</string>
@@ -310,9 +310,9 @@ Proszę sprawdzić i spróbować ponownie. Jeśli nadal występują problemy, za
     <string name="home_dialog_uninstall_title">Odinstaluj</string>
     
     <string name="home_dialog_uninstall_ap_only">Odinstaluj tylko poprawkę</string>
-    <string name="home_dialog_uninstall_ap_only_desc">Usuń tylko AndroidPatch, zachowując menedżer.</string>
+    <string name="home_dialog_uninstall_ap_only_desc">Usuń tylko patcha, zachowując menedżer.</string>
     <string name="home_dialog_uninstall_all">Odinstaluj całkowicie</string>
-    <string name="home_dialog_uninstall_all_desc">Usuń AndroidPatch i rozpocznij pełny proces odinstalowywania.</string>
+    <string name="home_dialog_uninstall_all_desc">Usuń patcha i rozpocznij pełny proces odinstalowywania.</string>
     
     <!-- Install Mode Select -->
     <string name="kp_install_methods">Core Engine Łatanie/Instalowanie</string>

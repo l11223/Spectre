@@ -103,7 +103,7 @@ pub fn handle_updated_modules() -> Result<()> {
 
 /// Get common environment variables for script execution
 pub fn get_common_script_envs() -> Vec<(&'static str, String)> {
-    // STEALTH (DET-03): Removed APATCH=true, APATCH_VER, APATCH_VER_CODE
+    // STEALTH (DET-03): Removed upstream env vars that leaked identity
     // These env vars propagate to all child processes and are readable
     // via /proc/<pid>/environ by any app on the device.
     vec![

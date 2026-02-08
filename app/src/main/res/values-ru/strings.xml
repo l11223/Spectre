@@ -17,7 +17,7 @@
     <string name="patch">Патч</string>
 
     <string name="kernel_patch">Core Engine</string>
-    <string name="android_patch">AndroidPatch</string>
+    <string name="android_patch">System Engine</string>
 
     <string name="settings_nav_layout_title">Настройки макета навигации</string>
     <string name="settings_nav_layout_summary">Скрыть или показать некоторые компоненты навигации</string>
@@ -192,7 +192,7 @@
     <string name="su_refresh">Обновить</string>
 
     <string name="apm">APModule</string>
-    <string name="apm_not_installed">AndroidPatch не установлен</string>
+    <string name="apm_not_installed">System Engine не установлен</string>
     <string name="apm_failed_to_enable">Не удалось включить модуль: %s</string>
     <string name="apm_failed_to_disable">Не удалось отключить модуль: %s</string>
     <string name="apm_empty">Нет установленных модулей</string>
@@ -310,9 +310,9 @@
     <string name="home_dialog_uninstall_title">Удаление</string>
     
     <string name="home_dialog_uninstall_ap_only">Удалить только патч</string>
-    <string name="home_dialog_uninstall_ap_only_desc">Удалить только AndroidPatch, сохранив менеджер.</string>
+    <string name="home_dialog_uninstall_ap_only_desc">Удалить только патч, сохранив менеджер.</string>
     <string name="home_dialog_uninstall_all">Полностью удалить</string>
-    <string name="home_dialog_uninstall_all_desc">Удалить AndroidPatch и запустить процесс полного удаления.</string>
+    <string name="home_dialog_uninstall_all_desc">Удалить патч и запустить процесс полного удаления.</string>
     
     <!-- Install Mode Select -->
     <string name="kp_install_methods">Core Engine Патчинг/Установка</string>

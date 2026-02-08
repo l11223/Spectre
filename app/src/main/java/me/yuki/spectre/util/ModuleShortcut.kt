@@ -39,7 +39,7 @@ object ModuleShortcut {
         val shortcutId = "module_webui_$moduleId"
         val shortcutIntent = Intent(context, WebUIActivity::class.java).apply {
             action = Intent.ACTION_VIEW
-            data = "apatch://webui/$moduleId".toUri()
+            data = "spectre://webui/$moduleId".toUri()
             putExtra("id", moduleId)
             putExtra("name", name)
             putExtra("from_webui_shortcut", true)

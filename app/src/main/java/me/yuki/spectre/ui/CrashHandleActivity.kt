@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import me.yuki.spectre.BuildConfig
 import me.yuki.spectre.R
-import me.yuki.spectre.ui.theme.APatchTheme
+import me.yuki.spectre.ui.theme.SpectreTheme
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -84,7 +84,7 @@ class CrashHandleActivity : ComponentActivity() {
         }
 
         setContent {
-            APatchTheme {
+            SpectreTheme {
                 CrashHandleScreen(message)
             }
         }
@@ -148,7 +148,7 @@ private fun CrashHandleScreen(
 @Preview
 @Composable
 fun CrashHandleScreenPreview() {
-    APatchTheme {
+    SpectreTheme {
         CrashHandleScreen("Crash log here")
     }
 }

@@ -54,24 +54,24 @@ pub fn on_post_data_fs(superkey: Option<String>) -> Result<()> {
     // Debug mode: create a file at /data/adb/.fk/debug_mode to enable.
     let debug_mode = Path::new("/data/adb/.fk/debug_mode").exists();
     if debug_mode {
-        if !Path::new(defs::APATCH_LOG_FOLDER).exists() {
-            fs::create_dir(defs::APATCH_LOG_FOLDER).expect("Failed to create log folder");
+        if !Path::new(defs::LOG_FOLDER).exists() {
+            fs::create_dir(defs::LOG_FOLDER).expect("Failed to create log folder");
             let permissions = fs::Permissions::from_mode(0o700);
-            fs::set_permissions(defs::APATCH_LOG_FOLDER, permissions)
+            fs::set_permissions(defs::LOG_FOLDER, permissions)
                 .expect("Failed to set permissions");
         }
         let command_string = format!(
             "rm -rf {}*.old.log; for file in {}*; do mv \"$file\" \"$file.old.log\"; done",
-            defs::APATCH_LOG_FOLDER,
-            defs::APATCH_LOG_FOLDER
+            defs::LOG_FOLDER,
+            defs::LOG_FOLDER
         );
         let mut args = vec!["-c", &command_string];
         let result = utils::run_command("sh", &args, None)?.wait()?;
         if result.success() {
             info!("Log rotation done.");
         }
-        let logcat_path = format!("{}locat.log", defs::APATCH_LOG_FOLDER);
-        let dmesg_path = format!("{}dmesg.log", defs::APATCH_LOG_FOLDER);
+        let logcat_path = format!("{}locat.log", defs::LOG_FOLDER);
+        let dmesg_path = format!("{}dmesg.log", defs::LOG_FOLDER);
         let bootlog = fs::File::create(dmesg_path)?;
         // Reduced timeout from 120s to 30s to save power
         args = vec![

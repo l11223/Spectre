@@ -17,7 +17,7 @@
     <string name="patch">Patch</string>
 
     <string name="kernel_patch">Core Engine</string>
-    <string name="android_patch">AndroidPatch</string>
+    <string name="android_patch">System Engine</string>
 
     <string name="settings_nav_layout_title">Pengaturan Tata Letak Navigasi</string>
     <string name="settings_nav_layout_summary">Sembunyikan atau tampilkan beberapa komponen navigasi</string>
@@ -192,7 +192,7 @@
     <string name="su_refresh">Segarkan</string>
 
     <string name="apm">APModule</string>
-    <string name="apm_not_installed">AndroidPatch tidak terinstal</string>
+    <string name="apm_not_installed">System Engine tidak terinstal</string>
     <string name="apm_failed_to_enable">Gagal mengaktifkan modul: %s</string>
     <string name="apm_failed_to_disable">Gagal menonaktifkan modul: %s</string>
     <string name="apm_empty">Tidak ada modul yang terinstal</string>
@@ -310,9 +310,9 @@ Harap periksa dan coba lagi. Jika masalah masih ada, Anda selalu dapat mengajuka
     <string name="home_dialog_uninstall_title">Hapus Instalasi</string>
 
     <string name="home_dialog_uninstall_ap_only">Hapus Patch Saja</string>
-    <string name="home_dialog_uninstall_ap_only_desc">Hapus hanya AndroidPatch dan simpan manajernya.</string>
+    <string name="home_dialog_uninstall_ap_only_desc">Hapus hanya patch dan simpan manajernya.</string>
     <string name="home_dialog_uninstall_all">Hapus Instalasi Penuh</string>
-    <string name="home_dialog_uninstall_all_desc">Hapus AndroidPatch dan mulai proses uninstall penuh.</string>
+    <string name="home_dialog_uninstall_all_desc">Hapus patch dan mulai proses uninstall penuh.</string>
     
     <!-- Install Mode Select -->
     <string name="kp_install_methods">Core Engine Tambal/Pemasangan</string>

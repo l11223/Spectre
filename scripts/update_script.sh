@@ -1,5 +1,5 @@
 ######################
-# APatch Empty script
+# Spectre Empty script
 # Check update-binary
 ######################
 

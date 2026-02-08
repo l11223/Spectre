@@ -202,7 +202,7 @@ fun HomeScreenV1(
             AStatusCard(apState)
         }
         InfoCard(kpState, apState)
-        val hideApatchCard = APApplication.sharedPreferences.getBoolean("hide_apatch_card", false)
+        val hideApatchCard = APApplication.sharedPreferences.getBoolean("hide_learn_card", false)
         if (!hideApatchCard) {
             LearnMoreCard()
         }
@@ -230,7 +230,7 @@ fun HomeScreenSign(
             AStatusCard(apState)
         }
         SignInfoCard(kpState, apState)
-        val hideApatchCard = APApplication.sharedPreferences.getBoolean("hide_apatch_card", false)
+        val hideApatchCard = APApplication.sharedPreferences.getBoolean("hide_learn_card", false)
         if (!hideApatchCard) {
             LearnMoreCard()
         }

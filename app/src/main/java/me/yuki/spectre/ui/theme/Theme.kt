@@ -75,7 +75,7 @@ private fun SystemBarStyle(
 val refreshTheme = MutableLiveData(false)
 
 @Composable
-fun APatchTheme(
+fun SpectreTheme(
     isSettingsScreen: Boolean = false,
     allowCustomBackground: Boolean = true,
     content: @Composable () -> Unit
@@ -224,7 +224,7 @@ fun APatchTheme(
 }
 
 @Composable
-fun APatchThemeWithBackground(
+fun SpectreThemeWithBackground(
     navController: NavHostController? = null,
     content: @Composable () -> Unit
 ) {
@@ -248,7 +248,7 @@ fun APatchThemeWithBackground(
         refreshTheme.postValue(false)
     }
     
-    APatchTheme(isSettingsScreen = isSettingsScreen) {
+    SpectreTheme(isSettingsScreen = isSettingsScreen) {
         Box(modifier = Modifier.fillMaxSize()) {
             // Always show background layer if enabled
             BackgroundLayer(currentRoute)

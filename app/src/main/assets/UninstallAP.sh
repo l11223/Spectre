@@ -13,13 +13,13 @@ function ui_printfile() {
   done < $1;
 }
 
-function apatchNote(){
-	ui_print "- APatch Unpatch Done"
+function unpatchNote(){
+	ui_print "- Unpatch Done"
 	exit
 }
 
 function failed(){
-	ui_print "- APatch Unpatch Failed."
+	ui_print "- Unpatch Failed."
 	ui_print "- Please feedback to the developer with the screenshots."
 	exit
 }
@@ -33,7 +33,7 @@ function boot_execute_ab(){
 	fi
 	./lib/arm64-v8a/libbootimg.so repack boot.img
 	dd if=/dev/tmp/install/new-boot.img of=/dev/block/by-name/boot$slot
-	apatchNote
+	unpatchNote
 }
 
 function boot_execute(){
@@ -45,7 +45,7 @@ function boot_execute(){
 	fi
 	./lib/arm64-v8a/libbootimg.so repack boot.img
 	dd if=/dev/tmp/install/new-boot.img of=/dev/block/by-name/boot
-	apatchNote
+	unpatchNote
 }
 
 function main(){

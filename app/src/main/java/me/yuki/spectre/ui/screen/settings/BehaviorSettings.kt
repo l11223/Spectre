@@ -179,9 +179,9 @@ fun BehaviorSettings(
                 )
             }
 
-            // Hide APatch
+            // Hide Learn Card
             if (showHideApatch) {
-                var hideApatchCard by remember { mutableStateOf(prefs.getBoolean("hide_apatch_card", false)) }
+                var hideApatchCard by remember { mutableStateOf(prefs.getBoolean("hide_learn_card", false)) }
                 SwitchItem(
                     icon = Icons.Filled.VisibilityOff,
                     title = hideApatchTitle,
@@ -189,7 +189,7 @@ fun BehaviorSettings(
                     checked = hideApatchCard,
                     onCheckedChange = {
                         hideApatchCard = it
-                        prefs.edit().putBoolean("hide_apatch_card", it).apply()
+                        prefs.edit().putBoolean("hide_learn_card", it).apply()
                     }
                 )
             }

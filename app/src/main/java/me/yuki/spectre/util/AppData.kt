@@ -98,7 +98,7 @@ object AppData {
 
     /**
      * Get superuser count
-     * Note: Minus 1 to exclude the APatch manager itself from the count
+     * Note: Minus 1 to exclude the Spectre manager itself from the count
      */
     private fun getSuperuserCount(): Int {
         return try {

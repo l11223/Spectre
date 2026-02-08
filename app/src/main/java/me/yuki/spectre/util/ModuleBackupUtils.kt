@@ -127,7 +127,7 @@ object ModuleBackupUtils {
     suspend fun backupModules(context: Context, snackBarHost: SnackbarHostState, uri: Uri) {
         withContext(Dispatchers.IO) {
             try {
-                // Use the busybox bundled with APatch
+                // Use the busybox bundled with Spectre
                 val busyboxPath = "/data/adb/.fk/lib/busybox"
                 val tempFile = File(context.cacheDir, "backup_tmp.tar.gz")
                 val tempPath = tempFile.absolutePath

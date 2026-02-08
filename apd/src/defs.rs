@@ -6,7 +6,7 @@ use const_format::concatcp;
 pub const ADB_DIR: &str = "/data/adb/";
 pub const WORKING_DIR: &str = concatcp!(ADB_DIR, ".fk/");          // was "ap/"
 pub const BINARY_DIR: &str = concatcp!(WORKING_DIR, "lib/");       // was "bin/"
-pub const APATCH_LOG_FOLDER: &str = concatcp!(WORKING_DIR, "tmp/"); // was "log/"
+pub const LOG_FOLDER: &str = concatcp!(WORKING_DIR, "tmp/"); // was "log/"
 
 pub const AP_RC_PATH: &str = concatcp!(WORKING_DIR, ".rc");        // was ".aprc"
 pub const GLOBAL_NAMESPACE_FILE: &str = concatcp!(ADB_DIR, ".ns");  // was ".global_namespace_enable"

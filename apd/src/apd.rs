@@ -15,7 +15,7 @@ use crate::{
 };
 
 fn print_usage(opts: Options) {
-    let brief = "APatch\n\nUsage: <command> [options] [-] [user [argument...]]".to_string();
+    let brief = "Spectre\n\nUsage: <command> [options] [-] [user [argument...]]".to_string();
     print!("{}", opts.usage(&brief));
 }
 

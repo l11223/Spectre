@@ -328,8 +328,8 @@ tasks.register<Exec>("cargoBuild") {
     executable("cargo")
     args("ndk", "-t", "arm64-v8a", "build", "--release")
     workingDir("${project.rootDir}/apd")
-    environment("APATCH_VERSION_CODE", "${managerVersionCode}")
-    environment("APATCH_VERSION_NAME", "${managerVersionCode}-Spectre")
+    environment("SPECTRE_VERSION_CODE", "${managerVersionCode}")
+    environment("SPECTRE_VERSION_NAME", "${managerVersionCode}-Spectre")
 }
 
 tasks.register<Copy>("buildApd") {

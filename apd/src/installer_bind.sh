@@ -1,6 +1,6 @@
 #!/system/bin/sh
 ############################################
-# APatch Module installer script
+# Spectre Module installer script
 # mostly from module_installer.sh
 # and util_functions.sh in Magisk
 ############################################

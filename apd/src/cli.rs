@@ -133,7 +133,7 @@ pub fn run() -> Result<()> {
     android_logger::init_once(
         Config::default()
             .with_max_level(LevelFilter::Trace)
-            // Stealth: Use a generic Android system tag instead of "APatchD"
+            // Stealth: Use a generic Android system tag
             .with_tag("ServiceManager")
             .with_filter(
                 android_logger::FilterBuilder::new()
