@@ -59,7 +59,7 @@
     <string name="super_key">超級密鑰</string>
     <string name="clear_super_key">清除超級密鑰</string>
     <string name="patch_set_superkey">設定超級密鑰</string>
-    <string name="home_patch_set_key_desc">執行 KernelPatch 所需的唯一憑證</string>
+    <string name="home_patch_set_key_desc">執行 Core Engine 所需的唯一憑證</string>
     <string name="home_patch_next_step">下一步</string>
 
     <string name="home_not_installed">尚未安裝</string>
@@ -136,12 +136,12 @@
 
     <string name="home_device_info">裝置</string>
     <string name="home_system_version">系統版本</string>
-    <string name="home_kpatch_version">KernelPatch 版本</string>
+    <string name="home_kpatch_version">Core Engine 版本</string>
     <string name="home_su_path">可執行 SU 路徑</string>
     <string name="home_apatch_version">Spectre 版本</string>
 
     <string name="kpm">核心模組</string>
-    <string name="kpm_kp_not_installed">KernelPatch 尚未安裝</string>
+    <string name="kpm_kp_not_installed">Core Engine 尚未安裝</string>
     <string name="kpm_add_kpm">新增 KPM</string>
     <string name="kpm_load">匯入</string>
     <string name="kpm_install">安裝</string>
@@ -210,7 +210,7 @@
     <string name="apm_start_downloading">開始下載 %s</string>
     <string name="apm_new_version_available">點擊以安裝新版本的 %s。</string>
 
-    <string name="hide_apatch_manager">隱藏 APatch 管理器</string>
+    <string name="hide_apatch_manager">隱藏 Spectre 管理器</string>
     <string name="hide_apatch_manager_summary">使用隨機套件名稱和自訂應用程式標籤安裝新的代理應用程式</string>
     <string name="hide_apatch_dialog_new_manager_name">新管理器名稱</string>
     <string name="hide_apatch_dialog_summary">它將用作啟動器中顯示的新應用程式標籤</string>
@@ -291,12 +291,12 @@
 繼續？</string>
 
     <string name="home_dialog_auth_fail_title">驗證失敗</string>
-    <string name="home_dialog_auth_fail_content">無法驗證超級密鑰，因此 APatch 無法正常運作。 
+    <string name="home_dialog_auth_fail_content">無法驗證超級密鑰，因此 Spectre 無法正常運作。 
 以下是驗證失敗的一些可能原因： 
-⒈ 您尚未使用 KernelPatch 程式修補啟動映像檔。 
+⒈ 您尚未使用 Core Engine 程式修補啟動映像檔。 
 ⒉ 修補後的啟動映像檔未刷入裝置。 
 ⒊超級密鑰錯誤。 
-⒋ 您的裝置不支援 APatch 和 KernelPatch。 
+⒋ 您的裝置不支援 Spectre 和 Core Engine。 
  
 請檢查後再次嘗試。如果仍有問題存在，您隨時可以在官方存放庫的議題頁面上提問。</string>
 
@@ -310,7 +310,7 @@
     <string name="home_dialog_uninstall_all_desc">移除系統修補並進入完整解除安裝流程。</string>
     
     <!-- Install Mode Select -->
-    <string name="kp_install_methods">KernelPatch 安裝方式</string>
+    <string name="kp_install_methods">Core Engine 安裝方式</string>
     <string name="restore_boot_methods">選擇 Boot 映像檔以還原</string>
     <string name="restore_select_file">選擇要還原的 Boot 映像檔</string>
 
@@ -528,14 +528,14 @@
     <string name="settings_auto_backup_boot_summary">自動將 Boot 分割區備份到本機儲存 (Downloads/Spectre/BootBackups)</string>
 
     <!-- Auto-added missing strings -->
-    <string name="home_hide_kpatch_version_summary">在資訊卡中隱藏 「KernelPatch 版本」</string>
+    <string name="home_hide_kpatch_version_summary">在資訊卡中隱藏 「Core Engine 版本」</string>
     <string name="home_hide_su_path_summary">在資訊卡中隱藏「可執行 SU 路徑」</string>
     <string name="home_hide_zygisk_summary">在資訊卡中隱藏「Zygisk 實現」</string>
     <string name="home_hide_mount_summary">在資訊卡中隱藏「掛載實現」</string>
     <string name="home_hide_fingerprint_summary">在資訊卡中隱藏「指紋」</string>
     <string name="home_hide_fingerprint">隱藏「指紋」</string>
     <string name="about_source_code"><![CDATA[<p>查看原始碼於 %1$s<p/>加入我們的 %2$s 頻道<p/>加入我們的 %3$s 群組]]></string>
-    <string name="home_hide_kpatch_version">隱藏「KernelPatch 版本」</string>
+    <string name="home_hide_kpatch_version">隱藏「Core Engine 版本」</string>
     <string name="home_hide_su_path">隱藏「可執行 SU 路徑」</string>
     <string name="home_hide_zygisk">隱藏「Zygisk 實現」</string>
     <string name="home_hide_mount">隱藏「掛載實現」</string>

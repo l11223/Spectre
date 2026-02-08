@@ -74,8 +74,8 @@ fun BehaviorSettings(
     val hideSuSummary = stringResource(id = R.string.home_hide_su_path_summary)
     val showHideSu = kPatchReady && (matchBehavior || shouldShow(searchText, hideSuTitle, hideSuSummary))
 
-    val hideKpatchTitle = stringResource(id = R.string.home_hide_kpatch_version)
-    val hideKpatchSummary = stringResource(id = R.string.home_hide_kpatch_version_summary)
+    val hideKpatchTitle = stringResource(id = R.string.home_hide_core_version)
+    val hideKpatchSummary = stringResource(id = R.string.home_hide_core_version_summary)
     val showHideKpatch = kPatchReady && (matchBehavior || shouldShow(searchText, hideKpatchTitle, hideKpatchSummary))
 
     val hideFingerprintTitle = stringResource(id = R.string.home_hide_fingerprint)
@@ -211,7 +211,7 @@ fun BehaviorSettings(
 
             // Hide KPatch Version
             if (showHideKpatch) {
-                var hideKpatchVersion by remember { mutableStateOf(prefs.getBoolean("hide_kpatch_version", false)) }
+                var hideKpatchVersion by remember { mutableStateOf(prefs.getBoolean("hide_core_version", false)) }
                 SwitchItem(
                     icon = Icons.Filled.VisibilityOff,
                     title = hideKpatchTitle,
@@ -219,7 +219,7 @@ fun BehaviorSettings(
                     checked = hideKpatchVersion,
                     onCheckedChange = {
                         hideKpatchVersion = it
-                        prefs.edit().putBoolean("hide_kpatch_version", it).apply()
+                        prefs.edit().putBoolean("hide_core_version", it).apply()
                     }
                 )
             }

@@ -5,7 +5,7 @@ use crate::{defs::BINARY_DIR, utils};
 
 pub const RESETPROP_PATH: &str = concatcp!(BINARY_DIR, "resetprop");
 pub const BUSYBOX_PATH: &str = concatcp!(BINARY_DIR, "busybox");
-pub const MAGISKPOLICY_PATH: &str = concatcp!(BINARY_DIR, "magiskpolicy");
+pub const MAGISKPOLICY_PATH: &str = concatcp!(BINARY_DIR, "sepolicy");
 
 pub fn ensure_binaries() -> Result<()> {
     utils::ensure_binary(RESETPROP_PATH)?;

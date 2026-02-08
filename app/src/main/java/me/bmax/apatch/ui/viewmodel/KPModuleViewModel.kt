@@ -44,13 +44,13 @@ class KPModuleViewModel : ViewModel() {
             val start = SystemClock.elapsedRealtime()
 
             kotlin.runCatching {
-                var names = Natives.kernelPatchModuleList()
-                if (Natives.kernelPatchModuleNum() <= 0)
+                var names = Natives.moduleList()
+                if (Natives.moduleNum() <= 0)
                     names = ""
                 val nameList = names.split('\n').toList()
                 Log.d(TAG, "kpm list: $nameList")
                 modules = nameList.filter { it.isNotEmpty() }.map {
-                    val infoline = Natives.kernelPatchModuleInfo(it)
+                    val infoline = Natives.moduleInfo(it)
                     val spi = infoline.split('\n')
                     val name = spi.find { it.startsWith("name=") }?.removePrefix("name=")
                     val version = spi.find { it.startsWith("version=") }?.removePrefix("version=")

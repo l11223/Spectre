@@ -57,7 +57,7 @@
     <string name="super_key">Khóa siêu cấp</string>
     <string name="clear_super_key">Xóa khóa siêu cấp</string>
     <string name="patch_set_superkey">Đặt khóa siêu cấp</string>
-    <string name="home_patch_set_key_desc">Bản ghi chứng thực duy nhất của KernelPatch</string>
+    <string name="home_patch_set_key_desc">Bản ghi chứng thực duy nhất của Core Engine</string>
     <string name="home_patch_next_step">Bước tiếp theo</string>
 
     <string name="home_not_installed">Chưa cài đặt</string>
@@ -90,7 +90,7 @@
     <string name="patch_mode_bootimg_patch">Chế độ: Vá</string>
     <string name="patch_mode_patch_and_install">Chế độ: Vá và cài đặt</string>
     <string name="patch_mode_install_to_next_slot">Chế độ: Cài đặt vào slot chưa kích hoạt (sau OTA)</string>
-    <string name="patch_mode_uninstall_patch">Chế độ: Gỡ cài đặt KPatch</string>
+    <string name="patch_mode_uninstall_patch">Chế độ: Gỡ cài đặt Core</string>
     <string name="patch_select_bootimg_btn">Chọn ảnh đệm</string>
     <string name="patch_embed_kpm_btn">Nhúng KPM</string>
     <string name="patch_start_patch_btn">Bắt đầu</string>
@@ -210,7 +210,7 @@
     <string name="apm_start_downloading">Bắt đầu tải: %s</string>
     <string name="apm_new_version_available">Phiên bản mới %s có sẵn, nhấn để nâng cấp.</string>
 
-    <string name="hide_apatch_manager">Ẩn trình quản lý APatch</string>
+    <string name="hide_apatch_manager">Ẩn trình quản lý Spectre</string>
     <string name="hide_apatch_manager_summary">Cài đặt một ứng dụng proxy với tên gói ngẫu nhiên và tên ứng dụng tùy chỉnh</string>
     <string name="hide_apatch_dialog_new_manager_name">Tên trình quản lý mới</string>
     <string name="hide_apatch_dialog_summary">Đây sẽ là tên ứng dụng mới hiển thị trong trình khởi chạy</string>
@@ -260,7 +260,7 @@
     <string name="settings_fold_system_module">Gấp gọn module hệ thống</string>
     <string name="settings_fold_system_module_summary">Nhấp vào thẻ module để mở rộng/gộp lại các hành động</string>
         <string name="settings_simple_list_bottom_bar">Thanh dưới đơn giản</string>
-        <string name="settings_simple_list_bottom_bar_summary">Sử dụng kiểu nút chỉ có biểu tượng cho các hành động module, lấy cảm hứng từ APatch</string>
+        <string name="settings_simple_list_bottom_bar_summary">Sử dụng kiểu nút chỉ có biểu tượng cho các hành động module, lấy cảm hứng từ Spectre</string>
     <string name="apm_install_confirm_title">Cài đặt module</string>
     <string name="apm_install_confirm_content">Bạn có chắc chắn muốn cài đặt %s không?</string>
     <string name="settings_show_more_module_info">Hiển thị chi tiết module</string>
@@ -291,12 +291,12 @@
     <string name="mode_select_page_install_inactive_slot_warning">Thiết bị của bạn SẼ BỊ BẮT BUỘC khởi động vào slot chưa kích hoạt hiện tại sau khi khởi động lại!\nChỉ sử dụng tùy chọn này sau khi OTA hoàn tất.\nTiếp tục?</string>
 
     <string name="home_dialog_auth_fail_title">Xác thực thất bại</string>
-    <string name="home_dialog_auth_fail_content">Không thể xác thực khóa siêu cấp, do đó APatch không thể hoạt động bình thường.
+    <string name="home_dialog_auth_fail_content">Không thể xác thực khóa siêu cấp, do đó Spectre không thể hoạt động bình thường.
 Dưới đây là một số nguyên nhân có thể导致 xác thực thất bại:
-1. Bạn chưa sử dụng KernelPatch để vá boot.img.
+1. Bạn chưa sử dụng Core Engine để vá boot.img.
 2. boot.img sau khi vá chưa được flash.
 3. Khóa siêu cấp sai hoặc chứa ký tự đặc biệt.
-4. Thiết bị của bạn không hỗ trợ APatch và KernelPatch.
+4. Thiết bị của bạn không hỗ trợ Spectre và Core Engine.
 
 Vui lòng kiểm tra và thử lại. Nếu vẫn có vấn đề, bạn có thể đặt câu hỏi trên trang issue của kho lưu trữ chính thức.</string>
 
@@ -311,7 +311,7 @@ Vui lòng kiểm tra và thử lại. Nếu vẫn có vấn đề, bạn có th�
     <string name="home_dialog_uninstall_all_desc">Gỡ AndroidPatch và bắt đầu quy trình gỡ cài đặt hoàn toàn.</string>
     
     <!-- Install Mode Select -->
-    <string name="kp_install_methods">KernelPatch Vá/安装</string>
+    <string name="kp_install_methods">Core Engine Vá/安装</string>
     <string name="restore_boot_methods">Chọn một boot để khôi phục vào phân vùng boot</string>
     <string name="restore_select_file">Chọn tệp boot phân vùng để khôi phục</string>
 

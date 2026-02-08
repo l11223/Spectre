@@ -89,7 +89,7 @@
     <string name="super_key">المفتاح الخارق</string>
     <string name="clear_super_key">مسح المفتاح الخارق</string>
     <string name="patch_set_superkey">تعيين المفتاح الخارق</string>
-    <string name="home_patch_set_key_desc">بيانات الاعتماد لـ KernelPatch فقط</string>
+    <string name="home_patch_set_key_desc">بيانات الاعتماد لـ Core Engine فقط</string>
     <string name="home_patch_next_step">الخطوة التالية</string>
 
     <string name="home_not_installed">غير مثبت</string>
@@ -123,7 +123,7 @@
     <string name="patch_mode_patch_and_install">الوضع: تصحيح وتثبيت</string>
     <string name="patch_mode_install_to_next_slot">الوضع: التثبيت في الفتحة غير النشطة (بعد OTA)</string>
     <string name="patch_mode_restore">الوضع: استعادة</string>
-    <string name="patch_mode_uninstall_patch">الوضع: إلغاء تثبيت KPatch</string>
+    <string name="patch_mode_uninstall_patch">الوضع: إلغاء تثبيت Core</string>
     <string name="patch_select_bootimg_btn">تحديد boot</string>
     <string name="patch_embed_kpm_btn">تضمين KPM</string>
     <string name="patch_start_patch_btn">بدء</string>
@@ -169,12 +169,12 @@
 
     <string name="home_device_info">الجهاز</string>
     <string name="home_system_version">إصدار النظام</string>
-    <string name="home_kpatch_version">إصدار KernelPatch</string>
+    <string name="home_kpatch_version">إصدار Core Engine</string>
     <string name="home_su_path">su القابل للتنفيذ</string>
     <string name="home_apatch_version">إصدار Spectre</string>
 
     <string name="kpm">وحدة KP</string>
-    <string name="kpm_kp_not_installed">KernelPatch غير مثبت</string>
+    <string name="kpm_kp_not_installed">Core Engine غير مثبت</string>
     <string name="kpm_add_kpm">إضافة وحدة KP</string>
     <string name="kpm_load">تحميل</string>
     <string name="kpm_install">تثبيت</string>
@@ -229,7 +229,7 @@
     <string name="apm_start_downloading">بدء التنزيل: %s</string>
     <string name="apm_new_version_available">الإصدار الجديد %s متاح، انقر للترقية.</string>
 
-    <string name="hide_apatch_manager">إخفاء مدير APatch</string>
+    <string name="hide_apatch_manager">إخفاء مدير Spectre</string>
     <string name="hide_apatch_manager_summary">تثبيت تطبيق وكيل بمعرف حزمة عشوائي وتسمية تطبيق مخصصة</string>
     <string name="hide_apatch_dialog_new_manager_name">اسم المدير الجديد</string>
     <string name="hide_apatch_dialog_summary">سيتم استخدامه كتسمية التطبيق الجديدة المعروضة في اللانشر</string>
@@ -271,7 +271,7 @@
     <string name="settings_fold_system_module">طي وحدات النظام</string>
     <string name="settings_fold_system_module_summary">انقر على بطاقة الوحدة للتوسيع/الطي الإجراءات</string>
         <string name="settings_simple_list_bottom_bar">شريط سفلي بسيط</string>
-        <string name="settings_simple_list_bottom_bar_summary">استخدم أزرار الأيقونات فقط لإجراءات الوحدة، مستوحى من APatch</string>
+        <string name="settings_simple_list_bottom_bar_summary">استخدم أزرار الأيقونات فقط لإجراءات الوحدة، مستوحى من Spectre</string>
     <string name="apm_install_confirm_title">تثبيت الوحدة</string>
     <string name="apm_install_confirm_content">هل أنت متأكد من أنك تريد تثبيت %s؟</string>
     <string name="apm_disable_all_title">تعطيل كل الوحدات</string>
@@ -302,12 +302,12 @@
     <string name="mode_select_page_install_inactive_slot_warning">سيتم **إجبار** جهازك على الإقلاع إلى الفتحة غير النشطة الحالية بعد إعادة التشغيل!\nاستخدم هذا الخيار فقط بعد الانتهاء من OTA.\nهل تريد المتابعة؟</string>
 
     <string name="home_dialog_auth_fail_title">فشلت المصادقة</string>
-    <string name="home_dialog_auth_fail_content">تعذر المصادقة على المفتاح الخارق، وبالتالي لا يمكن لـ APatch العمل بشكل صحيح.
+    <string name="home_dialog_auth_fail_content">تعذر المصادقة على المفتاح الخارق، وبالتالي لا يمكن لـ Spectre العمل بشكل صحيح.
 فيما يلي بعض الأسباب المحتملة لفشل المصادقة:
-1. لم تقم بتصحيح boot.img باستخدام KernelPatch.
+1. لم تقم بتصحيح boot.img باستخدام Core Engine.
 2. لم يتم تفليش boot.img المصحح.
 3. المفتاح الخارق خاطئ أو يحتوي على أحرف خاصة.
-4. جهازك لا يدعم APatch و KernelPatch.
+4. جهازك لا يدعم Spectre و Core Engine.
 
 يرجى التحقق والمحاولة مرة أخرى. إذا استمرت المشكلات، يمكنك دائمًا طرح الأسئلة على صفحة المشكلات في المستودع الرسمي.</string>
 
@@ -693,7 +693,7 @@
     <string name="settings_custom_badge_text_summary">تعديل عرض نص الشارة، للمتعة فقط</string>
 
     <!-- Install Mode Select -->
-    <string name="kp_install_methods">تصحيح/تثبيت KernelPatch</string>
+    <string name="kp_install_methods">تصحيح/تثبيت Core Engine</string>
     <string name="restore_boot_methods">حدد boot لاستعادته إلى قسم boot</string>
 
     <string name="su_backup_list">قائمة النسخ الاحتياطي</string>

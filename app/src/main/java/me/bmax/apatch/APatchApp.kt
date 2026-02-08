@@ -91,10 +91,10 @@ class APApplication : Application(), Thread.UncaughtExceptionHandler, ImageLoade
 
         @Deprecated("Use 'apd -V'")
         const val APATCH_VERSION_PATH = APATCH_FOLDER + "version"
-        private const val MAGISKPOLICY_BIN_PATH = APATCH_BIN_FOLDER + "magiskpolicy"
+        private const val MAGISKPOLICY_BIN_PATH = APATCH_BIN_FOLDER + "sepolicy"
         private const val BUSYBOX_BIN_PATH = APATCH_BIN_FOLDER + "busybox"
         private const val RESETPROP_BIN_PATH = APATCH_BIN_FOLDER + "resetprop"
-        private const val MAGISKBOOT_BIN_PATH = APATCH_BIN_FOLDER + "magiskboot"
+        private const val MAGISKBOOT_BIN_PATH = APATCH_BIN_FOLDER + "bootimg"
         const val DEFAULT_SCONTEXT = "u:r:untrusted_app:s0"
         // STEALTH (DET-02): Changed from "u:r:magisk:s0" to avoid detection
         const val MAGISK_SCONTEXT = "u:r:su:s0"

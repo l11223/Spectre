@@ -95,7 +95,7 @@ object Version {
         if (BuildConfig.DEBUG_FAKE_ROOT) {
             return "2024-05-20 12:00:00"
         }
-        val time = Natives.kernelPatchBuildTime()
+        val time = Natives.coreBuildTime()
         return if (time.startsWith("ERROR_")) "读取失败" else time
     }
 
@@ -115,7 +115,7 @@ object Version {
         if (BuildConfig.DEBUG_FAKE_ROOT) {
             return string2UInt("0.12.2")
         }
-        return Natives.kernelPatchVersion().toUInt()
+        return Natives.coreVersion().toUInt()
     }
 
     fun installedKPVString(): String {

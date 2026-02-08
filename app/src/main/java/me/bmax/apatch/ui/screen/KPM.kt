@@ -484,7 +484,7 @@ suspend fun loadModule(loadingDialog: LoadingDialogHandle, uri: Uri, args: Strin
                         }
                     }
 
-                    rc = Natives.loadKernelPatchModule(kpm.path, args).toInt()
+                    rc = Natives.loadModule(kpm.path, args).toInt()
                 } catch (e: IOException) {
                     Log.e(TAG, "Copy kpm error: $e")
                 }
@@ -513,7 +513,7 @@ fun KPMControlDialog(showDialog: MutableState<Boolean>) {
     suspend fun onModuleControl(module: KPModel.KPMInfo) {
         loadingDialog.withLoading {
             withContext(Dispatchers.IO) {
-                controlResult = Natives.kernelPatchModuleControl(module.name, controlParam)
+                controlResult = Natives.moduleControl(module.name, controlParam)
             }
         }
 
@@ -652,7 +652,7 @@ private fun KPModuleList(
 
         val success = loadingDialog.withLoading {
             withContext(Dispatchers.IO) {
-                Natives.unloadKernelPatchModule(module.name) == 0L
+                Natives.unloadModule(module.name) == 0L
             }
         }
 

@@ -15,7 +15,7 @@
     <string name="patch_warnning">Instalacja wiąże się z ryzykiem. Upewnij się, że masz kopię zapasową danych.</string>
     <string name="patch">Poprawka</string>
 
-    <string name="kernel_patch">KernelPatch</string>
+    <string name="kernel_patch">Core Engine</string>
     <string name="android_patch">AndroidPatch</string>
 
     <string name="settings_nav_layout_title">Ustawienia układu nawigacji</string>
@@ -62,7 +62,7 @@
     <string name="super_key">SuperKlucz</string>
     <string name="clear_super_key">Wyczyść SuperKlucz</string>
     <string name="patch_set_superkey">Ustaw SuperKlucz</string>
-    <string name="home_patch_set_key_desc">Tylko dane uwierzytelniające dla KernelPatch</string>
+    <string name="home_patch_set_key_desc">Tylko dane uwierzytelniające dla Core Engine</string>
     <string name="home_patch_next_step">Następny krok</string>
 
     <string name="home_not_installed">Nie zainstalowano</string>
@@ -95,7 +95,7 @@
     <string name="patch_mode_bootimg_patch">Tryb: Poprawka</string>
     <string name="patch_mode_patch_and_install">Tryb: Poprawka i instalacja</string>
     <string name="patch_mode_install_to_next_slot">Tryb: Zainstaluj w nieaktywnym slocie (Po OTA)</string>
-    <string name="patch_mode_uninstall_patch">Tryb: Odinstaluj KPatch</string>
+    <string name="patch_mode_uninstall_patch">Tryb: Odinstaluj Core</string>
     <string name="patch_select_bootimg_btn">Wybierz obraz startowy</string>
     <string name="patch_embed_kpm_btn">Osadź KPM</string>
     <string name="patch_start_patch_btn">Rozpocznij</string>
@@ -141,12 +141,12 @@
 
     <string name="home_device_info">Urządzenie</string>
     <string name="home_system_version">Wersja systemu</string>
-    <string name="home_kpatch_version">Wersja KernelPatch</string>
+    <string name="home_kpatch_version">Wersja Core Engine</string>
     <string name="home_su_path">Plik wykonywalny su</string>
     <string name="home_apatch_version">Wersja Spectre</string>
 
     <string name="kpm">KPModule</string>
-    <string name="kpm_kp_not_installed">KernelPatch nie jest zainstalowany</string>
+    <string name="kpm_kp_not_installed">Core Engine nie jest zainstalowany</string>
     <string name="kpm_add_kpm">Dodaj KPM</string>
     <string name="kpm_load">Załaduj</string>
     <string name="kpm_install">Zainstaluj</string>
@@ -215,7 +215,7 @@
     <string name="apm_start_downloading">Rozpocznij pobieranie: %s</string>
     <string name="apm_new_version_available">Nowa wersja %s jest dostępna, kliknij, aby zaktualizować.</string>
 
-    <string name="hide_apatch_manager">Ukryj menedżera APatch</string>
+    <string name="hide_apatch_manager">Ukryj menedżera Spectre</string>
     <string name="hide_apatch_manager_summary">Zainstaluj aplikację proxy z losowym identyfikatorem pakietu i niestandardową etykietą aplikacji</string>
     <string name="hide_apatch_dialog_new_manager_name">Nowa nazwa menedżera</string>
     <string name="hide_apatch_dialog_summary">Będzie używana jako nowa etykieta aplikacji wyświetlana w launcherze</string>
@@ -263,7 +263,7 @@
     <string name="settings_fold_system_module">Zwiń Moduły Systemowe</string>
     <string name="settings_fold_system_module_summary">Kliknij kartę modułu, aby rozwinąć/zwinąć akcje</string>
     <string name="settings_simple_list_bottom_bar">Prosty dolny pasek listy</string>
-    <string name="settings_simple_list_bottom_bar_summary">Użyj stylu przycisków tylko z ikonami dla akcji modułu, zainspirowane APatch</string>
+    <string name="settings_simple_list_bottom_bar_summary">Użyj stylu przycisków tylko z ikonami dla akcji modułu, zainspirowane Spectre</string>
     <string name="settings_show_more_module_info">Pokaż szczegóły modułu</string>
     <string name="settings_show_more_module_info_summary">Pokaż ID i rozmiar modułu na liście modułów</string>
     <string name="apm_install_confirm_title">Instalacja modułu</string>
@@ -295,12 +295,12 @@
     <string name="mode_select_page_install_inactive_slot_warning">Twoje urządzenie zostanie **WYMUSZONE** do uruchomienia w aktualnie nieaktywnym slocie po ponownym uruchomieniu!\nUżyj tej opcji tylko po zakończeniu OTA.\nKontynuować?</string>
 
     <string name="home_dialog_auth_fail_title">Uwierzytelnianie nie powiodło się</string>
-    <string name="home_dialog_auth_fail_content">Nie można uwierzytelnić SuperKlucza, dlatego APatch nie może działać prawidłowo.
+    <string name="home_dialog_auth_fail_content">Nie można uwierzytelnić SuperKlucza, dlatego Spectre nie może działać prawidłowo.
 Oto kilka możliwych przyczyn niepowodzenia uwierzytelnienia:
-1. Nie poprawiłeś boot.img za pomocą KernelPatch.
+1. Nie poprawiłeś boot.img za pomocą Core Engine.
 2. Poprawiony obraz boot.img nie został wgrany.
 3. SuperKlucz jest nieprawidłowy lub zawiera znaki specjalne.
-4. Twoje urządzenie nie obsługuje APatch i KernelPatch.
+4. Twoje urządzenie nie obsługuje Spectre i Core Engine.
 
 Proszę sprawdzić i spróbować ponownie. Jeśli nadal występują problemy, zawsze można zadać pytania na stronie problemów oficjalnego repozytorium.</string>
 
@@ -315,7 +315,7 @@ Proszę sprawdzić i spróbować ponownie. Jeśli nadal występują problemy, za
     <string name="home_dialog_uninstall_all_desc">Usuń AndroidPatch i rozpocznij pełny proces odinstalowywania.</string>
     
     <!-- Install Mode Select -->
-    <string name="kp_install_methods">KernelPatch Łatanie/Instalowanie</string>
+    <string name="kp_install_methods">Core Engine Łatanie/Instalowanie</string>
     <string name="restore_boot_methods">Wybierz rozruch do przywrócenia do partycji rozruchowej</string>
     <string name="restore_select_file">Wybierz plik rozruchowy partycji do przywrócenia</string>
 

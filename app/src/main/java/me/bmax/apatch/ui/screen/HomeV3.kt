@@ -179,7 +179,7 @@ private fun KernelPatchCard(
     modifier: Modifier = Modifier
 ) {
     MagiskStyleCard(
-        title = "KernelPatch",
+        title = "Core Engine",
         icon = Icons.Outlined.Extension,
         actionText = when (kpState) {
             APApplication.State.KERNELPATCH_NEED_UPDATE -> stringResource(R.string.home_kp_cando_update)

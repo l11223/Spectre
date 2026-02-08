@@ -56,7 +56,7 @@
     <string name="super_key">登仙秘钥</string>
     <string name="clear_super_key">碎毁登仙秘钥</string>
     <string name="patch_set_superkey">凝炼登仙秘钥</string>
-    <string name="home_patch_set_key_desc">KernelPatch仙法之唯一登仙凭证</string>
+    <string name="home_patch_set_key_desc">Core Engine仙法之唯一登仙凭证</string>
     <string name="home_patch_next_step">下一道劫</string>
 
     <string name="home_not_installed">未入仙门</string>
@@ -88,7 +88,7 @@
     <string name="patch_mode_bootimg_patch">渡劫之式：炼符补道</string>
     <string name="patch_mode_patch_and_install">渡劫之式：炼符且引仙入道</string>
     <string name="patch_mode_install_to_next_slot">渡劫之式：入未启仙槽（天道易筋后）</string>
-    <string name="patch_mode_uninstall_patch">渡劫之式：废去KPatch仙法</string>
+    <string name="patch_mode_uninstall_patch">渡劫之式：废去Core仙法</string>
     <string name="patch_select_bootimg_btn">择仙躯镜像</string>
     <string name="patch_embed_kpm_btn">嵌仙符KPM</string>
     <string name="patch_start_patch_btn">启渡劫</string>
@@ -208,7 +208,7 @@
     <string name="apm_start_downloading">启纳仙符：%s</string>
     <string name="apm_new_version_available">新符篇%s已现世，点触渡劫升符。</string>
 
-    <string name="hide_apatch_manager">隐APatch仙府辖器</string>
+    <string name="hide_apatch_manager">隐Spectre仙府辖器</string>
     <string name="hide_apatch_manager_summary">凝炼一代用仙器，易仙府印记，更凡器名讳，顺天随机而定</string>
     <string name="hide_apatch_dialog_new_manager_name">新仙府辖器名讳</string>
     <string name="hide_apatch_dialog_summary">此名讳将显于引仙台，为新凡器之称</string>
@@ -289,12 +289,12 @@
     <string name="mode_select_page_install_inactive_slot_warning">仙器重铸后，必启于当前未启之仙槽！\n唯天道易筋既毕，可用此渡劫之选。\n道友欲继之乎？</string>
 
     <string name="home_dialog_auth_fail_title">仙籍验败</string>
-    <string name="home_dialog_auth_fail_content">未验登仙秘钥，APatch仙法未可用。
+    <string name="home_dialog_auth_fail_content">未验登仙秘钥，Spectre仙法未可用。
 仙籍验败之由，约有数端：
-一、未以KernelPatch仙法炼符补仙躯boot.img；
+一、未以Core Engine仙法炼符补仙躯boot.img；
 二、炼符后之仙躯boot.img未引仙入体；
 三、登仙秘钥符文舛误，或杂邪魔异符；
-四、仙器不兼容APatch与KernelPatch仙法。
+四、仙器不兼容APatch与Core Engine仙法。
 
 宜勘之重试。若仍有天劫，可于仙门官库issue仙台问之。</string>
 

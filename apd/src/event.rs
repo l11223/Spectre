@@ -37,7 +37,7 @@ pub fn on_post_data_fs(superkey: Option<String>) -> Result<()> {
 
     init_load_su_path(&superkey);
 
-    let policy_bin = concat!("/data/adb/.fk/lib/magiskpolicy");
+    let policy_bin = concat!("/data/adb/.fk/lib/sepolicy");
     let args = [policy_bin, "--magisk", "--live"];
     fork_for_result(policy_bin, &args, &superkey);
 

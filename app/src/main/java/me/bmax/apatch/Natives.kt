@@ -64,55 +64,55 @@ object Natives {
     }
 
     @FastNative
-    private external fun nativeKernelPatchVersion(superKey: String): Long
-    fun kernelPatchVersion(): Long {
-        return nativeKernelPatchVersion(APApplication.superKey)
+    private external fun nativeCoreVersion(superKey: String): Long
+    fun coreVersion(): Long {
+        return nativeCoreVersion(APApplication.superKey)
     }
 
     @FastNative
-    private external fun nativeKernelPatchBuildTime(superKey: String): String
-    fun kernelPatchBuildTime(): String {
-        return nativeKernelPatchBuildTime(APApplication.superKey)
+    private external fun nativeCoreBuildTime(superKey: String): String
+    fun coreBuildTime(): String {
+        return nativeCoreBuildTime(APApplication.superKey)
     }
 
-    private external fun nativeLoadKernelPatchModule(
+    private external fun nativeLoadModule(
         superKey: String, modulePath: String, args: String
     ): Long
 
-    fun loadKernelPatchModule(modulePath: String, args: String): Long {
-        return nativeLoadKernelPatchModule(APApplication.superKey, modulePath, args)
+    fun loadModule(modulePath: String, args: String): Long {
+        return nativeLoadModule(APApplication.superKey, modulePath, args)
     }
 
-    private external fun nativeUnloadKernelPatchModule(superKey: String, moduleName: String): Long
-    fun unloadKernelPatchModule(moduleName: String): Long {
-        return nativeUnloadKernelPatchModule(APApplication.superKey, moduleName)
-    }
-
-    @FastNative
-    private external fun nativeKernelPatchModuleNum(superKey: String): Long
-
-    fun kernelPatchModuleNum(): Long {
-        return nativeKernelPatchModuleNum(APApplication.superKey)
+    private external fun nativeUnloadModule(superKey: String, moduleName: String): Long
+    fun unloadModule(moduleName: String): Long {
+        return nativeUnloadModule(APApplication.superKey, moduleName)
     }
 
     @FastNative
-    private external fun nativeKernelPatchModuleList(superKey: String): String
-    fun kernelPatchModuleList(): String {
-        return nativeKernelPatchModuleList(APApplication.superKey)
+    private external fun nativeModuleNum(superKey: String): Long
+
+    fun moduleNum(): Long {
+        return nativeModuleNum(APApplication.superKey)
     }
 
     @FastNative
-    private external fun nativeKernelPatchModuleInfo(superKey: String, moduleName: String): String
-    fun kernelPatchModuleInfo(moduleName: String): String {
-        return nativeKernelPatchModuleInfo(APApplication.superKey, moduleName)
+    private external fun nativeModuleList(superKey: String): String
+    fun moduleList(): String {
+        return nativeModuleList(APApplication.superKey)
     }
 
-    private external fun nativeControlKernelPatchModule(
+    @FastNative
+    private external fun nativeModuleInfo(superKey: String, moduleName: String): String
+    fun moduleInfo(moduleName: String): String {
+        return nativeModuleInfo(APApplication.superKey, moduleName)
+    }
+
+    private external fun nativeControlModule(
         superKey: String, modName: String, jctlargs: String
     ): KPMCtlRes
 
-    fun kernelPatchModuleControl(moduleName: String, controlArg: String): KPMCtlRes {
-        return nativeControlKernelPatchModule(APApplication.superKey, moduleName, controlArg)
+    fun moduleControl(moduleName: String, controlArg: String): KPMCtlRes {
+        return nativeControlModule(APApplication.superKey, moduleName, controlArg)
     }
 
     @FastNative

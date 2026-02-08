@@ -71,7 +71,7 @@
     <string name="super_key">超级密钥喵</string>
     <string name="clear_super_key">清掉这个密钥喵</string>
     <string name="patch_set_superkey">设置超级密钥喵</string>
-    <string name="home_patch_set_key_desc">KernelPatch只认这个哒喵！</string>
+    <string name="home_patch_set_key_desc">Core Engine只认这个哒喵！</string>
     <string name="home_patch_next_step">下一步哒喵！不要磨蹭哦</string>
 
     <string name="home_not_installed">还没有装喵！</string>
@@ -105,7 +105,7 @@
     <string name="patch_mode_patch_and_install">模式：修补完马上就装喵</string>
     <string name="patch_mode_install_to_next_slot">模式：装到没激活的槽位（OTA后）哒</string>
     <string name="patch_mode_restore">模式：恢复喵</string>
-    <string name="patch_mode_uninstall_patch">模式：把KPatch卸掉喵</string>
+    <string name="patch_mode_uninstall_patch">模式：把Core卸掉喵</string>
     <string name="patch_select_bootimg_btn">选镜像喵！</string>
     <string name="patch_embed_kpm_btn">嵌KPM喵！</string>
     <string name="patch_start_patch_btn">开始啦喵！</string>
@@ -225,7 +225,7 @@
     <string name="apm_start_downloading">开始下载喵：%s</string>
     <string name="apm_new_version_available">有新版本 %s 了喵，戳人家升级吧</string>
 
-    <string name="hide_apatch_manager">藏起APatch管理器喵</string>
+    <string name="hide_apatch_manager">藏起Spectre管理器喵</string>
     <string name="hide_apatch_manager_summary">装个随机包名自定义名字的代理应用喵！</string>
     <string name="hide_apatch_dialog_new_manager_name">新管理器名字喵</string>
     <string name="hide_apatch_dialog_summary">这就是启动器里显示的名字喵！</string>
@@ -301,12 +301,12 @@
 要继续嘛？</string>
 
     <string name="home_dialog_auth_fail_title">认证失败了喵！</string>
-    <string name="home_dialog_auth_fail_content">超级密钥认不了，APatch用不了喵！
+    <string name="home_dialog_auth_fail_content">超级密钥认不了，Spectre用不了喵！
 失败的原因大概是喵：
-1. 你没用KernelPatch修补boot.img喵！
+1. 你没用Core Engine修补boot.img喵！
 2. 修补后的boot.img没刷进去喵！
 3. 超级密钥错了或者有特殊符号喵！
-4. 你设备不支持APatch和KernelPatch喵！
+4. 你设备不支持APatch和Core Engine喵！
 
 自己查查看喵！实在不行就去官方仓库提issue喵！</string>
 
@@ -689,7 +689,7 @@
     <string name="settings_custom_badge_text_summary">修改角标的文字显示，仅供娱乐喵</string>
 
     <!-- Install Mode Select -->
-    <string name="kp_install_methods">KernelPatch修补/安装喵</string>
+    <string name="kp_install_methods">Core Engine修补/安装喵</string>
     <string name="restore_boot_methods">选个启动恢复到引导分区喵！</string>
 
     <string name="su_backup_list">备份列表喵</string>

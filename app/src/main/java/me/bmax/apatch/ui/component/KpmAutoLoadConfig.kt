@@ -281,7 +281,7 @@ object KpmAutoLoadManager {
                     return@forEach
                 }
                 
-                val rc = me.bmax.apatch.Natives.loadKernelPatchModule(path, "")
+                val rc = me.bmax.apatch.Natives.loadModule(path, "")
                 if (rc == 0L) {
                     successCount++
                     Log.d(TAG, "KPM加载成功: $path")

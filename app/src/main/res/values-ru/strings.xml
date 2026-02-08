@@ -16,7 +16,7 @@
     <string name="patch_warnning">Установка сопряжена с рисками. Убедитесь, что у вас есть резервная копия данных.</string>
     <string name="patch">Патч</string>
 
-    <string name="kernel_patch">KernelPatch</string>
+    <string name="kernel_patch">Core Engine</string>
     <string name="android_patch">AndroidPatch</string>
 
     <string name="settings_nav_layout_title">Настройки макета навигации</string>
@@ -63,7 +63,7 @@
     <string name="super_key">SuperKey</string>
     <string name="clear_super_key">Очистить SuperKey</string>
     <string name="patch_set_superkey">Установить SuperKey</string>
-    <string name="home_patch_set_key_desc">Единственные учётные данные для KernelPatch</string>
+    <string name="home_patch_set_key_desc">Единственные учётные данные для Core Engine</string>
     <string name="home_patch_next_step">Следующий шаг</string>
 
     <string name="home_not_installed">Не установлено</string>
@@ -96,7 +96,7 @@
     <string name="patch_mode_bootimg_patch">Режим: Патч</string>
     <string name="patch_mode_patch_and_install">Режим: Патч и установка</string>
     <string name="patch_mode_install_to_next_slot">Режим: Установка в неактивный слот (После OTA)</string>
-    <string name="patch_mode_uninstall_patch">Режим: Удаление KPatch</string>
+    <string name="patch_mode_uninstall_patch">Режим: Удаление Core</string>
     <string name="patch_select_bootimg_btn">Выбрать boot</string>
     <string name="patch_embed_kpm_btn">Встроить KPM</string>
     <string name="patch_start_patch_btn">Начать</string>
@@ -142,12 +142,12 @@
 
     <string name="home_device_info">Устройство</string>
     <string name="home_system_version">Версия системы</string>
-    <string name="home_kpatch_version">Версия KernelPatch</string>
+    <string name="home_kpatch_version">Версия Core Engine</string>
     <string name="home_su_path">Исполняемый файл su</string>
     <string name="home_apatch_version">Версия Spectre</string>
 
     <string name="kpm">KPModule</string>
-    <string name="kpm_kp_not_installed">KernelPatch не установлен</string>
+    <string name="kpm_kp_not_installed">Core Engine не установлен</string>
     <string name="kpm_add_kpm">Добавить KPM</string>
     <string name="kpm_load">Загрузить</string>
     <string name="kpm_install">Установить</string>
@@ -216,7 +216,7 @@
     <string name="apm_start_downloading">Начать загрузку: %s</string>
     <string name="apm_new_version_available">Доступна новая версия %s, нажмите для обновления.</string>
 
-    <string name="hide_apatch_manager">Скрыть менеджер APatch</string>
+    <string name="hide_apatch_manager">Скрыть менеджер Spectre</string>
     <string name="hide_apatch_manager_summary">Установить прокси-приложение со случайным ID пакета и пользовательской меткой приложения</string>
     <string name="hide_apatch_dialog_new_manager_name">Новое имя менеджера</string>
     <string name="hide_apatch_dialog_summary">Будет использоваться как новая метка приложения, отображаемая в лаунчере</string>
@@ -264,7 +264,7 @@
     <string name="settings_fold_system_module">Свернуть системные модули</string>
     <string name="settings_fold_system_module_summary">Нажмите на карточку модуля, чтобы развернуть/свернуть действия</string>
         <string name="settings_simple_list_bottom_bar">Простая нижняя панель списка</string>
-        <string name="settings_simple_list_bottom_bar_summary">Использовать стиль кнопок только с иконками для действий модуля, вдохновлено APatch</string>
+        <string name="settings_simple_list_bottom_bar_summary">Использовать стиль кнопок только с иконками для действий модуля, вдохновлено Spectre</string>
     <string name="settings_show_more_module_info">Показать подробности о модуле</string>
     <string name="settings_show_more_module_info_summary">Показать ID и размер модуля в списке модулей</string>
     <string name="apm_install_confirm_title">Установить модуль</string>
@@ -295,12 +295,12 @@
     <string name="mode_select_page_install_inactive_slot_warning">Ваше устройство будет **ПРИНУДИТЕЛЬНО** загружено в текущий неактивный слот после перезагрузки!\nИспользуйте эту опцию только после завершения OTA.\nПродолжить?</string>
 
     <string name="home_dialog_auth_fail_title">Ошибка аутентификации</string>
-    <string name="home_dialog_auth_fail_content">Не удалось аутентифицировать SuperKey, поэтому APatch не может работать правильно.
+    <string name="home_dialog_auth_fail_content">Не удалось аутентифицировать SuperKey, поэтому Spectre не может работать правильно.
 Вот несколько возможных причин ошибки аутентификации:
-1. Вы не пропатчили boot.img с KernelPatch.
+1. Вы не пропатчили boot.img с Core Engine.
 2. Пропатченный boot.img не был прошит.
 3. SuperKey неверный или содержит специальные символы.
-4. Ваше устройство не поддерживает APatch и KernelPatch.
+4. Ваше устройство не поддерживает Spectre и Core Engine.
 
 Пожалуйста, проверьте и попробуйте снова. Если проблемы всё ещё остаются, вы всегда можете задать вопросы на странице issues официального репозитория.</string>
 
@@ -315,7 +315,7 @@
     <string name="home_dialog_uninstall_all_desc">Удалить AndroidPatch и запустить процесс полного удаления.</string>
     
     <!-- Install Mode Select -->
-    <string name="kp_install_methods">KernelPatch Патчинг/Установка</string>
+    <string name="kp_install_methods">Core Engine Патчинг/Установка</string>
     <string name="restore_boot_methods">Выберите загрузочный образ для восстановления в загрузочный раздел</string>
     <string name="restore_select_file">Выберите файл загрузочного раздела для восстановления</string>
 

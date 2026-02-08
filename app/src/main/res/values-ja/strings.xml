@@ -8,7 +8,7 @@
   <string name="failure">失敗しました</string>
   <string name="patch_warnning">インストールにはリスクが伴います。必ずデータのバックアップを行ってください。</string>
   <string name="patch">パッチ</string>
-  <string name="kernel_patch">KernelPatch</string>
+  <string name="kernel_patch">Core Engine</string>
   <string name="android_patch">AndroidPatch</string>
     <string name="settings_nav_layout_title">ナビゲーションレイアウトの設定</string>
     <string name="settings_nav_layout_summary">一部のナビゲーションコンポーネントを表示または非表示にします</string>
@@ -64,10 +64,10 @@
   <string name="su_app_action_force_stop_success">%s を強制停止しました</string>
   <string name="su_app_action_failed">操作に失敗しました: %s</string>
 
-  <string name="home_learn_apatch">APatch について学習する</string>
-  <string name="home_click_to_learn_apatch">APatch の機能と使用方法について学習します</string>
-  <string name="settings_hide_apatch_card">APatch について学習するを非表示</string>
-  <string name="settings_hide_apatch_card_summary">APatch について学習するのカードを非表示にします</string>
+  <string name="home_learn_apatch">Spectre について学習する</string>
+  <string name="home_click_to_learn_apatch">Spectre の機能と使用方法について学習します</string>
+  <string name="settings_hide_apatch_card">Spectre について学習するを非表示</string>
+  <string name="settings_hide_apatch_card_summary">Spectre について学習するのカードを非表示にします</string>
   <string name="about_source_code"><![CDATA[<p>%1$s でソースコードを表示<p/>%2$s のチャンネルに参加<p/>%3$s のグループに参加]]></string>
   <string name="send_log">ログを送信</string>
   <string name="save_log">ログを保存</string>
@@ -76,7 +76,7 @@
   <string name="super_key">SuperKey</string>
   <string name="clear_super_key">SuperKey を消去</string>
   <string name="patch_set_superkey">SuperKey を設定</string>
-  <string name="home_patch_set_key_desc">KernelPatch の認証情報のみです</string>
+  <string name="home_patch_set_key_desc">Core Engine の認証情報のみです</string>
   <string name="home_patch_next_step">次のステップ</string>
   <string name="home_not_installed">未インストール</string>
   <string name="home_install_unknown">未インストールまたは認証されていません</string>
@@ -89,7 +89,7 @@
   <string name="kpatch_version">バージョン: %s</string>
   <string name="apatch_version">バージョン: %s</string>
   <string name="kpatch_version_update" formatted="false">バージョン: %s -&gt; %s</string>
-  <string name="kpatch_shadow_path_title">KPatch</string>
+  <string name="kpatch_shadow_path_title">Core</string>
   <string name="home_auth_key_title">SuperKey を入力</string>
   <string name="home_auth_key_desc">認証後に開始します</string>
   <string name="home_kpatch_info_title">情報</string>
@@ -102,7 +102,7 @@
   <string name="patch_mode_patch_and_install">モード: パッチとインストール</string>
   <string name="patch_mode_install_to_next_slot">モード: 非アクティブスロットにインストール (OTA 後)</string>
   <string name="patch_mode_restore">モード: 復元</string>
-  <string name="patch_mode_uninstall_patch">モード: KPatch をアンインストール</string>
+  <string name="patch_mode_uninstall_patch">モード: Core をアンインストール</string>
   <string name="patch_select_bootimg_btn">boot を選択</string>
   <string name="patch_embed_kpm_btn">KPM を埋め込む</string>
   <string name="patch_start_patch_btn">開始</string>
@@ -144,11 +144,11 @@
   <string name="settings_selinux_mode_permissive_summary">SELinux は違反をログに記録しますが、拒否しません</string>
   <string name="home_device_info">デバイス</string>
   <string name="home_system_version">システム バージョン</string>
-  <string name="home_kpatch_version">KernelPatch バージョン</string>
+  <string name="home_kpatch_version">Core Engine バージョン</string>
   <string name="home_su_path">実行可能な su</string>
   <string name="home_apatch_version">Spectre バージョン</string>
   <string name="kpm">KP モジュール</string>
-  <string name="kpm_kp_not_installed">KernelPatch はインストールされていません</string>
+  <string name="kpm_kp_not_installed">Core Engine はインストールされていません</string>
   <string name="kpm_add_kpm">KPM を追加</string>
   <string name="kpm_load">読み込み</string>
   <string name="kpm_install">インストール</string>
@@ -200,7 +200,7 @@
   <string name="apm_downloading">モジュールをダウンロード中: %s</string>
   <string name="apm_start_downloading">ダウンロードを開始中: %s</string>
   <string name="apm_new_version_available">新しいバージョンの %s が利用可能です。タップしてアップグレードしてください。</string>
-  <string name="hide_apatch_manager">APatch Manager を非表示</string>
+  <string name="hide_apatch_manager">Spectre Manager を非表示</string>
   <string name="hide_apatch_manager_summary">ランダムなパッケージ ID とカスタムアプリラベルを持つプロキシアプリをインストールします</string>
   <string name="hide_apatch_dialog_new_manager_name">新しいマネージャーの名前</string>
   <string name="hide_apatch_dialog_summary">ランチャーに表示される新しいアプリラベルとして使用されます</string>
@@ -283,12 +283,12 @@
   <string name="mode_select_page_install_inactive_slot">非アクティブスロットにインストール (OTA 後)</string>
   <string name="mode_select_page_install_inactive_slot_warning">再起動後にデバイスは、非アクティブなスロットから**強制的に**起動されます！\nこのオプションは、OTA の完了後にのみ使用してください。\n続行しますか？</string>
   <string name="home_dialog_auth_fail_title">認証に失敗しました</string>
-  <string name="home_dialog_auth_fail_content">SuperKey を認証できないため、APatch は正常に動作しません。
+  <string name="home_dialog_auth_fail_content">SuperKey を認証できないため、Spectre は正常に動作しません。
 認証の失敗で考えられる原因は以下の通りです:
-1. boot.img に KernelPatch を適用していない。
+1. boot.img に Core Engine を適用していない。
 2. パッチを適用した boot.img をフラッシュしていない。
 3. SuperKey が間違っているか、特殊文字が含まれている。
-4. 使用しているデバイスが APatch と KernelPatch に対応していない。
+4. 使用しているデバイスが Spectre と Core Engine に対応していない。
 
 確認をした上で、再度お試しください。それでも問題が解決しない場合は、公式リポジトリの Issue ページでいつでも質問ができます。</string>
   <string name="home_more_menu_feedback_or_suggestion">フィードバックまたは提案</string>
@@ -643,7 +643,7 @@
    <string name="settings_custom_badge_text">カスタムバッジテキスト</string>
    <string name="settings_custom_badge_text_summary">バッジのテキスト表示を変更します。エンターテインメントのみ</string>
    <!-- Install Mode Select -->
-  <string name="kp_install_methods">KernelPatch をパッチ/インストール</string>
+  <string name="kp_install_methods">Core Engine をパッチ/インストール</string>
   <string name="restore_boot_methods">boot パーティションを復元する boot を選択してください</string>
   <string name="su_backup_list">リストをバックアップ</string>
   <string name="su_restore_list">リストを復元</string>

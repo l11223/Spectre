@@ -23,7 +23,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.APatch"
+        android:theme="@style/Theme.Spectre"
         android:usesCleartextTraffic="true"
         tools:targetApi="34">
 
@@ -143,7 +143,7 @@
             android:autoRemoveFromRecents="true"
             android:documentLaunchMode="intoExisting"
             android:exported="false"
-            android:theme="@style/Theme.APatch.WebUI" />
+            android:theme="@style/Theme.Spectre.WebUI" />
 
         <activity
             android:name=".ui.CrashHandleActivity"

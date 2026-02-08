@@ -144,7 +144,7 @@ fun InstallScreen(navigator: DestinationsNavigator, uri: Uri, type: MODULE_TYPE)
                 val date = format.format(Date())
                 val file = File(
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                    "APatch_install_${type}_log_${date}.log"
+                    "Spectre_install_${type}_log_${date}.log"
                 )
                 file.writeText(fullLogBuffer.toString())
                 snackBarHost.showSnackbar("Log saved to ${file.absolutePath}")

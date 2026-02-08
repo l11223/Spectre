@@ -36,34 +36,34 @@ function failed(){
 }
 
 function boot_execute_ab(){
-	./lib/arm64-v8a/libmagiskboot.so unpack boot.img
-	if [[ ! $(./lib/arm64-v8a/libkptools.so -i ./kernel -f | grep CONFIG_KALLSYMS=y) ]]; then
+	./lib/arm64-v8a/libbootimg.so unpack boot.img
+	if [[ ! $(./lib/arm64-v8a/libsystools.so -i ./kernel -f | grep CONFIG_KALLSYMS=y) ]]; then
 		kernelFlagsErr
 	fi
 	mv kernel kernel-origin
-	./lib/arm64-v8a/libkptools.so -p --image kernel-origin --skey "Ap$skey" --kpimg ./assets/kpimg --out ./kernel 2>&1 | tee /dev/tmp/install/log
+	./lib/arm64-v8a/libsystools.so -p --image kernel-origin --skey "Ap$skey" --kpimg ./assets/kpimg --out ./kernel 2>&1 | tee /dev/tmp/install/log
 	if [[ ! $(cat /dev/tmp/install/log | grep "patch done") ]]; then
 		failed
 	fi
 	ui_printfile /dev/tmp/install/log
-	./lib/arm64-v8a/libmagiskboot.so repack boot.img
+	./lib/arm64-v8a/libbootimg.so repack boot.img
 	dd if=/dev/tmp/install/new-boot.img of=/dev/block/by-name/boot$slot
 	mv boot.img /data/boot.img
 	apatchNote
 }
 
 function boot_execute(){
-	./lib/arm64-v8a/libmagiskboot.so unpack boot.img
-	if [[ ! $(./lib/arm64-v8a/libkptools.so -i ./kernel -f | grep CONFIG_KALLSYMS=y) ]]; then
+	./lib/arm64-v8a/libbootimg.so unpack boot.img
+	if [[ ! $(./lib/arm64-v8a/libsystools.so -i ./kernel -f | grep CONFIG_KALLSYMS=y) ]]; then
 		kernelFlagsErr
 	fi
 	mv kernel kernel-origin
-	./lib/arm64-v8a/libkptools.so -p --image kernel-origin --skey "Ap$skey" --kpimg ./assets/kpimg --out ./kernel 2>&1 | tee /dev/tmp/install/log
+	./lib/arm64-v8a/libsystools.so -p --image kernel-origin --skey "Ap$skey" --kpimg ./assets/kpimg --out ./kernel 2>&1 | tee /dev/tmp/install/log
 	if [[ ! $(cat /dev/tmp/install/log | grep "patch done") ]]; then
 		failed
 	fi
 	ui_printfile /dev/tmp/install/log
-	./lib/arm64-v8a/libmagiskboot.so repack boot.img
+	./lib/arm64-v8a/libbootimg.so repack boot.img
 	dd if=/dev/tmp/install/new-boot.img of=/dev/block/by-name/boot$slot
 	mv boot.img /data/boot.img
 	apatchNote
@@ -74,8 +74,8 @@ function main(){
 cd /dev/tmp/install
 
 chmod a+x ./assets/kpimg
-chmod a+x ./lib/arm64-v8a/libkptools.so
-chmod a+x ./lib/arm64-v8a/libmagiskboot.so
+chmod a+x ./lib/arm64-v8a/libsystools.so
+chmod a+x ./lib/arm64-v8a/libbootimg.so
 
 slot=$(getprop ro.boot.slot_suffix)
 

@@ -144,7 +144,7 @@ class PatchesViewModel : ViewModel() {
         val result = shellForResult(
             shell,
             "cd $patchDir",
-            "./magiskboot unpack $bootimg",
+            "./bootimg unpack $bootimg",
             "./kptools -l -i kernel",
         )
         if (result.isSuccess) {

@@ -13,7 +13,7 @@
     <string name="patch_warnning">A instalação envolve riscos. Por favor, certifique-se de que seus dados possuem backup.</string>
     <string name="patch">Patch</string>
 
-    <string name="kernel_patch">KernelPatch</string>
+    <string name="kernel_patch">Core Engine</string>
     <string name="android_patch">AndroidPatch</string>
 
     <string name="settings_nav_layout_title">Configuração do Layout de Navegação</string>
@@ -89,7 +89,7 @@
     <string name="super_key">SuperKey</string>
     <string name="clear_super_key">Limpar SuperKey</string>
     <string name="patch_set_superkey">Definir SuperKey</string>
-    <string name="home_patch_set_key_desc">Única credencial para o KernelPatch</string>
+    <string name="home_patch_set_key_desc">Única credencial para o Core Engine</string>
     <string name="home_patch_next_step">Próximo passo</string>
 
     <string name="home_not_installed">Não instalado</string>
@@ -123,7 +123,7 @@
     <string name="patch_mode_patch_and_install">Modo: Patch e Instalar (Direto)</string>
     <string name="patch_mode_install_to_next_slot">Modo: Instalar no slot inativo (Após OTA)</string>
     <string name="patch_mode_restore">Modo: Restaurar</string>
-    <string name="patch_mode_uninstall_patch">Modo: Desinstalar KPatch</string>
+    <string name="patch_mode_uninstall_patch">Modo: Desinstalar Core</string>
     <string name="patch_select_bootimg_btn">Selecionar boot</string>
     <string name="patch_embed_kpm_btn">Embutir KPM</string>
     <string name="patch_start_patch_btn">Iniciar</string>
@@ -169,12 +169,12 @@
 
     <string name="home_device_info">Dispositivo</string>
     <string name="home_system_version">Versão do sistema</string>
-    <string name="home_kpatch_version">Versão KernelPatch</string>
+    <string name="home_kpatch_version">Versão Core Engine</string>
     <string name="home_su_path">Executável su</string>
     <string name="home_apatch_version">Versão Spectre</string>
 
     <string name="kpm">KPModule (Kernel)</string>
-    <string name="kpm_kp_not_installed">KernelPatch não instalado</string>
+    <string name="kpm_kp_not_installed">Core Engine não instalado</string>
     <string name="kpm_add_kpm">Adic. KPM</string>
     <string name="kpm_load">Carregar</string>
     <string name="kpm_install">Instalar</string>
@@ -229,7 +229,7 @@
     <string name="apm_start_downloading">Iniciando download: %s</string>
     <string name="apm_new_version_available">Nova versão %s disponível, clique para atualizar.</string>
 
-    <string name="hide_apatch_manager">Ocultar APatch Manager</string>
+    <string name="hide_apatch_manager">Ocultar Spectre Manager</string>
     <string name="hide_apatch_manager_summary">Instalar um app proxy com ID de pacote aleatório e nome personalizado</string>
     <string name="hide_apatch_dialog_new_manager_name">Novo nome do manager</string>
     <string name="hide_apatch_dialog_summary">Será usado como o novo nome do app exibido no launcher</string>
@@ -271,7 +271,7 @@
     <string name="settings_fold_system_module">Dobrar Módulos do Sistema</string>
     <string name="settings_fold_system_module_summary">Clique no cartão do módulo para expandir/colapsar ações</string>
         <string name="settings_simple_list_bottom_bar">Barra Inferior Simples</string>
-        <string name="settings_simple_list_bottom_bar_summary">Usar estilo de botões somente com ícones para ações de módulo, inspirado no APatch</string>
+        <string name="settings_simple_list_bottom_bar_summary">Usar estilo de botões somente com ícones para ações de módulo, inspirado no Spectre</string>
     <string name="apm_install_confirm_title">Instalar Módulo</string>
     <string name="apm_install_confirm_content">Tem certeza de que deseja instalar %s?</string>
     <string name="apm_disable_all_title">Desativar Todos os Módulos</string>
@@ -301,12 +301,12 @@
     <string name="mode_select_page_install_inactive_slot_warning">Seu dispositivo será **FORÇADO** a inicializar no slot inativo atual após reiniciar!\nUse esta opção apenas após o término da OTA.\nContinuar?</string>
 
     <string name="home_dialog_auth_fail_title">Falha na autenticação</string>
-    <string name="home_dialog_auth_fail_content">Não foi possível autenticar a SuperKey, portanto o APatch não pode funcionar corretamente.
+    <string name="home_dialog_auth_fail_content">Não foi possível autenticar a SuperKey, portanto o Spectre não pode funcionar corretamente.
 Aqui estão algumas possíveis razões para a falha:
-1. Você não aplicou o patch no boot.img com KernelPatch.
+1. Você não aplicou o patch no boot.img com Core Engine.
 2. O boot.img modificado não foi instalado (flashed).
 3. A SuperKey está errada ou contém caracteres especiais.
-4. Seu dispositivo não suporta APatch e KernelPatch.
+4. Seu dispositivo não suporta Spectre e Core Engine.
 
 Por favor, verifique e tente novamente. Se houver problemas persistentes, você pode perguntar na página de issues do repositório oficial.</string>
 
@@ -684,7 +684,7 @@ Por favor, certifique-se de fechar completamente o app e reabri-lo para que os c
     <string name="settings_custom_badge_text_summary">Modificar a exibição de texto do emblema, apenas por diversão</string>
 
     <!-- Install Mode Select -->
-    <string name="kp_install_methods">Aplicar Patch/Instalar KernelPatch</string>
+    <string name="kp_install_methods">Aplicar Patch/Instalar Core Engine</string>
     <string name="restore_boot_methods">Selecione um boot para restaurar na partição boot</string>
 
     <string name="settings_app_list_loading_scheme">Esquema de Carregamento da Lista de Apps</string>

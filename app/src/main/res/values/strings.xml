@@ -96,7 +96,7 @@
     <string name="apatch_version">Version: %s</string>
 
     <string name="kpatch_version_update" formatted="false">Version: %s -&gt; %s</string>
-    <string name="kpatch_shadow_path_title">kpatch</string>
+    <string name="kpatch_shadow_path_title">core</string>
     <string name="home_auth_key_title">Enter SuperKey</string>
     <string name="home_auth_key_desc">Start after certification</string>
     <string name="home_kpatch_info_title">Info</string>
@@ -113,7 +113,7 @@
     <string name="patch_mode_patch_and_install">Mode: Patch and install</string>
     <string name="patch_mode_install_to_next_slot">Mode: Install to inactive slot (After OTA)</string>
     <string name="patch_mode_restore">Mode: Restore</string>
-    <string name="patch_mode_uninstall_patch">Mode: Uninstall KPatch</string>
+    <string name="patch_mode_uninstall_patch">Mode: Uninstall Core</string>
     <string name="patch_select_bootimg_btn">Select boot</string>
     <string name="patch_embed_kpm_btn">Embed KPM</string>
     <string name="patch_start_patch_btn">Start</string>
@@ -524,12 +524,12 @@ Please ensure the app is completely closed and reopened for the commands to exec
 
     <!-- Hide Settings Strings -->
     <string name="home_hide_su_path">Hide su executable path</string>
-    <string name="home_hide_kpatch_version">Hide kernel patch version</string>
+    <string name="home_hide_kpatch_version">Hide core engine version</string>
     <string name="home_hide_fingerprint">Hide fingerprint</string>
     <string name="home_hide_zygisk">Hide Zygisk implementation</string>
     <string name="home_hide_mount">Hide mount implementation</string>
     <string name="home_hide_su_path_summary">Hide su executable path in info card</string>
-    <string name="home_hide_kpatch_version_summary">Hide kernel patch version in info card</string>
+    <string name="home_hide_kpatch_version_summary">Hide core engine version in info card</string>
     <string name="home_hide_fingerprint_summary">Hide fingerprint in info card</string>
     <string name="home_hide_zygisk_summary">Hide Zygisk implementation in info card</string>
     <string name="home_hide_mount_summary">Hide mount implementation in info card</string>

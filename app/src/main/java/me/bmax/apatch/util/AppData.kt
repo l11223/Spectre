@@ -130,7 +130,7 @@ object AppData {
      */
     private fun getKernelModuleCount(): Int {
         return try {
-            Natives.kernelPatchModuleNum().toInt()
+            Natives.moduleNum().toInt()
         } catch (e: Exception) {
             Log.e(TAG, "Failed to get kernel module count", e)
             0

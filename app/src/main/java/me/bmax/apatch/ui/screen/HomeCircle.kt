@@ -308,7 +308,7 @@ fun InfoCardCircle(kpState: APApplication.State, apState: APApplication.State) {
             val prefs = APApplication.sharedPreferences
 
             var hideSuPath by remember { mutableStateOf(prefs.getBoolean("hide_su_path", false)) }
-            var hideKpatchVersion by remember { mutableStateOf(prefs.getBoolean("hide_kpatch_version", false)) }
+            var hideKpatchVersion by remember { mutableStateOf(prefs.getBoolean("hide_core_version", false)) }
             var hideFingerprint by remember { mutableStateOf(prefs.getBoolean("hide_fingerprint", false)) }
             var hideZygisk by remember { mutableStateOf(prefs.getBoolean("hide_zygisk", false)) }
             var hideMount by remember { mutableStateOf(prefs.getBoolean("hide_mount", false)) }
@@ -318,7 +318,7 @@ fun InfoCardCircle(kpState: APApplication.State, apState: APApplication.State) {
                 val listener = android.content.SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
                     when (key) {
                         "hide_su_path" -> hideSuPath = sharedPreferences.getBoolean("hide_su_path", false)
-                        "hide_kpatch_version" -> hideKpatchVersion = sharedPreferences.getBoolean("hide_kpatch_version", false)
+                        "hide_core_version" -> hideKpatchVersion = sharedPreferences.getBoolean("hide_core_version", false)
                         "hide_fingerprint" -> hideFingerprint = sharedPreferences.getBoolean("hide_fingerprint", false)
                         "hide_zygisk" -> hideZygisk = sharedPreferences.getBoolean("hide_zygisk", false)
                         "hide_mount" -> hideMount = sharedPreferences.getBoolean("hide_mount", false)
