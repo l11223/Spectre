@@ -58,51 +58,150 @@ Spectre 是一个基于 [KernelPatch](https://github.com/bmax121/KernelPatch) �
 
 ## ghost.kpm — 内核隐匿模块
 
+ghost.kpm 是 Spectre 的核心组件 — 约 600 行纯 C 代码，完全自主开发。它通过 15 个内核 hook 在系统调用层面拦截所有 Root 检测向量，覆盖目录遍历、/proc 文件系统、内核符号表、SELinux 审计、文件存在性检查等全部攻击面。所有 hook 均为实际工作代码，无占位符、无空实现。
+
+
+### 隐匿能力总览
+
+| 检测向量 | Hook 数量 | 覆盖范围 |
+|:---------|:----------|:---------|
+| 目录/文件扫描 | 4 | `filldir64` + `access()` / `stat()` / `open()` 三路拦截 |
+| /proc 信息泄露 | 4 | maps、mounts、status、wchan |
+| 内核信息暴露 | 4 | dmesg、kallsyms、uname、/proc/version |
+| SELinux 检测 | 2 | AVC 绕过 + 上下文伪装 |
+| 审计日志 | 1 | 内核级日志抑制 |
+| **合计** | **15** | **零盲区** |
+
 ### 核心隐藏
 
 | Hook | 目标 | 效果 |
 |:-----|:-----|:-----|
-| `filldir64` | 目录遍历 | 隐藏 `/data/adb/` 下的 8 个混淆目录 |
-| `avc_denied` | SELinux | uid=0 进程透明绕过 |
-| `audit_log_start` | 审计日志 | 抑制 SELinux 违规日志 |
+| `filldir64` | 目录遍历 | 双重过滤：隐藏 `/data/adb/` 下 8 个混淆目录，同时隐藏 `/data/user/0/` 和 `/data/data/` 下的管理器包名目录 |
+| `avc_denied` | SELinux | uid=0 进程透明绕过 SELinux 拒绝，无审计记录 |
+| `audit_log_start` | 审计日志 | 在内核层抑制 AVC、SELINUX_ERR、MAC_STATUS 三类审计日志 |
 
 ### /proc 隐藏
 
 | Hook | 目标 | 效果 |
 |:-----|:-----|:-----|
-| `show_map_vma` | `/proc/pid/maps` | 过滤 root 库、zygisk、riru 痕迹 |
-| `show_mountinfo` | `/proc/pid/mounts` | 过滤 overlay、magisk 挂载项 |
-| `proc_pid_status` | `/proc/pid/status` | 强制 `TracerPid: 0` |
-| `proc_pid_wchan` | `/proc/pid/wchan` | 替换 KP 符号为 `ep_poll` |
+| `show_map_vma` | `/proc/pid/maps` | 过滤 16 个关键词：root 库、zygisk、riru、shamiko、kernelpatch、lspd、模块路径等 |
+| `show_mountinfo` | `/proc/pid/mounts` | 过滤 6 个关键词：overlay、magisk、KSU、apatch 挂载项 |
+| `proc_pid_status` | `/proc/pid/status` | 强制 `TracerPid: 0`，绕过反调试检测 |
+| `proc_pid_wchan` | `/proc/pid/wchan` | 替换 7 个 KP 相关符号为无害的 `ep_poll` |
 
 ### 内核信息隐藏
 
 | Hook | 目标 | 效果 |
 |:-----|:-----|:-----|
-| `devkmsg_read` | dmesg | 过滤 KernelPatch 启动痕迹 |
-| `s_show` | `/proc/kallsyms` | 隐藏 `supercall`、`kp_*`、`ghost_*` 符号 |
-| `newuname` | `uname -r` | 伪装内核版本号 |
-| `version_proc_show` | `/proc/version` | 伪装完整版本字符串 |
+| `devkmsg_read` | dmesg/kmsg | 过滤 8 个关键词，将 KernelPatch 启动痕迹替换为无害记录 |
+| `s_show` | `/proc/kallsyms` | 隐藏 8 类符号：`supercall`、`kp_*`、`kernelpatch`、`ghost_*`、`spoof_*`、`hook_wrap`、`inline_hook`、`kpm_*` |
+| `__arm64_sys_newuname` | `uname -r` | 同时伪装 release 和 version 两个字段（其他方案通常只改 release） |
+| `version_proc_show` | `/proc/version` | 伪装完整版本字符串，默认值模拟 Pixel 9 Pro 内核 |
 
 ### 文件存在性隐藏
 
 | Hook | 目标 | 效果 |
 |:-----|:-----|:-----|
-| `do_faccessat` | `access()` | 22 条 root 相关路径返回 `-ENOENT` |
+| `do_faccessat` | `access()` | 22+ 条 root 相关路径返回 `-ENOENT`（仅对非 root 进程生效） |
 | `vfs_fstatat` | `stat()` | 同上 |
 | `do_sys_openat2` | `open()` | 同上 |
+
+覆盖路径包括：经典 su 路径、Spectre 目录、APatch 目录、Magisk 目录、KSU 目录、SuperSU 路径、管理器 App 数据目录。
 
 ### SELinux 上下文隐藏
 
 | Hook | 目标 | 效果 |
 |:-----|:-----|:-----|
-| `selinux_getprocattr` | `/proc/pid/attr/current` | `u:r:su:s0` → `u:r:sh:s0` |
+| `selinux_getprocattr` | `/proc/pid/attr/current` | 原地替换：`u:r:su:s0` → `u:r:sh:s0`，`u:r:magisk:s0` → `u:r:system:s0` |
+
+### 运行时控制
+
+ghost.kpm 提供 `ghost_control` 接口，支持运行时动态操作：
+
+- **更新伪装值**：可在不重启的情况下修改 uname release、version、version string 三个伪装字段
+- **状态查询**：查询当前 ghost.kpm 运行状态和已加载的伪装值
+- **生命周期管理**：通过 `hook_wrap` / `hook_unwrap` 实现干净的 hook 注册与注销
+
+---
+
+## 相比原版 APatch 的改进
+
+Spectre 在 APatch / FolkPatch 基础上进行了大量隐匿性和安全性增强。以下每一项改动都来自对实际检测手段的分析，不是为了改而改。
+
+### 🔒 SuperKey 安全传递
+
+原版 APatch 通过命令行参数传递 SuperKey — 这意味着系统上**任何进程**都可以通过 `/proc/<pid>/cmdline` 读取到这个密钥。这是一个真实的安全漏洞（VULN-01）。
+
+Spectre 的修复方案采用三级优先级：
+
+| 优先级 | 方式 | 安全性 |
+|:-------|:-----|:-------|
+| 1（首选） | 环境变量 `SKEY` | 不出现在 `/proc/cmdline`，进程退出后消失 |
+| 2（备选） | 临时文件 `/data/adb/.fk/.skey` | 读取后立即删除 |
+| 3（兼容） | 命令行参数 | 仅作为旧版兼容回退 |
+
+### 🗂️ 混淆目录结构
+
+所有工作目录从可识别的名称改为无意义的短名。反作弊引擎扫描文件系统时，无法通过路径特征识别 Root 工具的存在：
+
+| 原版路径 | Spectre 路径 | 说明 |
+|:---------|:-------------|:-----|
+| `/data/adb/ap/` | `/data/adb/.fk/` | 工作目录 |
+| `/data/adb/ap/bin/` | `/data/adb/.fk/lib/` | 二进制目录 |
+| `/data/adb/ap/log/` | `/data/adb/.fk/tmp/` | 日志目录 |
+| `/data/adb/apd` | `/data/adb/.core` | 守护进程 |
+| `/data/adb/modules/` | `/data/adb/.sp_ext/` | 模块目录 |
+| `/data/adb/modules_update/` | `/data/adb/.sp_ext_up/` | 模块更新目录 |
+| — | `/data/adb/.meta/` | Metamodule 目录（新增） |
+| — | `/data/adb/.sp_cfg/` | 配置目录（新增） |
+
+所有混淆路径与 ghost.kpm 的 `filldir64` hook 同步 — 即使绕过了用户空间隐藏，内核层也会拦截目录遍历。
+
+### 👻 进程伪装
+
+守护进程通过 `PR_SET_NAME` 将进程名设置为 `servicemanager`，日志 tag 同步改为 `ServiceManager`。在 `ps` 输出和 `/proc` 文件系统中，与 Android 原生系统服务完全无法区分。
+
+### 🧹 环境变量清理
+
+原版 APatch 在子进程中保留了以下环境变量：
+
+- `KERNELPATCH`
+- `KERNELPATCH_VERSION`
+- `KERNEL_VERSION`
+- `KP_READY`
+
+任何 App 都可以通过 `/proc/<pid>/environ` 检测到这些变量的存在。Spectre 在 fork 子进程时完全移除所有可检测的环境变量。
+
+### 🛡️ SELinux 上下文替换
+
+| | 原版 APatch | Spectre |
+|:--|:-----------|:--------|
+| 内部上下文 | `u:r:magisk:s0` | `u:r:su:s0` |
+| 外部可见 | `u:r:magisk:s0`（直接暴露） | `u:r:sh:s0`（ghost.kpm hook 伪装） |
+
+`u:r:magisk:s0` 是所有 Root 检测工具的首要检查项。Spectre 从两个层面消除这个特征：内部使用 `u:r:su:s0`，通过 ghost.kpm 的 `selinux_getprocattr` hook 对外展示为 `u:r:sh:s0`。
+
+### 📦 Metamodule 系统
+
+全新的 Metamodule 机制，提供三个生命周期钩子：
+
+| 钩子 | 触发时机 | 用途 |
+|:-----|:---------|:-----|
+| `metamount.sh` | 模块挂载阶段 | 控制常规模块的挂载方式 |
+| `metainstall.sh` | 模块安装阶段 | 自定义安装逻辑 |
+| `metauninstall.sh` | 模块卸载阶段 | 清理和回退 |
+
+Metamodule 支持符号链接解析和回退搜索，并内置安全检查防止在不稳定状态下安装。
+
+### 👻 ghost.kpm 内核隐匿模块
+
+约 600 行纯 C 代码，完全自主开发的内核模块。15 个活跃的内核 hook 覆盖所有已知检测向量，从系统调用层面实现隐匿。详见上方 [ghost.kpm 章节](#ghostkpm--内核隐匿模块)。
 
 ---
 
 ## 管理器功能
 
-- 一键修补 boot 镜像，保留 AVB 签名链（锁定 BL 可用）
+- 一键修补 boot 镜像
 - 逐应用 SuperUser 权限管理
 - 自定义 SU 路径
 - Magisk 兼容模块系统（APM）
@@ -118,7 +217,7 @@ Spectre 是一个基于 [KernelPatch](https://github.com/bmax121/KernelPatch) �
 # 1. 从 Releases 下载最新 APK 和 ghost.kpm
 # 2. 安装 Spectre APK
 # 3. 通过 App 修补 boot 镜像
-# 4. 刷入修补后的 boot（fastboot 或 EDL）
+# 4. 通过 fastboot 刷入修补后的 boot
 # 5. 重启 → 打开 Spectre → 加载 ghost.kpm
 ```
 
