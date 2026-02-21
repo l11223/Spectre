@@ -1,0 +1,79 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+labels: [bug]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting issues with Spectre.
+        Please provide the following information to help us investigate.
+
+  - type: checkboxes
+    attributes:
+       label: Pre-submission checklist
+       options:
+          - label: I searched existing issues and found nothing relevant
+            required: true
+          - label: I am using the latest release or CI build
+            required: true
+
+  - type: textarea
+    attributes:
+        label: Bug description
+        description: Clear and concise description of the bug.
+    validations:
+        required: true
+
+  - type: textarea
+    attributes:
+        label: Steps to reproduce
+        placeholder: |
+          1. Go to...
+          2. Click on...
+          3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+        label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+        label: Actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+        label: Screenshots / Logs
+        description: Attach screenshots or log files if available.
+
+  - type: input
+    attributes:
+      label: Device
+      placeholder: "e.g. Pixel 8 Pro, Lenovo Y700"
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Android / Kernel version
+      placeholder: "e.g. Android 15 / 6.6.56"
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Spectre version
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: KernelPatch version
+    validations:
+      required: true

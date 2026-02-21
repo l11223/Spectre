@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Spectre</string>
+    <string name="app_name_folksu">SpectreSU</string>
+
+    <string name="desktop_app_name">Nama Aplikasi Desktop</string>
+
+    <string name="home">Home</string>
+
+    <string name="settings_apm_stay_on_page">Tetap di halaman operasi</string>
+    <string name="settings_apm_stay_on_page_summary">Jangan kembali secara otomatis setelah tindakan modul selesai</string>
+
+    <string name="success">Berhasil</string>
+    <string name="failure">Gagal</string>
+
+    <string name="patch_warnning">Pemasangan memiliki risiko. Pastikan Anda memiliki cadangan data.</string>
+    <string name="patch">Patch</string>
+
+    <string name="kernel_patch">Core Engine</string>
+    <string name="android_patch">System Engine</string>
+
+    <string name="settings_nav_layout_title">Pengaturan Tata Letak Navigasi</string>
+    <string name="settings_nav_layout_summary">Sembunyikan atau tampilkan beberapa komponen navigasi</string>
+    <string name="settings_nav_scheme">Skema Navigasi</string>
+    <string name="settings_nav_mode">Mode Bilah Navigasi</string>
+    <string name="settings_nav_mode_summary">Pilih cara tampilan bilah navigasi</string>
+    <string name="settings_nav_mode_auto">Otomatis (berdasarkan lebar layar)</string>
+    <string name="settings_nav_mode_bottom">Selalu Bilah Bawah</string>
+    <string name="settings_nav_mode_rail">Selalu Bilah Samping</string>
+    <string name="settings_show_apm">Tampilkan APM</string>
+    <string name="settings_show_kpm">Tampilkan KPM</string>
+    <string name="settings_show_superuser">Tampilkan SuperUser</string>
+    <string name="settings_disable_module_update_check">Nonaktifkan pemeriksaan pembaruan modul</string>
+    <string name="settings_disable_module_update_check_summary">Nonaktifkan pemeriksaan pembaruan otomatis untuk modul sistem</string>
+
+    <string name="reboot">Mulai Ulang</string>
+    <string name="settings">Pengaturan</string>
+    <string name="reboot_recovery">Mulai Ulang ke Recovery</string>
+    <string name="reboot_bootloader">Mulai Ulang ke Bootloader</string>
+    <string name="reboot_download">Mulai Ulang ke Download</string>
+    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="about">Tentang Aplikasi</string>
+    <string name="settings_app_language">Bahasa</string>
+    <string name="system_default">Bawaan Sistem</string>
+    <string name="settings_global_namespace_mode">Mode Ruang Nama Global</string>
+    <string name="settings_global_namespace_mode_summary">Semua sesi root menggunakan ruang mount global</string>
+    <string name="settings_clear_super_key_dialog">Apakah Anda yakin ingin melanjutkan?</string>
+
+    <string name="su_exclude_all_title">Kecualikan semua</string>
+    <string name="su_exclude_all_confirm">Apakah Anda yakin ingin mengecualikan semua aplikasi tanpa hak root?</string>
+
+    <string name="home_learn_apatch">Pelajari Spectre</string>
+    <string name="home_click_to_learn_apatch">Pelajari tentang fitur Spectre dan cara menggunakannya</string>
+    <string name="settings_hide_apatch_card">Sembunyikan kartu "Pelajari Spectre"</string>
+    <string name="settings_hide_apatch_card_summary">Sembunyikan kartu "Pelajari Spectre" di layar utama</string>
+
+    <string name="about_source_code"><![CDATA[<p>Lihat kode sumber di %1$s<p/>Bergabunglah dengan saluran %2$s kami<p/>Bergabunglah dengan grup %3$s kami]]></string>
+    <string name="send_log">Kirim Log</string>
+    <string name="save_log">Simpan Log</string>
+    <string name="log_saved">Log tersimpan</string>
+    <string name="safe_mode">Mode Aman</string>
+
+    <string name="super_key">SuperKey</string>
+    <string name="clear_super_key">Hapus SuperKey</string>
+    <string name="patch_set_superkey">Atur SuperKey</string>
+    <string name="home_patch_set_key_desc">Kredensial tunggal untuk Core Engine</string>
+    <string name="home_patch_next_step">Langkah Selanjutnya</string>
+
+    <string name="home_not_installed">Tidak terinstal</string>
+    <string name="home_install_unknown">Tidak terinstal atau tidak terverifikasi</string>
+    <string name="home_install_unknown_summary">Klik untuk menginstal</string>
+    <string name="home_click_to_install">Klik untuk menginstal</string>
+    <string name="home_working">Berfungsi</string>
+    <string name="home_kp_need_update">Versi baru tersedia</string>
+    <string name="home_kp_cando_update">Perbarui</string>
+
+    <string name="home_installing">Menginstal</string>
+
+    <string name="kpatch_version">Versi: %s</string>
+    <string name="apatch_version">Versi: %s</string>
+
+    <string name="kpatch_version_update" formatted="false">Versi: %s -&gt; %s</string>
+    <string name="kpatch_shadow_path_title">kpatch</string>
+    <string name="home_auth_key_title">Masukkan SuperKey</string>
+    <string name="home_auth_key_desc">Jalankan setelah autentikasi</string>
+    <string name="home_kpatch_info_title">Informasi</string>
+
+    <string name="home_ap_cando_install">Instal</string>
+
+    <string name="home_ap_cando_uninstall">Hapus Instalasi</string>
+    <string name="home_ap_cando_reboot">Mulai Ulang</string>
+
+    <string name="patch_title">Patch</string>
+
+    <string name="patch_config_title">Patch</string>
+    <string name="patch_mode_bootimg_patch">Mode: Patch</string>
+    <string name="patch_mode_patch_and_install">Mode: Patch dan instal</string>
+    <string name="patch_mode_install_to_next_slot">Mode: Instal ke slot tidak aktif (Setelah OTA)</string>
+    <string name="patch_mode_uninstall_patch">Mode: Hapus Instalasi Core</string>
+    <string name="patch_select_bootimg_btn">Pilih boot</string>
+    <string name="patch_embed_kpm_btn">Sematkan KPM</string>
+    <string name="patch_start_patch_btn">Mulai</string>
+    <string name="patch_start_unpatch_btn">Hapus Patch</string>
+    <string name="patch_item_error">!!KESALAHAN!!</string>
+    <string name="patch_item_bootimg">bootimg</string>
+    <string name="patch_item_bootimg_slot">Slot:</string>
+    <string name="patch_item_bootimg_dev">Perangkat:</string>
+    <string name="patch_item_kernel">Kernel</string>
+    <string name="patch_item_kpimg">kpimg</string>
+    <string name="patch_item_kpimg_version">Versi:</string>
+    <string name="patch_item_kpimg_comile_time">Waktu:</string>
+    <string name="patch_item_kpimg_config">Konfigurasi:</string>
+    <string name="patch_item_new_extra_kpm">Sematkan baru</string>
+    <string name="patch_item_existed_extra_kpm">Sudah ada</string>
+    <string name="patch_item_extra_name">Nama:</string>
+    <string name="patch_item_extra_version">Versi:</string>
+    <string name="patch_item_extra_author">Penulis:</string>
+    <string name="patch_item_extra_kpm_license">Lisensi:</string>
+    <string name="patch_item_extra_kpm_desciption">Deskripsi:</string>
+    <string name="patch_item_extra_args">Argumen:</string>
+    <string name="patch_item_extra_event">Acara:</string>
+    <string name="patch_item_skey">SuperKey</string>
+    <string name="patch_item_set_skey_label">SuperKey harus berisi 8-63 karakter dan menyertakan angka dan huruf, tetapi tanpa karakter khusus.</string>
+
+    <string name="home_kernel">Versi Kernel</string>
+    <string name="home_manager_version">Versi Manajer</string>
+    <string name="home_fingerprint">Sidik Jari</string>
+
+    <string name="home_selinux_status">Status SELinux</string>
+    <string name="home_selinux_status_disabled">Dinonaktifkan</string>
+    <string name="home_selinux_status_enforcing">Diterapkan</string>
+    <string name="home_selinux_status_permissive">Diizinkan</string>
+    <string name="home_selinux_status_unknown">Tidak diketahui</string>
+
+    <string name="settings_selinux_mode">Mode SELinux</string>
+    <string name="settings_selinux_mode_summary">Pilih mode penegakan SELinux</string>
+    <string name="settings_selinux_mode_enforcing">Diterapkan (Ketat)</string>
+    <string name="settings_selinux_mode_permissive">Diizinkan (Longgar)</string>
+    <string name="settings_selinux_current_mode">Saat ini: %s</string>
+    <string name="settings_selinux_mode_enforcing_summary">SELinux sepenuhnya menerapkan aturan akses</string>
+    <string name="settings_selinux_mode_permissive_summary">SELinux hanya mencatat pelanggaran, tidak menolak</string>
+
+    <string name="home_device_info">Perangkat</string>
+    <string name="home_system_version">Versi Sistem</string>
+    <string name="home_kpatch_version">Versi Core Engine</string>
+    <string name="home_su_path">File yang dapat dieksekusi su</string>
+    <string name="home_apatch_version">Versi Spectre</string>
+
+    <string name="kpm">KPModule</string>
+    <string name="kpm_kp_not_installed">Core Engine tidak terinstal</string>
+    <string name="kpm_add_kpm">Tambahkan KPM</string>
+    <string name="kpm_load">Muat</string>
+    <string name="kpm_install">Instal</string>
+    <string name="kpm_embed">Sematkan</string>
+    <string name="kpm_load_toast_succ">Pemuatan berhasil</string>
+    <string name="kpm_load_toast_failed">Pemuatan gagal</string>
+    <string name="kpm_unload_confirm">Lepas modul %s?</string>
+    <string name="kpm_unload">Lepas</string>
+    <string name="kpm_control">Kontrol</string>
+    <string name="kpm_apm_empty">Tidak ada modul yang dimuat</string>
+    <string name="kpm_version">Versi</string>
+    <string name="kpm_license">Lisensi</string>
+    <string name="kpm_author">Penulis</string>
+    <string name="kpm_desc">Deskripsi</string>
+    <string name="kpm_args">Argumen</string>
+
+    <string name="su_title">Superuser</string>
+    <string name="su_selinux_via_hook">Lewati melalui Hook</string>
+    <string name="su_pkg_excluded_label">Kecualikan</string>
+    <string name="su_pkg_excluded_setting_title">Kecualikan perubahan</string>
+    <string name="su_pkg_excluded_setting_summary">Mengaktifkan opsi ini akan memungkinkan Spectre memulihkan setiap file yang dimodifikasi oleh modul aplikasi ini.</string>
+    <string name="su_pkg_root_setting_title">Superuser</string>
+    <string name="su_pkg_root_setting_summary">Mengaktifkan opsi ini untuk memberikan akses superuser ke aplikasi Anda, aplikasi dapat menggunakan perintah SU</string>
+    <string name="su_pkg_normal_setting_title">Mode Normal</string>
+    <string name="su_pkg_normal_setting_summary">Status default, tidak ada penanganan khusus.</string>
+    <string name="su_batch_exclude_title">Pengecualian Massal</string>
+    <string name="su_batch_exclude_content">Kecualikan injeksi untuk semua aplikasi non-Root, pilih tindakan</string>
+    <string name="su_exclude_btn">Kecualikan</string>
+    <string name="su_exclude_reverse_btn">Balikkan</string>
+
+    <!-- SuperUser App Action Dialog -->
+    <string name="su_app_action_title">Tindakan Aplikasi</string>
+    <string name="su_app_action_content">Silakan pilih tindakan untuk aplikasi</string>
+    <string name="su_app_action_launch">Jalankan Aplikasi</string>
+    <string name="su_app_action_force_stop">Hentikan Paksa</string>
+    <string name="su_app_action_launch_success">Memulai %s</string>
+    <string name="su_app_action_force_stop_success">%s dihentikan paksa</string>
+    <string name="su_app_action_failed">Operasi gagal: %s</string>
+
+    <string name="su_show_system_apps">Tampilkan aplikasi sistem</string>
+    <string name="su_hide_system_apps">Sembunyikan aplikasi sistem</string>
+    <string name="su_refresh">Segarkan</string>
+
+    <string name="apm">APModule</string>
+    <string name="apm_not_installed">System Engine tidak terinstal</string>
+    <string name="apm_failed_to_enable">Gagal mengaktifkan modul: %s</string>
+    <string name="apm_failed_to_disable">Gagal menonaktifkan modul: %s</string>
+    <string name="apm_empty">Tidak ada modul yang terinstal</string>
+    <string name="apm_remove">Hapus</string>
+    <string name="apm_install">Instal</string>
+    <string name="apm_uninstall_confirm">Hapus instalasi modul %s?</string>
+    <string name="apm_uninstall_success">%s dihapus</string>
+    <string name="apm_uninstall_failed">Gagal menghapus instalasi: %s</string>
+    <string name="apm_version">Versi</string>
+    <string name="apm_author">Penulis</string>
+    <string name="apm_desc">Deskripsi</string>
+    <string name="apm_overlay_fs_not_available">Modul tidak tersedia karena OverlayFS dinonaktifkan oleh kernel!</string>
+    <string name="apm_magisk_conflict">Modul tidak tersedia karena konflik dengan Magisk!</string>
+    <string name="apm_mount_warning_title">Penting</string>
+    <string name="apm_mount_warning_message">Secara default, modul tidak dipasang. Gunakan sistem pemasangan bawaan atau metamodul.</string>
+    <string name="apm_mount_warning_button">Mengerti</string>
+    <string name="apm_reboot_to_apply">Mulai ulang untuk menerapkan perubahan</string>
+    <string name="apm_changelog">Daftar Perubahan</string>
+    <string name="apm_update">Perbarui</string>
+    <string name="apm_downloading">Mengunduh modul: %s</string>
+    <string name="apm_start_downloading">Mulai mengunduh: %s</string>
+    <string name="apm_new_version_available">Versi baru %s tersedia, klik untuk memperbarui.</string>
+
+    <string name="hide_apatch_manager">Sembunyikan manajer Spectre</string>
+    <string name="hide_apatch_manager_summary">Instal aplikasi proxy dengan ID paket acak dan label aplikasi kustom</string>
+    <string name="hide_apatch_dialog_new_manager_name">Nama manajer baru</string>
+    <string name="hide_apatch_dialog_summary">Akan digunakan sebagai label aplikasi baru yang ditampilkan di peluncur</string>
+    <string name="hide_apatch_manager_failure">Gagal menyembunyikan. Harap laporkan bug!</string>
+
+    <string name="setting_reset_su_path">Reset jalur su</string>
+    <string name="setting_reset_su_new_path">Jalur penuh baru</string>
+
+    <string name="settings_folkx_engine_title">Mesin Animasi FolkX</string>
+    <string name="settings_folkx_engine_summary">Gunakan animasi pegas fisik yang halus saat beralih halaman tingkat atas</string>
+    <string name="settings_folkx_animation_type">Jenis Animasi</string>
+    <string name="settings_folkx_animation_speed">Kecepatan Animasi</string>
+    <string name="settings_folkx_animation_linear">Gerakan Linier</string>
+    <string name="settings_folkx_animation_spatial">Gerakan Spasial</string>
+    <string name="settings_folkx_animation_fade">Muncul/Hilang Bertahap</string>
+    <string name="settings_folkx_animation_vertical">Geser Vertikal</string>
+    <string name="settings_folkx_animation_diagonal">Geser Diagonal</string>
+
+    <string name="apm_webui_open">Buka</string>
+    <string name="apm_action">Tindakan</string>
+    <string name="module_shortcut_add">Pintasan</string>
+    <string name="module_shortcut_not_supported">Peluncur tidak mendukung pintasan desktop.</string>
+    <string name="module_shortcut_created">Pintasan dibuat di desktop.</string>
+    <string name="module_shortcut_updated">Pintasan diperbarui.</string>
+    <string name="module_shortcut_permission_tip_xiaomi">Harap aktifkan izin "Buat pintasan desktop" untuk aplikasi ini di pengaturan Xiaomi.</string>
+    <string name="module_shortcut_permission_tip_oppo">Harap aktifkan izin "Pintasan desktop" untuk aplikasi ini di pengaturan OPPO.</string>
+    <string name="module_shortcut_permission_tip_default">Jika pembuatan pintasan gagal, harap aktifkan izin pintasan desktop untuk aplikasi ini di pengaturan sistem.</string>
+    <string name="module_shortcut_name">Nama pintasan</string>
+    <string name="module_shortcut_icon">Ikon pintasan</string>
+    <string name="module_shortcut_type">Tipe pintasan</string>
+    <string name="module_shortcut_type_webui">WebUI</string>
+    <string name="module_shortcut_type_action">Action</string>
+    <string name="module_shortcut_icon_default">Gunakan ikon default</string>
+    <string name="module_shortcut_icon_select">Pilih ikon</string>
+    <string name="enable_web_debugging">Aktifkan *debugging* WebView</string>
+    <string name="enable_web_debugging_summary">Dapat digunakan untuk men-*debug* WebUI. Aktifkan hanya jika diperlukan.</string>
+    <string name="settings_apm_install_confirm">Konfirmasi sebelum menginstal</string>
+    <string name="settings_apm_install_confirm_summary">Tampilkan dialog konfirmasi sebelum menginstal modul</string>
+    <string name="settings_enable_module_shortcut_add">Aktifkan tombol tambah pintasan</string>
+    <string name="settings_enable_module_shortcut_add_summary">Tampilkan tombol tambah pintasan WebUI di halaman modul sistem</string>
+    <string name="settings_show_disable_all_modules">Tampilkan tombol "Nonaktifkan semua modul"</string>
+    <string name="settings_show_disable_all_modules_summary">Tampilkan tombol di halaman modul untuk menonaktifkan semua modul secara bersamaan</string>
+    <string name="settings_module_sort_optimization">Optimasi Pengurutan Modul</string>
+    <string name="settings_module_sort_optimization_summary">Jadikan modul sistem dengan WebUI dan Action muncul di bagian atas</string>
+    <string name="settings_fold_system_module">Lipat Modul Sistem</string>
+    <string name="settings_fold_system_module_summary">Klik kartu modul untuk memperluas/menyembunyikan tindakan</string>
+    <string name="settings_simple_list_bottom_bar">Bar Bawah Daftar Sederhana</string>
+    <string name="settings_simple_list_bottom_bar_summary">Gunakan gaya tombol hanya ikon untuk tindakan modul, terinspirasi dari Spectre</string>
+    <string name="settings_show_more_module_info">Tampilkan detail modul</string>
+    <string name="settings_show_more_module_info_summary">Tampilkan ID dan ukuran modul dalam daftar modul</string>
+    <string name="apm_install_confirm_title">Instal modul</string>
+    <string name="apm_install_confirm_content">Apakah Anda yakin ingin tetap menginstal %s?</string>
+    <string name="apm_disable_all_title">Nonaktifkan semua modul</string>
+    <string name="apm_disable_all_confirm">Apakah Anda yakin ingin menonaktifkan semua modul? Ini biasanya dilakukan sebelum pembaruan OTA.</string>
+    <string name="apm_enable_module_banner">Aktifkan banner modul</string>
+    <string name="apm_enable_module_banner_summary">Tampilkan gambar banner untuk modul jika tersedia</string>
+    <string name="apm_enable_folk_banner">Kustomisasi banner modul</string>
+    <string name="apm_enable_folk_banner_summary">Tekan lama pada kartu modul untuk memilih gambar banner</string>
+    <string name="apm_folk_banner_title">FolkBanner</string>
+    <string name="apm_folk_banner_select">Pilih gambar</string>
+    <string name="apm_folk_banner_clear">Hapus FolkBanner</string>
+    <string name="apm_folk_banner_saved">FolkBanner disuntikkan untuk %s.</string>
+    <string name="apm_folk_banner_cleared">FolkBanner dihapus untuk %s.</string>
+    <string name="apm_folk_banner_failed">Gagal memperbarui FolkBanner untuk %s.</string>
+    <string name="settings_banner_custom_opacity">Opasitas banner</string>
+    <string name="settings_banner_custom_opacity_summary">Gunakan opasitas kustom untuk banner alih-alih mengikuti mode latar belakang</string>
+    <string name="settings_banner_opacity">Transparansi banner</string>
+
+    <string name="settings_donot_store_superkey">Jangan simpan SuperKey secara lokal</string>
+    <string name="settings_donot_store_superkey_summary">Autentikasi SuperKey setiap kali manajer diluncurkan</string>
+
+    <string name="mode_select_page_title">Instalasi</string>
+    <string name="mode_select_page_patch_and_install">Patch dan instal</string>
+    <string name="mode_select_page_select_file">Pilih *boot image* untuk *patch*</string>
+    <string name="mode_select_page_install_inactive_slot">Instal ke slot tidak aktif (Setelah OTA)</string>
+    <string name="mode_select_page_install_inactive_slot_warning">Perangkat Anda **AKAN DIPAKSA** untuk boot ke slot tidak aktif saat ini setelah *reboot*!\nGunakan opsi ini hanya setelah OTA selesai.\nLanjutkan?</string>
+
+    <string name="home_dialog_auth_fail_title">Kesalahan autentikasi</string>
+    <string name="home_dialog_auth_fail_content">Gagal mengautentikasi SuperKey, yang menyebabkan Spectre tidak dapat bekerja dengan benar.
+Berikut adalah beberapa kemungkinan penyebab kesalahan auntentikasi:
+1. Anda belum me-*patch* boot.img dengan Core Engine.
+2. boot.img yang di-*patch* belum di-*flash*.
+3. SuperKey salah atau berisi karakter khusus.
+4. Perangkat Anda tidak mendukung Spectre dan Core Engine.
+
+Harap periksa dan coba lagi. Jika masalah masih ada, Anda selalu dapat mengajukan pertanyaan di halaman *issues* repositori resmi.</string>
+
+    <string name="home_more_menu_feedback_or_suggestion">Umpan Balik atau Saran</string>
+    <string name="home_more_menu_about">Tentang Aplikasi</string>
+
+    <string name="home_dialog_uninstall_title">Hapus Instalasi</string>
+
+    <string name="home_dialog_uninstall_ap_only">Hapus Patch Saja</string>
+    <string name="home_dialog_uninstall_ap_only_desc">Hapus hanya patch dan simpan manajernya.</string>
+    <string name="home_dialog_uninstall_all">Hapus Instalasi Penuh</string>
+    <string name="home_dialog_uninstall_all_desc">Hapus patch dan mulai proses uninstall penuh.</string>
+    
+    <!-- Install Mode Select -->
+    <string name="kp_install_methods">Core Engine Tambal/Pemasangan</string>
+    <string name="restore_boot_methods">Pilih boot untuk dipulihkan ke partisi boot</string>
+    <string name="restore_select_file">Pilih file boot partisi yang akan dipulihkan</string>
+
+    <string name="kpm_control_dialog_title">Kontrol KPM</string>
+    <string name="kpm_control_dialog_content">Silakan masukkan parameter kontrol:</string>
+    <string name="kpm_control_paramters">Parameter</string>
+    <string name="kpm_control_outMsg">Keluaran</string>
+    <string name="kpm_control_ok">Berhasil!</string>
+    <string name="kpm_control_failed">Gagal!</string>
+
+    <string name="settings_night_mode_follow_sys">Tema Gelap mengikuti sistem</string>
+    <string name="settings_night_mode_follow_sys_summary">Beralih tema gelap secara otomatis berdasarkan pengaturan sistem</string>
+    <string name="settings_night_theme_enabled">Tema Gelap</string>
+
+    <string name="settings_use_system_color_theme">Tema Warna Sistem</string>
+    <string name="settings_use_system_color_theme_summary">Gunakan tema warna yang dihasilkan sistem dari wallpaper</string>
+    <string name="settings_custom_color_theme">Tema Warna</string>
+
+    <string name="amber_theme">Kuning Amber</string>
+    <string name="blue_theme">Biru</string>
+    <string name="blue_grey_theme">Biru Keabu-abuan</string>
+    <string name="brown_theme">Cokelat</string>
+    <string name="cyan_theme">Sian</string>
+    <string name="deep_orange_theme">Jingga Tua</string>
+    <string name="deep_purple_theme">Ungu Tua</string>
+    <string name="green_theme">Hijau</string>
+    <string name="indigo_theme">Nila</string>
+    <string name="light_blue_theme">Biru Muda</string>
+    <string name="light_green_theme">Hijau Muda</string>
+    <string name="lime_theme">Hijau Limau</string>
+    <string name="orange_theme">Jingga</string>
+    <string name="pink_theme">Merah Jambu</string>
+    <string name="purple_theme">Ungu</string>
+    <string name="red_theme">Merah</string>
+    <string name="sakura_theme">Sakura</string>
+    <string name="teal_theme">Hijau Kebiru-biruan</string>
+    <string name="yellow_theme">Kuning</string>
+
+    <string name="about_app_desc">Solusi *root* tingkat kernel yang mendukung modul kernel dan *hook* fungsi kernel tanpa kompilasi ulang kernel.</string>
+    <string name="about_powered_by">Didukung oleh %1$s</string>
+    <string name="about_telegram_group">Grup Telegram</string>
+
+    <string name="online_module_title">Modul Sistem Online</string>
+    <string name="online_module_download_start">Mulai mengunduh: %s</string>
+    <string name="online_module_download_complete">Pengunduhan selesai: %s</string>
+    <string name="online_module_download_notification">Mengunduh %s. Periksa panel notifikasi untuk melacak kemajuan, dan folder Unduhan untuk file yang sudah selesai.</string>
+
+    <string name="online_kpm_title">Modul Kernel Online</string>
+    <string name="online_kpm_download_start">Mulai mengunduh: %s</string>
+    <string name="online_kpm_download_complete">Pengunduhan selesai: %s</string>
+    <string name="online_kpm_download_notification">Mengunduh %s. Periksa panel notifikasi untuk melacak kemajuan, dan folder Unduhan untuk file yang sudah selesai.</string>
+
+    <!-- Online Script Strings -->
+    <string name="online_script_title">Skrip Online</string>
+    <string name="online_script_download_start">Mulai mengunduh: %s</string>
+    <string name="online_script_download_complete">Pengunduhan selesai: %s</string>
+    <string name="online_script_download_notification">Mengunduh %s</string>
+
+    <string name="crash_handle_title">Laporan *Crash*</string>
+    <string name="crash_handle_copy">Salin</string>
+
+    <string name="about_app_version">Versi Aplikasi</string>
+    <string name="about_github">GitHub</string>
+    <string name="about_telegram_channel">Saluran Telegram</string>
+
+    <string name="settings_app_dpi">DPI Aplikasi</string>
+    <string name="settings_magic_mount">Mount API</string>
+    <string name="settings_magic_mount_summary">Aktifkan sistem pemasangan modul bawaan</string>
+    <string name="settings_app_title">Judul Aplikasi</string>
+    <string name="settings_custom_background">Latar Belakang Kustom</string>
+    <string name="settings_custom_background_enabled">Latar Belakang Kustom diaktifkan</string>
+    <string name="settings_custom_background_opacity">Opasitas Kartu</string>
+    <string name="settings_custom_background_blur">Buram Latar Belakang</string>
+    <string name="settings_custom_background_dim">Redup Latar Belakang</string>
+    <string name="settings_select_background_image">Pilih gambar latar belakang</string>
+    <string name="settings_custom_background_summary">Atur gambar latar belakang kustom</string>
+    <string name="settings_custom_background_saved">Latar belakang berhasil disimpan</string>
+    <string name="settings_custom_background_error">Gagal menyimpan latar belakang</string>
+    <string name="settings_alt_icon">Ikon Alternatif</string>
+    <string name="alt_icon_summary">Gunakan ikon peluncur alternatif</string>
+    <string name="settings_background_selected">Latar belakang dipilih</string>
+    <string name="settings_background_image_cleared">Gambar latar belakang dihapus</string>
+    <string name="settings_clear_background">Hapus latar belakang</string>
+    <string name="settings_clear_background_confirm">Apakah Anda yakin ingin menghapus gambar latar belakang?</string>
+    <string name="settings_multi_background_mode">Mode Multi-Latar Belakang</string>
+    <string name="settings_multi_background_mode_summary">Atur gambar latar belakang yang berbeda untuk halaman yang berbeda</string>
+    <string name="settings_select_home_background">Latar Belakang Halaman Utama</string>
+    <string name="settings_select_kernel_background">Latar Belakang Modul Kernel</string>
+    <string name="settings_select_superuser_background">Latar Belakang Superuser</string>
+    <string name="settings_select_system_module_background">Latar Belakang Modul Sistem</string>
+    <string name="settings_select_settings_background">Latar Belakang Halaman Pengaturan</string>
+    <string name="settings_launcher_icon">Ikon Peluncur</string>
+
+    <string name="kpm_autoload_title">Muat Otomatis KPM</string>
+    <string name="kpm_autoload_enabled">Aktifkan muat otomatis</string>
+    <string name="kpm_autoload_enabled_summary">Muat modul KPM secara otomatis saat aplikasi dimulai</string>
+    <string name="kpm_autoload_json_config">Konfigurasi JSON</string>
+    <string name="kpm_autoload_json_label">Konfigurasi JSON</string>
+    <string name="kpm_autoload_json_placeholder">{
+  "enabled": true,
+  "kpmPaths": [
+    "/path/to/module1.kpm",
+    "/path/to/module2.kpm"
+  ]
+}</string>
+    <string name="kpm_autoload_json_error">Format JSON tidak valid</string>
+    <string name="kpm_autoload_json_helper">Masukkan JSON yang valid dengan array jalur file KPM</string>
+    <string name="settings_grid_working_card_hide_check">Sembunyikan ikon status</string>
+    <string name="settings_grid_working_card_hide_check_summary">Sembunyikan tanda centang atau ikon peringatan pada kartu kerja</string>
+    <string name="settings_grid_working_card_hide_text">Sembunyikan teks status</string>
+    <string name="settings_grid_working_card_hide_text_summary">Sembunyikan teks "Bekerja" atau "Tidak terinstal" pada kartu kerja</string>
+    <string name="settings_grid_working_card_hide_mode">Sembunyikan mode kerja</string>
+    <string name="settings_grid_working_card_hide_mode_summary">Sembunyikan teks "Full" atau "Half" pada kartu kerja</string>
+    <string name="settings_list_working_card_hide_mode">Sembunyikan kartu Half/Full</string>
+    <string name="settings_list_working_card_hide_mode_summary">Sembunyikan kartu kecil yang menunjukkan mode kerja</string>
+    <string name="settings_list_card_hide_status_badge">Gunakan Emoji Klasik</string>
+    <string name="settings_list_card_hide_status_badge_summary">Lencana status di halaman utama berubah menjadi emoji klasik</string>
+    <string name="settings_custom_badge_text">Teks Lencana Kustom</string>
+    <string name="settings_custom_badge_text_summary">Ubah tampilan teks lencana, hanya untuk hiburan</string>
+    <string name="settings_custom_background_dual_dim">Aktifkan redup siang/malam ganda</string>
+    <string name="settings_custom_background_day_dim">Redup latar belakang mode siang</string>
+    <string name="settings_custom_background_night_dim">Redup latar belakang mode malam</string>
+    <string name="settings_grid_working_card_dual_opacity">Aktifkan transparansi siang/malam ganda</string>
+    <string name="settings_grid_working_card_day_opacity">Transparansi kartu mode siang</string>
+    <string name="settings_grid_working_card_night_opacity">Transparansi kartu mode malam</string>
+    <string name="kpm_autoload_save">Simpan konfigurasi</string>
+    <string name="kpm_autoload_save_confirm">Simpan konfigurasi muat otomatis?</string>
+    <string name="kpm_autoload_save_success">Konfigurasi berhasil disimpan</string>
+    <string name="kpm_autoload_save_failed">Gagal menyimpan konfigurasi</string>
+    <string name="kpm_autoload_visual_mode">Mode Visual</string>
+    <string name="kpm_autoload_json_mode">Mode JSON</string>
+    <string name="kpm_autoload_add_kpm">Tambahkan KPM</string>
+    <string name="kpm_autoload_remove_kpm">Hapus</string>
+    <string name="kpm_autoload_kpm_list_title">Modul KPM</string>
+    <string name="kpm_autoload_no_kpm_added">Tidak ada modul KPM yang ditambahkan</string>
+    <string name="kpm_autoload_kpm_path">Jalur KPM</string>
+    <string name="kpm_autoload_file_not_found">File tidak ditemukan</string>
+    <string name="kpm_autoload_select_kpm_file">Pilih file KPM</string>
+    <string name="kpm_autoload_first_time_title">Tentang Muat Otomatis KPM</string>
+    <string name="kpm_autoload_first_time_message">Fitur ini memungkinkan Anda memuat semua KPM yang dikonfigurasi secara otomatis untuk sementara waktu saat boot. Pendekatan ini lebih nyaman daripada menyematkannya langsung ke kernel.
+
+Misalnya, KPM yang mencegah modifikasi partisi hanya dapat digunakan untuk sementara waktu, karena penyematan dapat menyebabkan kegagalan boot. Atau jika Anda tidak ingin memodifikasi partisi BOOT, Anda dapat menggunakan konfigurasi ini untuk memuat modul dengan cepat.
+
+Pastikan aplikasi ditutup sepenuhnya dan dimulai ulang untuk menjalankan perintah. Ini juga akan dimuat saat boot normal. Adalah normal jika manajer mengalami layar hitam untuk beberapa saat! Ini menggunakan metode pemuatan latar belakang yang bersih, jangan lupa untuk menarik ke bawah secara manual untuk menyegarkan dan memeriksa apakah modul dimuat dengan benar!</string>
+    <string name="kpm_autoload_first_time_confirm">Mengerti</string>
+    <string name="kpm_autoload_do_not_show_again">Jangan tampilkan lagi</string>
+
+    <string name="apm_bulk_install_title">Instalasi Massal APM</string>
+    <string name="apm_bulk_install_list_title">Daftar Modul</string>
+    <string name="apm_bulk_install_add">Tambahkan Modul</string>
+    <string name="apm_bulk_install_empty">Tidak ada modul yang ditambahkan</string>
+    <string name="apm_bulk_install_action">Instalasi Massal</string>
+    <string name="apm_bulk_install_log_title">Log Instalasi Massal</string>
+    <string name="apm_bulk_install_log_start">Memulai instalasi massal...</string>
+    <string name="apm_bulk_install_log_installing">Menginstal %1$s</string>
+    <string name="apm_batch_install_full_process">Proses instalasi batch lengkap</string>
+    <string name="apm_batch_install_full_process_summary">Instalasi batch modul sistem dilakukan menggunakan proses lengkap</string>
+    <string name="next_module">Modul berikutnya</string>
+    <string name="apm_bulk_install_log_installed">Modul %s terinstal.</string>
+    <string name="apm_bulk_install_log_done">Semua operasi selesai.</string>
+    <string name="apm_bulk_install_first_use_text">Fitur ini memungkinkan Anda menginstal beberapa modul sekaligus. Ini adalah metode instalasi cepat, cocok untuk modul yang tidak memerlukan operasi tombol selama instalasi. Untuk modul yang memerlukan interaksi tombol volume, silakan aktifkan mode instalasi proses lengkap di pengaturan.</string>
+    <string name="apm_bulk_install_remove">Hapus</string>
+    <string name="apm_first_use_title">Selamat datang di Modul Sistem</string>
+    <string name="apm_first_use_text">Selamat datang di Modul Sistem, yang menggunakan modul yang kompatibel dengan ekosistem Magisk. Dukungan modul Lua dapat ditambahkan di masa mendatang. Klik tombol di kanan bawah untuk menginstal modul. Anda juga dapat menggunakan penginstal di bagian atas untuk instalasi modul secara massal. Fungsi pencadangan semua modul dengan sekali klik juga disediakan, tetapi perhatikan bahwa solusi ini mungkin tidak cocok untuk semua modul, jadi buatlah cadangan Anda sendiri.</string>
+
+    <string name="home_hide_su_path">Sembunyikan jalur file yang dapat dieksekusi su</string>
+    <string name="home_hide_kpatch_version">Sembunyikan versi patch kernel</string>
+    <string name="home_hide_fingerprint">Sembunyikan sidik jari</string>
+    <string name="home_hide_zygisk">Sembunyikan implementasi Zygisk</string>
+    <string name="home_hide_mount">Sembunyikan implementasi pemasangan</string>
+    <string name="home_hide_su_path_summary">Sembunyikan jalur file yang dapat dieksekusi su di kartu informasi</string>
+    <string name="home_hide_kpatch_version_summary">Sembunyikan versi patch kernel di kartu informasi</string>
+    <string name="home_hide_zygisk_summary">Sembunyikan implementasi Zygisk di kartu informasi</string>
+    <string name="home_hide_mount_summary">Sembunyikan implementasi pemasangan di kartu informasi</string>
+    <string name="home_hide_fingerprint_summary">Sembunyikan sidik jari di kartu informasi</string>
+
+    <string name="kpm_page_first_time_title">Peringatan</string>
+    <string name="kpm_page_first_time_message">Modul Kernel secara langsung memodifikasi implementasi BOOT. Tidak seperti modul sistem, mereka tidak memiliki mekanisme pemulihan yang baik. Jika ada masalah, Anda hanya dapat memperbaikinya dengan masuk ke Fastboot. Disarankan untuk memuat modul terlebih dahulu untuk memastikan tidak ada masalah sebelum menyematkannya ke BOOT. Jika modul hanya dapat digunakan dengan pemuatan, Anda dapat mencoba fitur muat otomatis modul KPM. Jika Anda tidak memahami modul kernel, jangan gunakan fitur ini!</string>
+    <string name="apm_backup_title">Cadangkan Modul</string>
+    <string name="apm_restore_title">Pulihkan Modul</string>
+    <string name="apm_backup_success">Pencadangan berhasil</string>
+    <string name="apm_restore_success">Pemulihan berhasil</string>
+    <string name="apm_backup_failed">Pencadangan gagal</string>
+    <string name="apm_restore_failed">Pemulihan gagal</string>
+    <string name="apm_backup_failed_msg">Pencadangan gagal: %s</string>
+    <string name="apm_restore_failed_msg">Pemulihan gagal: %s</string>
+    <string name="apm_copy_list_title">Salin daftar</string>
+    <string name="apm_copy_list_success">Daftar modul disalin</string>
+
+    <string name="settings_custom_font">Font Kustom</string>
+    <string name="settings_select_font_file">Pilih file font</string>
+    <string name="settings_custom_font_enabled">Font kustom diaktifkan</string>
+    <string name="settings_custom_font_summary">Gunakan font TTF kustom</string>
+    <string name="settings_font_selected">Font kustom dipilih</string>
+    <string name="settings_custom_font_error">Gagal menyimpan file font</string>
+    <string name="settings_custom_font_saved">Font kustom berhasil disimpan</string>
+    <string name="settings_clear_font">Pulihkan font bawaan</string>
+    <string name="settings_clear_font_confirm">Apakah Anda yakin ingin memulihkan font bawaan?</string>
+    <string name="settings_font_cleared">Font bawaan dipulihkan</string>
+    <string name="settings_font_select_hint">Pilih file font TTF</string>
+
+    <string name="settings_auto_backup_module">Cadangan Modul Otomatis</string>
+    <string name="settings_auto_backup_module_summary">Secara otomatis menyimpan salinan modul ke direktori pribadi saat instalasi</string>
+    <string name="settings_open_backup_dir">Buka direktori cadangan</string>
+    <string name="backup_dir_empty">Direktori cadangan kosong</string>
+    <string name="backup_dir_open_failed">Gagal membuka direktori cadangan</string>
+    <string name="auto_backup_failed">Pencadangan otomatis gagal: %s</string>
+    <string name="auto_backup_success">Pencadangan otomatis berhasil: %s</string>
+    <string name="settings_auto_backup_boot">Backup Otomatis Boot</string>
+    <string name="settings_auto_backup_boot_summary">Otomatis mem-backup Boot ke penyimpanan lokal (Downloads/Spectre/BootBackups)</string>
+
+    <string name="settings_home_layout_style">Gaya tata letak utama</string>
+    <string name="settings_home_layout_default">ListUI</string>
+    <string name="settings_home_layout_grid">GridUI</string>
+    <string name="settings_home_layout_focus">FocusUI</string>
+    <string name="unofficial_version_title">Versi Tidak Resmi</string>
+    <string name="unofficial_version_message">Anda menggunakan Spectre, yang bukan aplikasi resmi, harap unduh aplikasi resmi!</string>
+    <string name="go_to_github">Buka Github</string>
+    <string name="settings_save_theme">Simpan Tema</string>
+    <string name="settings_import_theme">Impor Tema</string>
+    <string name="settings_theme_saved">Tema tersimpan</string>
+    <string name="settings_theme_imported">Tema terimpor</string>
+    <string name="settings_theme_save_failed">Gagal menyimpan tema</string>
+    <string name="settings_theme_import_failed">Gagal mengimpor tema</string>
+
+    <string name="theme_export_title">Ekspor Tema</string>
+    <string name="theme_import_title">Impor Tema</string>
+    <string name="theme_name">Nama Tema</string>
+    <string name="theme_type">Tipe Tema</string>
+    <string name="theme_type_phone">Ponsel</string>
+    <string name="theme_type_tablet">Tablet</string>
+    <string name="theme_version">Versi</string>
+    <string name="theme_author">Penulis</string>
+    <string name="theme_description">Deskripsi</string>
+    <string name="theme_export_action">Ekspor</string>
+    <string name="theme_import_action">Impor</string>
+    <string name="theme_import_confirm">Apakah Anda yakin ingin mengimpor tema ini?</string>
+    <string name="theme_info">Informasi Tema</string>
+    <string name="settings_grid_working_card_background">Latar Belakang Kartu Kerja</string>
+    <string name="settings_grid_working_card_background_enabled">Latar belakang kartu kustom diaktifkan</string>
+    <string name="settings_grid_working_card_background_summary">Gambar latar belakang kustom untuk kartu kerja</string>
+    <string name="settings_grid_working_card_background_selected">Latar belakang dipilih</string>
+    <string name="settings_clear_grid_working_card_background">Hapus latar belakang kartu</string>
+    <string name="settings_clear_grid_working_card_background_confirm">Apakah Anda yakin ingin menghapus gambar latar belakang kartu?</string>
+    <string name="settings_grid_working_card_background_saved">Latar belakang kartu berhasil disimpan</string>
+    <string name="settings_grid_working_card_background_error">Gagal menyimpan latar belakang kartu</string>
+    <string name="settings_grid_working_card_background_cleared">Latar belakang kartu dihapus</string>
+
+    <string name="action_biometric">Auntentikasi Biometrik</string>
+    <string name="msg_biometric">Harap konfirmasi identitas biometrik Anda</string>
+    <string name="settings_biometric_login">Auntentikasi Biometrik</string>
+    <string name="settings_biometric_login_summary">Wajibkan Autentikasi biometrik saat membuka aplikasi</string>
+    <string name="settings_strong_biometric">Autentikasi Biometrik Kuat</string>
+    <string name="settings_strong_biometric_summary">Memerlukan autentikasi saat menginstal/menghapus/menonaktifkan modul</string>
+
+    <!-- Theme Store Strings -->
+    <string name="theme_store_title">Toko Tema</string>
+    <string name="theme_store_search_hint">Cari tema...</string>
+    <string name="theme_source_official">Resmi</string>
+    <string name="theme_source_third_party">Pihak Ketiga</string>
+    <string name="theme_source_local">Lokal</string>
+    <string name="theme_store_author">Pencipta: %s</string>
+    <string name="theme_store_version">Versi: %s</string>
+    <string name="theme_source">Sumber</string>
+    <string name="theme_store_download_failed">Gagal Mengunduh</string>
+    <string name="theme_store_download">Unduh</string>
+
+    <!-- Update Check Strings -->
+    <string name="settings_auto_update_check">Pemeriksaan Pembaruan Otomatis</string>
+    <string name="settings_auto_update_check_summary">Secara otomatis memeriksa pembaruan saat aplikasi dimulai</string>
+    <string name="settings_check_update">Periksa Pembaruan</string>
+    <string name="update_available_title">Pembaruan Tersedia</string>
+    <string name="update_available_message">Terdeteksi bahwa versi Anda terlalu rendah, apakah Anda ingin mengunduh versi baru?</string>
+    <string name="update_action">Perbarui</string>
+    <string name="update_close">Tutup</string>
+    <string name="update_latest">Anda sudah menggunakan versi terbaru</string>
+    <string name="update_error">Kesalahan saat memeriksa pembaruan</string>
+    <!--Opsi Lipat-->
+    <string name="settings_category_general">Umum</string>
+    <string name="settings_category_appearance">Tampilan</string>
+    <string name="settings_category_behavior">Perilaku</string>
+    <string name="settings_category_module">Modul</string>
+    <string name="settings_category_security">Keamanan</string>
+    
+    <!-- Background Music Strings -->
+    <string name="settings_background_music">Musik Latar Belakang</string>
+    <string name="settings_background_music_summary">Putar musik latar belakang saat aplikasi di latar depan</string>
+    <string name="settings_background_music_playing">Memutar: %s</string>
+    <string name="settings_background_music_enabled">Musik Latar Belakang Diaktifkan</string>
+    <string name="settings_select_music_file">Pilih file musik</string>
+    <string name="settings_music_selected">Musik dipilih</string>
+    <string name="settings_clear_music">Hapus musik</string>
+    <string name="settings_clear_music_confirm">Apakah Anda yakin ingin menghapus musik latar belakang?</string>
+    <string name="settings_music_auto_play">Putar otomatis</string>
+    <string name="settings_music_auto_play_summary">Otomatis memutar musik saat aplikasi dibuka</string>
+    <string name="settings_music_volume">Volume</string>
+    <string name="settings_music_saved">File musik disimpan</string>
+    <string name="settings_music_save_error">Gagal menyimpan file musik</string>
+    <string name="settings_music_cleared">Musik dihapus</string>
+    <string name="settings_category_multimedia">Multimedia</string>
+    <string name="settings_music_playback_control">Kontrol Pemutaran</string>
+    <string name="settings_music_looping">Putar berulang</string>
+    <string name="settings_music_looping_summary">Ulangi lagu saat ini</string>
+    <!-- Theme Store Filter -->
+    <string name="theme_store_filter_title">Filter Tema</string>
+    <string name="theme_store_filter_author">Penulis</string>
+    <string name="theme_store_filter_author_hint">Masukkan nama penulis</string>
+    <string name="theme_store_filter_source">Sumber</string>
+    <string name="theme_store_filter_source_all">Semua</string>
+    <string name="theme_store_filter_type">Tipe Perangkat</string>
+    <string name="theme_store_filter_apply">Terapkan</string>
+    <string name="theme_store_filter_reset">Reset</string>
+
+    <!-- Video Background Settings -->
+    <string name="settings_video_background">Latar Belakang Video</string>
+    <string name="settings_video_background_summary">Gunakan video sebagai latar belakang</string>
+    <string name="settings_select_video">Pilih Video</string>
+    <string name="settings_video_selected">Video Dipilih</string>
+    <string name="settings_video_background_enabled">Latar Belakang Video Diaktifkan</string>
+    <string name="settings_clear_video_background">Hapus Wallpaper Video</string>
+    <string name="settings_clear_video_background_confirm">Apakah Anda yakin ingin menghapus wallpaper video?</string>
+    <string name="settings_video_volume">Volume Video</string>
+    <!-- File Picker -->
+    <string name="file_picker_permission_required">Izin Diperlukan</string>
+    <string name="file_picker_permission_desc">Untuk menjelajahi file, berikan izin \'Akses ke semua file\'.</string>
+    <string name="file_picker_grant_permission">Berikan Izin</string>
+    <string name="file_picker_cancel">Batal</string>
+    <string name="file_picker_internal_storage">Penyimpanan Internal</string>
+    <string name="file_picker_no_files">Tidak ada file</string>
+    <!-- HomeV3 Strings -->
+    <string name="home_device_status_title">Status Perangkat</string>
+    <string name="home_device_status_battery_temp">Suhu Baterai</string>
+    <string name="home_device_status_cpu_load">Beban CPU</string>
+    <string name="home_device_status_battery_level">Level Baterai</string>
+    <string name="home_storage_title">Penyimpanan</string>
+    <string name="home_storage_internal">Penyimpanan Internal</string>
+    <string name="home_storage_ram">RAM</string>
+    <string name="home_storage_zram">ZRAM</string>
+    <string name="home_storage_swap">Berkas Swap</string>
+    <string name="home_info_kernel">Kernel</string>
+    <string name="home_info_superkey">SuperKey</string>
+    <string name="home_info_auth_auth">Otor</string>
+    <string name="home_info_auth_na">T/A</string>
+    <string name="home_info_device_slot">Slot Perangkat</string>
+    <string name="home_info_device_model">Model Perangkat</string>
+    <string name="home_info_running_mode">Mode Berjalan</string>
+    <string name="home_info_mode_full">Penuh</string>
+    <string name="home_info_mode_half">Setengah</string>
+    <string name="home_version">Versi: %s</string>
+    <string name="home_zygisk_implement">Implementasi Zygisk</string>
+    <string name="home_mount_implement">Implementasi pemasangan</string>
+
+    <string name="settings_app_list_loading_scheme">Skema Pemuatan Daftar Aplikasi</string>
+    <string name="settings_app_list_loading_scheme_summary">Pilih cara memuat daftar aplikasi</string>
+    <string name="app_list_loading_scheme_root_service">RootService (Default)</string>
+    <string name="app_list_loading_scheme_package_manager">PackageManager (API Sistem)</string>
+    <string name="app_list_loading_scheme_dialog_title">Skema Pemuatan</string>
+    <string name="su_backup_list">Daftar Cadangan</string>
+    <string name="su_restore_list">Daftar Pemulihan</string>
+    <string name="backup_success">Pencadangan Berhasil</string>
+    <!-- Badge Count Settings -->
+    <string name="enable_badge_count">Pengaturan Hitung Badge</string>
+    <string name="enable_badge_count_summary">Konfigurasi tampilan hitung badge untuk item navigasi</string>
+    <string name="badge_superuser">Tampilkan Badge Superuser</string>
+    <string name="badge_apm">Tampilkan Badge APM</string>
+    <string name="badge_kernel">Tampilkan Badge Modul Kernel</string>
+    <string name="settings_sound_effect">Efek Suara</string>
+    <string name="settings_sound_effect_summary">Mainkan suara saat klik</string>
+    <string name="settings_sound_effect_enabled">Diaktifkan</string>
+    <string name="settings_sound_effect_playing">Dipilih: %s</string>
+    <string name="settings_select_sound_effect">Pilih file suara</string>
+    <string name="settings_sound_effect_selected">File suara dipilih</string>
+    <string name="settings_sound_effect_scope">Cakupan Efek</string>
+    <string name="settings_sound_effect_scope_global">Global (Di mana saja)</string>
+    <string name="settings_sound_effect_scope_bottom_bar">Hanya Bar Bawah</string>
+    <string name="settings_clear_sound_effect">Hapus Efek Suara</string>
+    <string name="settings_clear_sound_effect_confirm">Apakah Anda yakin ingin menghapus efek suara?</string>
+    <string name="settings_sound_effect_cleared">Efek suara dihapus</string>
+
+    <!-- Backup Settings -->
+    <string name="settings_category_backup">Pengaturan Cadangan</string>
+    <string name="settings_enable_cloud_backup">Aktifkan Cadangan Cloud</string>
+    <string name="settings_webdav_url">URL WebDAV</string>
+    <string name="settings_webdav_username">Nama Pengguna WebDAV</string>
+    <string name="settings_webdav_password">Kata Sandi WebDAV</string>
+    <string name="settings_test_webdav">Uji Koneksi WebDAV</string>
+    <string name="webdav_test_success">Uji Berhasil</string>
+    <string name="webdav_test_failed">Uji Gagal: %s</string>
+    <string name="settings_backup_now">Cadangkan Sekarang</string>
+    <string name="backup_failed">Cadangan Gagal: %s</string>
+    <string name="settings_restore_backup">Pulihkan Cadangan</string>
+    <string name="restore_success">Pemulihan Berhasil</string>
+    <string name="restore_failed">Pemulihan Gagal: %s</string>
+    <string name="settings_auto_backup">Cadangan Otomatis</string>
+    <string name="settings_auto_backup_summary">Cadangan otomatis sekali sehari</string>
+    <string name="settings_delete_remote_backup">Hapus Cadangan Cloud</string>
+    <string name="delete_remote_backup_confirm">Apakah Anda yakin ingin menghapus cadangan cloud?</string>
+    <string name="delete_success">Penghapusan Berhasil</string>
+    <string name="delete_failed">Penghapusan Gagal: %s</string>
+    <string name="settings_encrypt_backup">Enkripsi Cadangan</string>
+    <string name="settings_encrypt_backup_summary">Enkripsi file cadangan dengan kata sandi</string>
+    <string name="settings_backup_password">Kata Sandi Cadangan</string>
+    <string name="settings_backup_password_hint">Masukkan Kata Sandi Cadangan</string>
+    <string name="settings_enable_cloud_backup_summary">Cadangan otomatis ke cloud</string>
+    <string name="settings_configure_webdav">Konfigurasi Layanan WebDAV</string>
+    <string name="webdav_config_title">Konfigurasi WebDAV</string>
+    <string name="webdav_url">URL WebDAV</string>
+    <string name="webdav_username">Nama Pengguna</string>
+    <string name="webdav_password">Kata Sandi</string>
+    <string name="webdav_uploading">Mengunggah ke WebDAV...</string>
+    <string name="webdav_backup_success">Backup WebDAV Berhasil</string>
+    <string name="webdav_backup_failed">Backup WebDAV Gagal: %s</string>
+    <string name="save">Simpan</string>
+    <string name="test">Uji</string>
+    <string name="webdav_path_label">Path (mis. /Backup)</string>
+    <string name="webdav_view_logs">Lihat Log</string>
+    <string name="webdav_backup_logs_title">Log Backup</string>
+    <string name="webdav_no_logs">Tidak ada log</string>
+    <string name="webdav_clear_logs">Hapus</string>
+    <string name="settings_enable_local_backup">Aktifkan Backup Lokal</string>
+    <string name="settings_enable_local_backup_summary">Backup modul ke penyimpanan lokal (Downloads/Spectre/ModuleBackups)</string>
+    <string name="close">Tutup</string>
+
+    <string name="patch_output_written_to"> Patch berhasil, file ditulis ke </string>
+    <string name="patch_write_failed"> Gagal menulis boot.img yang dipatch</string>
+
+    <!-- Script Library Strings -->
+    <string name="script_library">Pustaka Skrip</string>
+    <string name="script_library_title">Pustaka Skrip</string>
+    <string name="script_library_empty">Tidak ada skrip, klik tombol tambah untuk menambah</string>
+    <string name="script_library_add">Tambah Skrip</string>
+    <string name="script_library_add_title">Tambah Skrip</string>
+    <string name="script_library_select_file">Pilih file skrip</string>
+    <string name="script_library_alias">Alias</string>
+    <string name="script_library_alias_hint">Masukkan alias skrip (opsional)</string>
+    <string name="script_library_run">Jalankan</string>
+    <string name="script_library_delete">Hapus</string>
+    <string name="script_library_path">Path: %s</string>
+    <string name="script_library_confirm_delete">Konfirmasi hapus skrip?</string>
+    <string name="script_library_delete_success">Skrip dihapus berhasil</string>
+    <string name="script_library_delete_failed">Gagal menghapus skrip</string>
+    <string name="script_library_add_success">Skrip ditambahkan berhasil</string>
+    <string name="script_library_add_failed">Gagal menambahkan skrip: %s</string>
+    <string name="script_library_load_failed">Gagal memuat pustaka skrip</string>
+    <string name="script_library_output">Output eksekusi</string>
+    <string name="script_library_no_output">Tidak ada output</string>
+    <string name="script_library_save_log">Simpan log</string>
+    <string name="script_library_log_saved">Log disimpan ke %s</string>
+    <string name="script_library_log_save_failed">Gagal menyimpan log: %s</string>
+</resources>

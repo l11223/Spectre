@@ -1,0 +1,17 @@
+*.iml
+.gradle
+.idea
+.DS_Store
+build
+captures
+.cxx
+*.keystore
+*.jks
+keystore.properties
+local.properties
+auth.properties
+.vscode
+.kotlin
+.kiro
+app/src/main/resources/
+private
