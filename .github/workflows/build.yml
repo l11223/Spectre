@@ -10,7 +10,7 @@ jobs:
     name: Build ghost.kpm
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup NDK
         uses: nttld/setup-ndk@v1
@@ -35,7 +35,7 @@ jobs:
           make clean && make
 
       - name: Upload ghost.kpm
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: ghost.kpm
           path: kpm/ghost/ghost.kpm
@@ -44,12 +44,12 @@ jobs:
     name: Build Spectre APK
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: recursive
 
       - name: Setup Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
@@ -78,7 +78,7 @@ jobs:
           ANDROID_NDK_ROOT: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: Spectre-APK
           path: app/build/outputs/apk/release/*.apk
